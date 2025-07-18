@@ -1,0 +1,12 @@
+title: IA Educativa
+description: Sitio web educativo sobre inteligencia artificial
+baseurl: ""
+theme: minima
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+  math_engine: mathjax
