@@ -14,3 +14,31 @@ pre, code {
   padding: 0.5em;
   border-radius: 6px;
 }
+
+.bloque {
+  padding: 1em;
+  margin: 1em 0;
+  border-left: 6px solid #007ACC;
+  background-color: #f0f8ff;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* 🧩 Definición temática */
+.definicion {
+  border-color: #00cc66;
+  background-color: #e8ffe5;
+}
+
+/* ⚠️ Advertencia visual */
+.advertencia {
+  border-color: #ff4d4d;
+  background-color: #ffe5e5;
+}
+
+/* 💡 Ejemplo destacado */
+.ejemplo {
+  border-color: #ffa500;
+  background-color: #fff8e5;
+}
+
