@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/estilo.css' | relative_url }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title> {# Mejorado para incluir el título del sitio #}
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css"> {# Ajustado el nombre del archivo CSS y la ruta #}
 
-  <!-- MathJax -->
-  <script id="MathJax-script" async 
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 
-  <!-- Highlight.js para código -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script>hljs.highlightAll();</script>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 
-  <!-- Mermaid.js -->
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true });
-  </script>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
 </head>
 <body>
-  <header>
-    <h1>Introducción al imacto social de la Inteligencia Artificial</h1>
-    {% include navbar.html %}
-  </header>
-  
-  <main>{{ content }}</main>
-  {% include footer.html %}
+    <header>
+        {% include navigation.html %} {# ¡IMPORTANTE! Cambiado de navbar.html a navigation.html #}
+    </header>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer>
+        {% include footer.html %}
+    </footer>
 </body>
 </html>
