@@ -1,0 +1,11 @@
+---
+# Esto es Jekyll Front Matter. Es necesario para que Jekyll procese este archivo como un SASS.
+---
+
+@import "variables";
+@import "base";
+@import "layout";
+@import "components";
+
+// Puedes añadir aquí estilos globales que no encajen en las categorías anteriores,
+// o overrides muy específicos si lo necesitas.
