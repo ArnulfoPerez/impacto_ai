@@ -1,12 +1,74 @@
 title: Impacto social de la Inteligencia Artificial
-description: Sitio web educativo sobre inteligencia artificial
-baseurl: ""
+description: Explorando la inteligencia artificial, sus fundamentos, desafíos éticos y sociales.
+baseurl: /impacto_ai # Ruta base para sitios de proyecto GitHub Pages
+url: "https://arnulfoperez.github.io" # Tu URL base del sitio, sin el nombre del repositorio
 theme: minima
 markdown: kramdown
 highlighter: rouge
 kramdown:
-  input: GFM
+  input: GFM # GitHub Flavored Markdown
+  hard_wrap: false
   syntax_highlighter_opts:
     block:
       line_numbers: false
   math_engine: mathjax
+
+# Deshabilitar plugins que pueden dar problemas si no se necesitan o instalan correctamente
+plugins:
+  - jekyll-feed
+  # jekyll-seo-tag es útil para SEO, lo dejo comentado como en la versión anterior por si quieres habilitarlo luego
+  # - jekyll-seo-tag
+  # Otros plugins comentados para empezar con una configuración mínima
+  # - jekyll-coffeescript
+  # - jekyll-commonmark-ghpages
+  # - jekyll-gist
+  # - jekyll-github-metadata
+  # - jekyll-paginate
+  # - jekyll-relative-links
+  # - jekyll-optional-front-matter
+  # - jekyll-readme-index
+  # - jekyll-default-layout
+  # - jekyll-titles-from-headings
+
+# Colecciones personalizadas
+collections:
+  blocks:
+    output: true
+    permalink: /:slug/ # URL para los bloques: /inteligencia/
+  sessions:
+    output: true
+    permalink: /:block_slug/:slug/ # URL para las sesiones: /inteligencia/intro/
+  lecturas: # Tu colección lecturas que ya tenías
+    output: true
+    permalink: /lecturas/:slug/
+
+# Variables para el menú de navegación
+navigation:
+  - title: "Inicio"
+    url: "/"
+  - title: "Temario / Sesiones"
+    url: "/"
+  - title: "Glosario"
+    url: "/glosario/"
+  - title: "Lecturas"
+    url: "/lecturas/"
+  - title: "Instructor"
+    url: "/instructor/"
+
+# Defaults para layouts de colecciones
+defaults:
+  - scope:
+      path: ""
+      type: "blocks"
+    values:
+      layout: "block"
+  - scope:
+      path: ""
+      type: "sessions"
+    values:
+      layout: "session"
+
+# Las siguientes variables son típicamente manejadas por jekyll-github-metadata
+# pero si deseas mantenerlas explícitamente, no hay problema.
+# github_username: ArnulfoPerez
+# github_repo: impacto_ai
