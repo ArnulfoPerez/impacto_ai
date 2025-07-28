@@ -1,0 +1,202 @@
+// _sass/_components.scss
+
+// Navigation Component
+.nav {
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0; // Reset margin from global ul/ol styles
+        display: flex;
+        gap: $spacing-unit * 1.5;
+    }
+
+    &__link {
+        color: $nav-link-color;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+/* 🧩 Definición temática */
+.definicion {
+    border: 2px solid #00cc66;          /* Borde verde */
+    background-color: #e8ffe5;          /* Fondo verde claro */
+    padding: 1.5rem;                    /* Espaciado interno */
+    border-radius: $border-radius;      /* Usando variable */
+    margin: 1.5rem 0;                   /* Margen externo */
+    box-shadow: $box-shadow;            /* Usando variable */
+}
+
+/* ⚠️ Advertencia visual */
+.advertencia {
+    border: 2px solid #ff4d4d;          /* Borde rojo */
+    background-color: #ffe5e5;          /* Fondo rojo claro */
+    padding: 1.5rem;
+    border-radius: $border-radius;      /* Usando variable */
+    margin: 1.5rem 0;
+    box-shadow: $box-shadow;            /* Opcional: añade sombra si quieres consistencia */
+}
+
+/* 💡 Ejemplo destacado */
+.ejemplo {
+    border: 2px solid #ffa500;          /* Borde naranja */
+    background-color: #fff8e5;          /* Fondo amarillo claro */
+    padding: 1.5rem;
+    border-radius: $border-radius;      /* Usando variable */
+    margin: 1.5rem 0;
+    box-shadow: $box-shadow;            /* Opcional: añade sombra si quieres consistencia */
+}
+
+// Instructor Profile Component (re-incorporado de tu base.scss anterior)
+.instructor-profile {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+
+    .instructor-info {
+        flex: 1;
+
+        h2 {
+            color: $brand-primary; // Corrected variable
+            border-bottom: 2px solid $brand-dark; // Corrected variable (usando brand-dark como segundo color)
+            padding-bottom: 0.5rem;
+        }
+    }
+    // Puedes añadir estilos para la imagen aquí si tienes una
+    // .instructor-image { ... }
+}
+
+// Contact Info Component (re-incorporado de tu base.scss anterior)
+.contact-info {
+    background: $bg-light; // Corrected variable
+    padding: 1rem;
+    border-radius: $border-radius; // Using variable
+    margin: 1rem 0;
+}
+
+
+// Course Blocks Component
+.blocks-container {
+    padding: 2rem 0;
+}
+
+.block {
+    $block: &;
+    background: $white;
+    border-radius: $border-radius;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: $box-shadow;
+    transition: transform 0.2s ease;
+    border-left: 4px solid $brand-primary; // Corrected variable
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: $box-shadow-hover;
+    }
+
+    &__header {
+        margin-bottom: 1rem;
+
+        h2 {
+            margin: 0;
+            font-size: 1.5rem;
+
+            a {
+                color: $text-heading; // Corrected variable
+                text-decoration: none;
+                // @include hover-effect($brand-primary); // Ya definido en base.scss, se puede usar directamente
+                &:hover {
+                    color: $brand-primary;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    &__description {
+        color: $text-muted; // Corrected variable
+        margin-bottom: 1.5rem;
+    }
+
+    &__sessions {
+        display: grid;
+        gap: 0.75rem;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+.session-link {
+    // @include card-base; // Comentado porque card-base solo define background, border-radius, box-shadow
+    background: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease;
+    text-decoration: none; // Asegurarse que el enlace no tenga subrayado por defecto
+
+    &::before {
+        content: "→";
+        margin-right: 0.5rem;
+        color: $brand-primary; // Corrected variable
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    &:hover {
+        background: $brand-light; // Corrected variable
+        color: $brand-dark; // Asegurar que el texto sea legible al hover
+        text-decoration: none; // Evitar subrayado en hover si no se desea
+
+        &::before {
+            opacity: 1;
+        }
+    }
+}
+
+// Session Layout
+.session-container {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.toc-sidebar {
+    position: sticky;
+    top: 1rem;
+    align-self: start;
+    padding: 1rem;
+    background: $bg-light; // Corrected variable (asumimos un fondo claro)
+    border-radius: $border-radius; // Using variable
+
+    .toc {
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        a {
+            display: block;
+            padding: 0.25rem 0;
+            color: $text-base; // Color de texto para enlaces de TOC
+            &:hover {
+                color: $brand-primary; // Color al pasar el ratón
+            }
+        }
+    }
+}
+
+.session-meta {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid $border-light; // Corrected variable
+}
