@@ -1,0 +1,55 @@
+// _sass/_base.scss
+
+// Base styles for the HTML body
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: $bg-light; // Updated variable name
+    color: $text-base;     // Updated variable name
+}
+
+// Basic Typography
+h1, h2, h3, h4, h5, h6 {
+    color: $text-heading; // Using the heading text color from variables
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: $brand-primary; // Using primary brand color for links
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+ul, ol {
+    margin-bottom: 1em;
+}
+
+// Image responsiveness
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+// Mixins (can stay here for now or be moved to _mixins.scss if more are added)
+@mixin card-base {
+    background: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+}
+
+@mixin hover-effect($color) {
+    &:hover {
+        color: $color;
+        text-decoration: underline;
+    }
+}
