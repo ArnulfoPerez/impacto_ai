@@ -1,0 +1,49 @@
+// _sass/_layout.scss
+
+header {
+    background: $header-bg;
+    color: $header-text;
+    padding: $spacing-unit ($spacing-unit * 2);
+
+    // Este estilo para h1 asume que hay un h1 dentro del header.
+    // Si tu navigation.html maneja el título del sitio de otra forma,
+    // o no hay h1 aquí, esta regla podría ser redundante.
+    h1 {
+        margin: 0;
+        font-size: 1.8em;
+    }
+}
+
+main {
+    padding: $spacing-unit * 2;
+    max-width: $content-max-width;
+    margin: $spacing-unit * 2 auto; // Margen vertical consistente y centrado horizontal
+    background: $white; // Usando variable para el color de fondo
+    border-radius: $border-radius; // Usando variable
+    box-shadow: $box-shadow; // Usando variable
+}
+
+section {
+    margin-bottom: $spacing-unit * 2;
+}
+
+footer {
+    text-align: center;
+    padding: $spacing-unit;
+    background: $footer-bg;
+    color: $footer-text; // Asegura el color del texto del footer
+    font-size: 0.9em;
+    margin-top: $spacing-unit * 2; // Margen superior consistente
+}
+
+// Estilos para los contenedores de listas de bloques/sesiones
+.block-toc, .block-sessions-toc {
+    ol {
+        list-style: decimal; // Listado numerado por defecto
+        padding-left: 1.5em;
+    }
+    ul {
+        list-style: none; // Si hay listas no ordenadas dentro, sin estilo
+        padding-left: 0;
+    }
+}
