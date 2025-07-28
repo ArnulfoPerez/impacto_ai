@@ -1,0 +1,32 @@
+// _sass/_variables.scss
+
+// Brand Colors (Basadas en tus valores)
+$brand-primary: #3498db;        // El azul claro que definiste como principal
+$brand-dark: #2c3e50;           // El azul oscuro de GitHub, útil para fondos o texto fuerte
+$brand-light: lighten($brand-primary, 40%); // Un tono más claro del primario
+
+// Text Colors
+$text-base: #333;               // Color general para el texto del cuerpo
+$text-heading: $brand-dark;     // Color para los títulos (usando el azul oscuro de marca)
+$text-muted: #7f8c8d;           // Color para texto secundario o atenuado
+
+// Neutral Colors
+$white: #ffffff;
+$bg-light: #f5f5f5;             // Color de fondo general (más claro)
+$border-light: #eaeaea;         // Color para bordes y fondos de elementos ligeros
+
+// Component Specifics (Derivados de los colores de marca/neutros)
+$header-bg: $brand-dark;        // Fondo del encabezado (usando el azul oscuro de marca)
+$header-text: $white;           // Color del texto del encabezado
+$nav-link-color: $brand-light;  // Color de los enlaces de navegación (usando el tono claro de marca)
+$footer-bg: $border-light;      // Fondo del pie de página (usando el color de borde/fondo claro)
+$footer-text: $text-muted;      // Texto del pie de página
+
+// Spacing & Layout
+$spacing-unit: 1em;
+$content-max-width: 960px; // Coincide con el valor en tu style.css
+
+// UI Elements
+$border-radius: 8px;
+$box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+$box-shadow-hover: 0 4px 8px rgba(0,0,0,0.15);
