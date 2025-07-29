@@ -1,6 +1,6 @@
 ---
 slug: impacto
-title: El impacto socioeconómico de la Inteligencia Artificial
+title: "El impacto socioeconómico de la Inteligencia Artificial"
 order: 3
 icon: "⚖️"
 ---
@@ -14,3 +14,12 @@ Este bloque examina las profundas implicaciones socioeconómicas de la inteligen
 * Transformación de industrias y modelos de negocio.
 * Consideraciones éticas: privacidad, sesgos y equidad.
 * El rol de la regulación y las políticas públicas.
+
+---
+
+### Sesiones de este Bloque:
+
+* **Sesión 5: [Impacto individual de la IA, oportunidades y riesgos]({{ site.baseurl }}/impacto/individual/)**
+    * *Esta sesión explorará cómo la inteligencia artificial está transformando la vida cotidiana...*
+* **Sesión 6: [IA en las organizaciones: Estrategias empresariales]({{ site.baseurl }}/impacto/institucional/)**
+    * *Esta sesión está diseñada para profesionales y tomadores de decisiones...*
