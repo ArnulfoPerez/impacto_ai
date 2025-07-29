@@ -18,7 +18,7 @@ Esta sección presenta las presentaciones de forma simple, numeradas secuencialm
   {% for i in (1..8) %}
     {% assign session_number_padded = i | prepend: "00" | slice: -2, 2 %}
     <li>
-      <a href="{{ '/assets/presentaciones/' | relative_url }}sesion_S{{ session_number_padded }}.pptx" 
+      <a href="{{ '/assets/presentations/' | relative_url }}sesion_S{{ session_number_padded }}.pptx" 
          target="_blank" 
          class="activity-link">
         Presentación Sesión {{ i }}
