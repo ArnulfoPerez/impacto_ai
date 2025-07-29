@@ -1,7 +1,7 @@
 ---
 block: impacto
 slug: institucional
-title: IA en las organizaciones: Estrategias empresariales
+title: "IA en las organizaciones: Estrategias empresariales"
 order: 6
 ---
 
