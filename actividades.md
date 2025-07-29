@@ -3,7 +3,7 @@ layout: default
 title: Presentaciones del Curso
 permalink: /actividades/
 ---
- 
+
 # 💻 Actividades del Curso
 
 _Aquí encontrarás todas las presentaciones utilizadas en cada sesión del curso. Las hemos organizado de dos maneras para facilitar tu acceso._
