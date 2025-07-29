@@ -1,7 +1,7 @@
 ---
 block: inteligencia # Debe coincidir con el slug del bloque
 slug: intro
-title: Introducción
+title: "Introducción"
 order: 1
 ---
 
