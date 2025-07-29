@@ -6,13 +6,31 @@ permalink: /actividades/
 
 # ✍️ Actividades del Curso
 
-_Aquí encontrarás todas las actividades prácticas y ejercicios propuestos para cada sesión del curso. Hemos organizado las actividades de dos maneras para facilitar su acceso._
+_Aquí encontrarás todas las actividades prácticas y ejercicios propuestos para cada sesión del curso. Las hemos organizado de dos maneras para facilitar su acceso._
 
 ---
 
-{% comment %} Obtener el número máximo de sesiones para el bucle {% endcomment %}
+{% comment %} Obtener el número máximo de sesiones para el bucle.
+   Si no se encuentran sesiones o sus órdenes, se usará 8 como valor predeterminado.
+{% endcomment %}
 {% assign all_session_orders = site.sessions | map: "order" %}
-{% assign max_session_order = all_session_orders | max %}
+
+{% comment %} Filtrar valores nulos o vacíos antes de encontrar el máximo {% endcomment %}
+{% assign valid_session_orders = "" | split: "," %}
+{% for order_val in all_session_orders %}
+  {% if order_val != null and order_val != "" %}
+    {% assign valid_session_orders = valid_session_orders | push: order_val %}
+  {% endif %}
+{% endfor %}
+
+{% assign max_session_order = 8 %} {# Valor predeterminado a 8 #}
+{% if valid_session_orders.size > 0 %}
+  {% assign calculated_max = valid_session_orders | max %}
+  {% if calculated_max > max_session_order %}
+    {% assign max_session_order = calculated_max %} {# Usar el máximo calculado si es mayor que 8 #}
+  {% endif %}
+{% endif %}
+
 
 ## 1. Listado Secuencial de Actividades (1 a {{ max_session_order }})
 
@@ -39,11 +57,8 @@ Esta sección organiza las actividades en función de los bloques y sesiones del
 
 <ul>
     {% for session in block.items %}
-    {% comment %}
-       Mostramos actividades para todas las sesiones hasta el número máximo encontrado,
-       asegurando que los PDFs existan en assets/activities/
-    {% endcomment %}
-    {% if session.order <= max_session_order %}
+    {% comment %} Mostramos actividades solo para las sesiones hasta el número máximo dinámico o 8 {% endcomment %}
+    {% if session.order != null and session.order != "" and session.order <= max_session_order %}
         <li>
             <a href="{{ session.url | relative_url }}">**{{ session.title }}**</a>
             <ul>
