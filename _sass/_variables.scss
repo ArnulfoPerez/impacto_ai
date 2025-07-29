@@ -9,6 +9,7 @@ $brand-light: lighten($brand-primary, 40%); // Un tono más claro del primario
 $text-base: #333;               // Color general para el texto del cuerpo
 $text-heading: $brand-dark;     // Color para los títulos (usando el azul oscuro de marca)
 $text-muted: #7f8c8d;           // Color para texto secundario o atenuado
+$text-secondary: #555;   // Color de texto secundario/más claro
 
 // Neutral Colors
 $white: #ffffff;
