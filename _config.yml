@@ -75,15 +75,11 @@ defaults:
       type: "pages"
     values:
       layout: "default"
-      permalink: /:path/:basename/ # <--- ADDED/MODIFIED: Explicit permalink for all pages
   - scope:
       path: "_sessions"
       type: "sessions"
     values:
       layout: "session"
-      # Permalinks for sessions are handled by the collection definition above,
-      # but it's good practice to keep them consistent if you wanted to override
-      # or explicitly set them here. For now, the collection permalink is sufficient.
 
 # Metadata for Blocks (crucial for dynamic listing and sorting)
 blocks_metadata:
