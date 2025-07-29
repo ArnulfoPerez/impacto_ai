@@ -10,65 +10,107 @@ _Aquí encontrarás todas las actividades prácticas y ejercicios propuestos par
 
 ---
 
-{% comment %} Obtener el número máximo de sesiones para el bucle.
-   Si no se encuentran sesiones o sus órdenes, se usará 8 como valor predeterminado.
-{% endcomment %}
-{% assign all_session_orders = site.sessions | map: "order" %}
+## 1. Listado Secuencial de Actividades
 
-{% comment %} Filtrar valores nulos o vacíos antes de encontrar el máximo {% endcomment %}
-{% assign valid_session_orders = "" | split: "," %}
-{% for order_val in all_session_orders %}
-  {% if order_val != null and order_val != "" %}
-    {% assign valid_session_orders = valid_session_orders | push: order_val %}
+Esta sección presenta las actividades de forma simple, numeradas secuencialmente. Ideal si ya sabes qué actividad buscas por su número de sesión.
+
+<ul class="activity-list">
+{% for session in site.sessions | sort: "order" %}
+  {% if session.order %}
+    {% assign session_number_padded = session.order | prepend: "00" | slice: -2, 2 %}
+    <li>
+      <a href="{{ '/assets/activities/' | relative_url }}Actividad_S{{ session_number_padded }}.pdf" target="_blank" class="activity-link">
+        <span class="session-number">Sesión {{ session.order }}:</span>
+        <span class="activity-title">{{ session.title }}</span>
+        <span class="activity-icon" aria-hidden="true">↗</span>
+      </a>
+    </li>
   {% endif %}
-{% endfor %}
-
-{% assign max_session_order = 8 %} 
-{% if valid_session_orders.size > 0 %}
-  {% assign calculated_max = valid_session_orders | max %}
-  {% if calculated_max > max_session_order %}
-    {% assign max_session_order = calculated_max %} {# Usar el máximo calculado si es mayor que 8 #}
-  {% endif %}
-{% endif %}
-
-
-## 1. Listado Secuencial de Actividades (1 a {{ max_session_order }})
-
-Esta sección presenta las actividades de forma simple, numeradas secuencialmente. Son ideales si el usuario ya sabe qué actividad busca por su número de sesión.
-
-<ul>
-{% for i in (1..max_session_order) %}
-    {% assign session_number_padded = i | prepend: "0" | slice: -2, 2 %}
-    {% comment %} Corrected link generation for baseurl compatibility {% endcomment %}
-    <li><a href="{{ site.baseurl }}/assets/activities/Actividad_S{{ session_number_padded }}.pdf" target="_blank">Actividad de la sesión {{ i }}</a></li>
 {% endfor %}
 </ul>
 
 ---
 
-## 2. Listado Descriptivo por Bloque y Sesión
+## 2. Listado Descriptivo por Bloque Temático
 
-Esta sección organiza las actividades en función de los bloques y sesiones del curso, proporcionando un contexto más rico. Es perfecta para quienes quieren entender la ubicación de la actividad dentro de la estructura del curso.
+Esta sección organiza las actividades por bloques del curso, proporcionando contexto sobre su ubicación en la estructura del curso.
 
-{% assign sorted_sessions = site.sessions | sort: 'order' %}
-{% assign blocks = sorted_sessions | group_by: 'block' %}
+{% assign blocks = site.sessions | group_by: "block" | sort: "name" %}
 
 {% for block in blocks %}
-### {{ block.name }}
-
-<ul>
-    {% for session in block.items %}
-    {% comment %} Mostramos actividades solo para las sesiones hasta el número máximo dinámico o 8 {% endcomment %}
-    {% if session.order != null and session.order != "" and session.order <= max_session_order %}
-        <li>
-            <a href="{{ session.url | relative_url }}">**{{ session.title }}**</a>
-            <ul>
-                {% assign session_number_padded = session.order | prepend: "0" | slice: -2, 2 %}
-                {% comment %} Corrected link generation for baseurl compatibility {% endcomment %}
-                <li><a href="{{ site.baseurl }}/assets/activities/Actividad_S{{ session_number_padded }}.pdf" target="_blank">Actividad de la sesión {{ session.order }}</a></li>
-            </ul>
+  <div class="activity-block">
+    <h3>{{ site.blocks_metadata[block.name].title | default: block.name }}</h3>
+    <p class="block-description">{{ site.blocks_metadata[block.name].description }}</p>
+    
+    <ul class="block-sessions">
+    {% for session in block.items | sort: "order" %}
+      {% if session.order %}
+        {% assign session_number_padded = session.order | prepend: "00" | slice: -2, 2 %}
+        <li class="session-item">
+          <div class="session-header">
+            <span class="session-order">Sesión {{ session.order }}</span>
+            <a href="{{ session.url | relative_url }}" class="session-title">{{ session.title }}</a>
+          </div>
+          <a href="{{ '/assets/activities/' | relative_url }}Actividad_S{{ session_number_padded }}.pdf" target="_blank" class="activity-link">
+            Descargar actividad
+            <span class="activity-icon" aria-hidden="true">↓</span>
+          </a>
         </li>
-    {% endif %}
+      {% endif %}
     {% endfor %}
-</ul>
+    </ul>
+  </div>
 {% endfor %}
+
+<style>
+  .activity-list, .block-sessions {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .activity-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    color: #0366d6;
+  }
+  
+  .activity-link:hover {
+    text-decoration: underline;
+  }
+  
+  .activity-icon {
+    font-size: 0.8em;
+  }
+  
+  .activity-block {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f6f8fa;
+    border-radius: 6px;
+  }
+  
+  .block-description {
+    color: #586069;
+    margin-top: 0.5rem;
+  }
+  
+  .session-item {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  
+  .session-header {
+    margin-bottom: 0.5rem;
+  }
+  
+  .session-order {
+    font-weight: bold;
+    margin-right: 0.5rem;
+  }
+</style>
