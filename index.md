@@ -1,8 +1,7 @@
 ---
 layout: default
-title: Inicio
+title: Home
 ---
-
 
 # ¡Bienvenido al Curso de Impacto Social de la Inteligencia Artificial!
 
@@ -14,12 +13,11 @@ Este es el sitio web de nuestro curso, donde podrás encontrar toda la informaci
 <p style="text-align: center;">_Haz clic en un bloque para ver sus detalles y sesiones._</p>
 
 <div class="block-overview-list">
-  {% comment %} Sort blocks_metadata by the 'order' property {% endcomment %}
-  {% assign ordered_blocks = site.blocks_metadata | sort: "1.order" %}
+  {% comment %} Convert blocks_metadata hash to an array of values and sort by 'order' {% endcomment %}
+  {% assign ordered_blocks = site.blocks_metadata | values | sort: "order" %} {# <-- FIX HERE! #}
 
-  {% for block_slug_pair in ordered_blocks %}
-    {% assign block_slug = block_slug_pair[0] %}
-    {% assign block_data = block_slug_pair[1] %}
+  {% for block_data in ordered_blocks %} {# <-- Iterate directly over block_data now #}
+    {% assign block_slug = block_data.slug | default: block_data.title | slugify %} {# Fallback if slug isn't explicitly in metadata #}
 
     <div class="block-overview-item">
       <h3><a href="{{ site.baseurl }}/{{ block_slug }}/">{{ block_data.icon }} {{ block_data.title }}</a></h3>
