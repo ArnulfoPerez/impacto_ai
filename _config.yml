@@ -28,6 +28,8 @@ navigation:
     url: "/"
   - title: "Presentaciones"
     url: "/presentaciones/"
+  - title: "Actividades"
+    url: "/actividades/"
   - title: "Glosario"
     url: "/glosario/"
   - title: "Lecturas"
