@@ -293,7 +293,7 @@
 .instructor-profile {
     @include card-base; // Puedes reutilizar el mixin card-base
     padding: $spacing-unit * 2;
-    max-width: 400px; // Limita el ancho de la tarjeta del instructor
+    max-width: 700px; // Limita el ancho de la tarjeta del instructor
     margin: $spacing-unit auto; // Centra la tarjeta
     text-align: center; // Centra el contenido dentro de la tarjeta
 
