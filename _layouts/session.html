@@ -21,10 +21,6 @@ layout: default
 <div class="session-resources">
   <h2>Materiales de la Sesión</h2>
 
-  {% if page.notes_url %}
-    <p><strong>Notas de la Sesión:</strong> <a href="{{ page.notes_url }}" target="_blank">Ver Notas</a></p>
-  {% endif %}
-
   {% comment %} Activities section (dynamic based on naming convention) {% endcomment %}
   {% assign activity_pdf_name = "Actividad_S" | append: page.order | append: ".pdf" %}
   {% assign activity_url = site.baseurl | append: "/assets/docs/" | append: activity_pdf_name %}
