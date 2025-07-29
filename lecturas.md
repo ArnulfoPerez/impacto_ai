@@ -12,9 +12,6 @@ _Aquí encontrarás una curaduría de lecturas y documentos relevantes para prof
 
 ## 🧠 Inteligencia y Cognición
 
-### Español
-* [Sistema Personal para Filtrado y Verificación de Información (Documento)](/assets/readings/cps_m3_arnulfo_perez.docx){:target="_blank"}
-
 ### Inglés
 * [The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity (PDF)](/assets/readings/the-illusion-of-thinking.pdf){:target="_blank"}
 * [Imaging evolution of the primate brain: the next frontier? (PDF)](/assets/readings/1-s2.0-S1053811920311708-main.pdf){:target="_blank"}
@@ -30,6 +27,7 @@ _Aquí encontrarás una curaduría de lecturas y documentos relevantes para prof
 ### Español
 * [UNESCO: Recomendación sobre la ética de la inteligencia artificial (PDF)](/assets/readings/381137spa.pdf){:target="_blank"}
 * [Informe de Amnistía Internacional 2016/17. La situación de los derechos humanos en el mundo (PDF)](/assets/readings/58ad5ca24.pdf){:target="_blank"}
+* [Sistema Personal para Filtrado y Verificación de Información (Documento)](/assets/readings/cps_m3_arnulfo_perez.docx){:target="_blank"}
 
 ### Inglés
 * [Failing to do right: The urgent need for Palantir to respect human rights (PDF)](/assets/readings/0000AAF5.PDF){:target="_blank"}
