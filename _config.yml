@@ -56,24 +56,18 @@ course:
     - "Evaluar el impacto social, laboral, ético y ambiental de la IA."
     - "Participar informadamente en debates y decisiones sobre el uso y la regulación de la IA."
 
-# Custom collections
 collections:
   sessions:
     output: true
-    permalink: /:block/:slug/ # This still requires 'block' in session front matter
+    permalink: /sesiones/:block/:title/  # Más consistente
 
-# Default layouts and permalinks
 defaults:
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "default"
   - scope:
       path: "_sessions"
       type: "sessions"
     values:
       layout: "session"
+      block: "inteligencia"  # Valor por defecto
 
 # Metadata for Blocks (crucial for dynamic listing and sorting)
 blocks_metadata:
