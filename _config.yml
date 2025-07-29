@@ -26,8 +26,6 @@ plugins:
 navigation:
   - title: "Inicio"
     url: "/"
-  - title: "Sesiones"
-    url: "/sesiones/" # This will be the new main sessions listing page
   - title: "Presentaciones"
     url: "/presentaciones/"
   - title: "Actividades"
@@ -55,19 +53,6 @@ course:
     - "Analizar críticamente cómo la IA es representada en la cultura (cine, literatura)."
     - "Evaluar el impacto social, laboral, ético y ambiental de la IA."
     - "Participar informadamente en debates y decisiones sobre el uso y la regulación de la IA."
-
-collections:
-  sessions:
-    output: true
-    permalink: /sesiones/:block/:title/  # Más consistente
-
-defaults:
-  - scope:
-      path: "_sessions"
-      type: "sessions"
-    values:
-      layout: "session"
-      block: "inteligencia"  # Valor por defecto
 
 # Metadata for Blocks (crucial for dynamic listing and sorting)
 blocks_metadata:
