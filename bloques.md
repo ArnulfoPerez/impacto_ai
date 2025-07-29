@@ -3,7 +3,7 @@ layout: default
 title: Bloques del Curso
 permalink: /bloques/
 ---
-
+ 
 # 📚 Bloques del Curso
 
 _Explora los diferentes bloques temáticos que componen este curso, cada uno con una perspectiva única sobre la Inteligencia Artificial y su impacto._
