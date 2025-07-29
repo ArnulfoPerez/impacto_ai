@@ -34,6 +34,10 @@ plugins:
 navigation:
   - title: "Inicio"
     url: "/"
+  - title: "Bloques"
+    url: "/bloques/"
+  - title: "Sesiones"
+    url: "/sesiones/"
   - title: "Presentaciones"
     url: "/presentaciones/"
   - title: "Actividades"
