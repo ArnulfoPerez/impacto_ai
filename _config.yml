@@ -62,18 +62,28 @@ collections:
     output: true
     permalink: /:block/:slug/ # This still requires 'block' in session front matter
 
-# Default layouts
+# Custom collections
+collections:
+  sessions:
+    output: true
+    permalink: /:block/:slug/ # This still requires 'block' in session front matter
+
+# Default layouts and permalinks
 defaults:
   - scope:
-      path: "" # Applies to all pages not in a collection (index.md, bloques.md, actividades.md, presentaciones.md, etc.)
+      path: ""
       type: "pages"
     values:
       layout: "default"
+      permalink: /:path/:basename/ # <--- ADDED/MODIFIED: Explicit permalink for all pages
   - scope:
-      path: "_sessions" # Applies to all session documents
+      path: "_sessions"
       type: "sessions"
     values:
-      layout: "session" # Using the new 'session.html' layout
+      layout: "session"
+      # Permalinks for sessions are handled by the collection definition above,
+      # but it's good practice to keep them consistent if you wanted to override
+      # or explicitly set them here. For now, the collection permalink is sufficient.
 
 # Metadata for Blocks (crucial for dynamic listing and sorting)
 blocks_metadata:
