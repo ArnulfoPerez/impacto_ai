@@ -26,11 +26,12 @@ permalink: /
 ## 📚 Bloques Temáticos
 
 <div class="blocks-container">
-  {% assign blocks = site.blocks_metadata | sort: "order" %}
-  {% for block in blocks %}
+  {% assign sorted_blocks = site.blocks_metadata | sort_by: "order" %}
+  {% for block in site.blocks_metadata %}
+    {% assign block_data = block[1] %}
     <div class="block-card">
-      <h3>{{ block[1].icon }} {{ block[1].title }}</h3>
-      <p>{{ block[1].description }}</p>
+      <h3>{{ block_data.icon }} {{ block_data.title }}</h3>
+      <p>{{ block_data.description }}</p>
       <div class="sessions-list">
         <h4>Sesiones:</h4>
         <ul>
