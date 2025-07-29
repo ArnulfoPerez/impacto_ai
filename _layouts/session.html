@@ -1,0 +1,54 @@
+---
+layout: default
+---
+
+<div class="session-header">
+  <h1>Sesión {{ page.order }}: {{ page.title }}</h1>
+  {% if page.block %}
+    {% assign block_info = site.blocks_metadata[page.block] %}
+    {% if block_info %}
+      <p>Perteneciente al Bloque: <a href="{{ site.baseurl }}/{{ page.block }}/">{{ block_info.icon }} {{ block_info.title }}</a></p>
+    {% endif %}
+  {% endif %}
+</div>
+
+<div class="session-content">
+  {{ content }}
+</div>
+
+<hr>
+
+<div class="session-resources">
+  <h2>Materiales de la Sesión</h2>
+
+  {% if page.notes_url %}
+    <p><strong>Notas de la Sesión:</strong> <a href="{{ page.notes_url }}" target="_blank">Ver Notas</a></p>
+  {% endif %}
+
+  {% comment %} Activities section (dynamic based on naming convention) {% endcomment %}
+  {% assign activity_pdf_name = "Actividad_S" | append: page.order | append: ".pdf" %}
+  {% assign activity_url = site.baseurl | append: "/assets/docs/" | append: activity_pdf_name %}
+  {% assign activity_exists = site.static_files | where: "relative_path", "/assets/docs/" | append: activity_pdf_name %}
+
+  {% if activity_exists.size > 0 %}
+    <p><strong>Actividad:</strong> <a href="{{ activity_url }}" target="_blank">Actividad Sesión {{ page.order }}</a></p>
+  {% endif %}
+
+  {% comment %} Presentations section (dynamic based on naming convention) {% endcomment %}
+  {% assign presentation_pptx_name = "sesion_s" | append: page.order | append: ".pptx" %}
+  {% assign presentation_url = site.baseurl | append: "/assets/slides/" | append: presentation_pptx_name %}
+  {% assign presentation_exists = site.static_files | where: "relative_path", "/assets/slides/" | append: presentation_pptx_name %}
+
+  {% if presentation_exists.size > 0 %}
+    <p><strong>Presentación:</strong> <a href="{{ presentation_url }}" target="_blank">Presentación Sesión {{ page.order }}</a></p>
+  {% endif %}
+
+  {% if page.external_links %}
+    <h4>Enlaces Adicionales:</h4>
+    <ul>
+      {% for link in page.external_links %}
+        <li><a href="{{ link.url }}" target="_blank">{{ link.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
