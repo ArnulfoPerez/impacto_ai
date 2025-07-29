@@ -1,7 +1,7 @@
 ---
 block: impacto
 slug: individual
-title: Impacto individual de la IA, oportunidades y riesgos
+title: "Impacto individual de la IA, oportunidades y riesgos"
 order: 5
 ---
 
