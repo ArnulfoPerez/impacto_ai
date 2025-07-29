@@ -75,7 +75,7 @@ defaults:
       path: "_blocks"
       type: "blocks"
     values:
-      layout: "block"
+      layout: "default"
       toc: true # Activar la Tabla de Contenidos para bloques (si tu layout de bloque la soporta)
   - scope:
       path: "_sessions" # CORRECTO: Todas las sesiones deben estar en el directorio raíz _sessions
