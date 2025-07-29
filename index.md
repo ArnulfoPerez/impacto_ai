@@ -3,69 +3,44 @@ layout: default
 title: Inicio
 ---
 
-<main class="home">
-    <section class="course-intro">
-        <h1>Bienvenido al Curso: {{ site.title }}</h1>
-        <p>{{ site.description }}</p>
-        <p>Este curso explora en profundidad la inteligencia artificial, desde sus fundamentos técnicos hasta sus profundas implicaciones éticas y sociales.</p>
 
-        <h2>Objetivos Generales del Curso</h2>
-        <ul class="course-objectives">
-            {% for objective in site.course.objectives %}
-                <li>{{ objective }}</li>
-            {% endfor %}
-        </ul>
-        <p>Navega a través de los diferentes módulos (Bloques) para comenzar:</p>
-    </section>
+# ¡Bienvenido al Curso de Impacto Social de la Inteligencia Artificial!
 
-    <section class="blocks-container">
-        <h2>Módulos del Curso</h2>
-        <div class="blocks-grid">
-            {% assign sorted_blocks = site.blocks | sort: "order" %}
-            {% for block in sorted_blocks %}
-                {% assign block_slug = block.slug %}
-                {% assign block_meta = site.blocks_metadata[block_slug] %}
+Este es el sitio web de nuestro curso, donde podrás encontrar toda la información sobre los bloques, sesiones, actividades y presentaciones.
 
-                <div class="block-card">
-                    <div class="block-header">
-                        {% if block_meta.icon %}
-                            <span class="block-icon">{{ block_meta.icon }}</span>
-                        {% endif %}
-                        <h3><a href="{{ block.url | relative_url }}">{{ block_meta.title | default: block.title }}</a></h3>
-                    </div>
-                    <p class="block-description">{{ block_meta.description | default: block.description }}</p>
+---
 
-                    {% if block.sessions %}
-                        <h4>Sesiones:</h4>
-                        <ul class="session-list">
-                            {% assign sorted_sessions_in_block = block.sessions | sort: "order" %}
-                            {% for session in sorted_sessions_in_block %}
-                                {% assign session_slug = session.slug %}
-                                {% assign session_meta = site.session_metadata[block_slug][session_slug] %}
-                                <li class="session-item">
-                                    <a href="{{ session.url | relative_url }}">{{ session_meta.title | default: session.title }}</a>
-                                    {% if session_meta.description %}
-                                        <p class="session-description">{{ session_meta.description }}</p>
-                                    {% endif %}
-                                    {% if session_meta.obj %}
-                                        <ul class="session-objectives">
-                                            {% for obj in session_meta.obj %}
-                                                <li>{{ obj }}</li>
-                                            {% endfor %}
-                                        </ul>
-                                    {% endif %}
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
-    </section>
+<h2 style="text-align: center;">Nuestros Bloques Temáticos</h2>
+<p style="text-align: center;">_Haz clic en un bloque para ver sus detalles y sesiones._</p>
 
-    <section class="instructor-section">
-        <h2>Sobre el Instructor</h2>
-        {% include instructor_card.html %}
-    </section>
-    {# Puedes añadir más secciones aquí, como un resumen del instructor, testimonios, etc. #}
-</main>
+<div class="block-overview-list">
+  {% comment %} Sort blocks_metadata by the 'order' property {% endcomment %}
+  {% assign ordered_blocks = site.blocks_metadata | sort: "1.order" %}
+
+  {% for block_slug_pair in ordered_blocks %}
+    {% assign block_slug = block_slug_pair[0] %}
+    {% assign block_data = block_slug_pair[1] %}
+
+    <div class="block-overview-item">
+      <h3><a href="{{ site.baseurl }}/{{ block_slug }}/">{{ block_data.icon }} {{ block_data.title }}</a></h3>
+      <p>{{ block_data.description }}</p>
+
+      <h4>Sesiones:</h4>
+      <ul>
+        {% comment %} Find sessions belonging to this block and sort them by 'order' {% endcomment %}
+        {% assign sessions_in_block = site.sessions | where: "block", block_slug | sort: "order" %}
+        {% if sessions_in_block.size > 0 %}
+          {% for session in sessions_in_block %}
+            <li><a href="{{ session.url | relative_url }}">Sesión {{ session.order }}: {{ session.title }}</a></li>
+          {% endfor %}
+        {% else %}
+          <li>No hay sesiones definidas para este bloque aún.</li>
+        {% endif %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
+
+---
+
+<p style="text-align: center;">También puedes visitar las páginas de <a href="{{ site.baseurl }}/actividades/">Actividades</a> y <a href="{{ site.baseurl }}/presentaciones/">Presentaciones</a>.</p>
