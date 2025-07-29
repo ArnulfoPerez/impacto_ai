@@ -1,7 +1,7 @@
 ---
 block: percepcion
 slug: sociocultural
-title: La percepción sociocultural de la IA
+title: "La percepción sociocultural de la IA"
 order: 7
 ---
 
