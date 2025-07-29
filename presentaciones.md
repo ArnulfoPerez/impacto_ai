@@ -21,7 +21,7 @@ Esta sección presenta las presentaciones de forma simple, numeradas secuencialm
       <a href="{{ '/assets/presentaciones/' | relative_url }}sesion_S{{ session_number_padded }}.pptx" 
          target="_blank" 
          class="activity-link">
-        Actividad Sesión {{ i }}
+        Presentación Sesión {{ i }}
       </a>
     </li>
   {% endfor %}
