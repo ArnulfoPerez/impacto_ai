@@ -30,6 +30,25 @@ plugins:
   # - jekyll-default-layout
   # - jekyll-titles-from-headings
 
+# Variables para el menú de navegación
+navigation:
+  - title: "Inicio"
+    url: "/"
+  - title: "Glosario"
+    url: "/glosario/"
+  - title: "Lecturas"
+    url: "/lecturas/"
+  - title: "Instructor"
+    url: "/instructor/"
+
+# Instructor info
+instructor:
+  name: "Dr. Arnulfo Pérez"
+  email: "arnulfo.perez@zintegra.com"
+  linkedin: "https://www.linkedin.com/in/arnulfoperez/"
+  position: "Consultor"
+  institution: "Zintegra"
+
 # Colecciones personalizadas
 collections:
   blocks:
@@ -42,33 +61,84 @@ collections:
     output: true
     permalink: /lecturas/:slug/
 
-# Variables para el menú de navegación
-navigation:
-  - title: "Inicio"
-    url: "/"
-  - title: "Temario / Sesiones"
-    url: "/"
-  - title: "Glosario"
-    url: "/glosario/"
-  - title: "Lecturas"
-    url: "/lecturas/"
-  - title: "Instructor"
-    url: "/instructor/"
-
 # Defaults para layouts de colecciones
 defaults:
   - scope:
-      path: ""
+      path: "_blocks"
       type: "blocks"
     values:
       layout: "block"
+      toc: true # Activar la Tabla de Contenidos para bloques (si tu layout de bloque la soporta)
   - scope:
-      path: ""
+      path: "_sessions" # CORRECTO: Todas las sesiones deben estar en el directorio raíz _sessions
       type: "sessions"
     values:
       layout: "session"
+      toc: true # Activar la Tabla de Contenidos para sesiones (si tu layout de sesión la soporta)
 
-# Las siguientes variables son típicamente manejadas por jekyll-github-metadata
-# pero si deseas mantenerlas explícitamente, no hay problema.
-# github_username: ArnulfoPerez
-# github_repo: impacto_ai
+# Curso y objetivos generales
+course:
+  objectives:
+    - "Comprender la evolución de la IA y diferenciar sus etapas."
+    - "Identificar las funciones de la IA moderna y sus aplicaciones prácticas diarias."
+    - "Analizar críticamente cómo la IA es representada en la cultura (cine, literatura)."
+    - "Evaluar el impacto social, laboral, ético y ambiental de la IA."
+    - "Participar informadamente en debates y decisiones sobre el uso y la regulación de la IA."
+
+# Metadata de Bloques (para usar en layouts o includes)
+blocks_metadata:
+  inteligencia:
+    title: "Inteligencia desde las perspectivas evolutiva, cognitiva, y computacional"
+    description: "La inteligencia se analiza desde tres ejes fundamentales..."
+    icon: "🧠"
+  infraestructura:
+    title: "La Inteligencia Artificial y su infraestructura"
+    description: "En esencia, la IA moderna 'aprende' mediante redes neuronales..."
+    icon: "🌐"
+  impacto:
+    title: "El impacto socioeconómico de la Inteligencia Artificial"
+    description: "La IA contemporánea plantea paradojas sistémicas..."
+    icon: "⚖️"
+  percepcion:
+    title: "La percepción sociocultural de la Inteligencia Artificial (IA) y sus tendencias futuras"
+    description: "El análisis de películas, literatura y marketing tecnológico revela..."
+    icon: "🎭"
+
+# Metadata de Sesiones (para usar en layouts o includes)
+session_metadata:
+  inteligencia:
+    intro:
+      title: "Introducción"
+      obj: ["Definir inteligencia", "Historia evolutiva"]
+      description: "Exploración del concepto de inteligencia desde la neurociencia..."
+    fundamentos:
+      title: "Fundamentos conceptuales e historia de la inteligencia artificial (IA)"
+      obj: ["Tipos de redes neuronales", "Backpropagation"]
+      description: "Esta sesión explorará los pilares fundamentales de la inteligencia artificial..."
+  infraestructura:
+    modelos:
+      title: "Modelos, datos y entrenamiento"
+      obj: ["Diferenciar los principales enfoques de modelos de IA", "Comprender el proceso de entrenamiento de modelos"]
+      description: "Esta sesión abordará los fundamentos sistémicos de la inteligencia artificial..."
+    infraestructura:
+      title: "Infraestructura de IA"
+      obj: ["Identificar los componentes clave de la infraestructura de IA", "Evaluar el impacto ambiental de la IA"]
+      description: "El desarrollo de la IA depende de una infraestructura masiva con costos ocultos..."
+  impacto:
+    individual:
+      title: "Impacto individual de la IA, oportunidades y riesgos"
+      obj: ["Reconocer los efectos de la IA en la vida diaria", "Evaluar riesgos clave en interacciones digitales"]
+      description: "Esta sesión explorará cómo la inteligencia artificial está transformando la vida cotidiana..."
+    institucional:
+      title: "IA en las organizaciones: Estrategias empresariales"
+      obj: ["Identificar los componentes clave para una implementación responsable de IA", "Diseñar políticas de gobernanza para IA"]
+      description: "Esta sesión está diseñada para profesionales y tomadores de decisiones..."
+  percepcion:
+    sociocultural:
+      title: "La percepción sociocultural de la IA"
+      obj: ["Deconstruir narrativas dominantes sobre IA", "Evaluar el impacto sociocultural de estas representaciones"]
+      description: "La representación de la IA en películas, literatura y marketing tecnológico..."
+    cierre:
+      title: "El impacto socioeconómico de la IA"
+      obj: ["Integrar conocimientos transversales", "Evaluar tensiones clave", "Proponer acciones aplicables", "Reflexionar sobre tendencias futuras"]
+      description: "Esta sesión integra los ejes clave del curso, desde los fundamentos técnicos..."
