@@ -48,8 +48,3 @@ _Aquí encontrarás una curaduría de lecturas y documentos relevantes para prof
 * [Structural learning in artificial neural networks using sparse optimization (PDF)](/assets/readings/manngard_structural2018.pdf){:target="_blank"}
 
 ---
-
-## 🔗 Otros Recursos
-
-* [Glosario del curso](/glosario/){:target="_blank"}
-* [Bases de datos económicos (Referencia)](/referencias_economicas/){:target="_blank"}
