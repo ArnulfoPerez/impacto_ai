@@ -1,7 +1,11 @@
+# Site settings
 title: Impacto social de la Inteligencia Artificial
 description: Explorando la inteligencia artificial, sus fundamentos, desafíos éticos y sociales.
-baseurl: /impacto_ai # Ruta base para sitios de proyecto GitHub Pages
-url: "https://arnulfoperez.github.io" # Tu URL base del sitio, sin el nombre del repositorio
+baseurl: /impacto_ai # The subpath of your site, e.g. /blog
+url: "https://arnulfoperez.github.io" # The base hostname & protocol for your site, e.g. http://example.com
+repository: "ArnulfoPerez/impacto_ai" # Good to have for GitHub Pages setup
+
+# Build settings
 theme: minima
 markdown: kramdown
 highlighter: rouge
@@ -13,29 +17,17 @@ kramdown:
       line_numbers: false
   math_engine: mathjax
 
-# Deshabilitar plugins que pueden dar problemas si no se necesitan o instalan correctamente
+# Plugins (keeping only necessary ones for now)
 plugins:
   - jekyll-feed
-  # jekyll-seo-tag es útil para SEO, lo dejo comentado como en la versión anterior por si quieres habilitarlo luego
-  # - jekyll-seo-tag
-  # Otros plugins comentados para empezar con una configuración mínima
-  # - jekyll-coffeescript
-  # - jekyll-commonmark-ghpages
-  # - jekyll-gist
-  # - jekyll-github-metadata
-  # - jekyll-paginate
-  # - jekyll-relative-links
-  # - jekyll-optional-front-matter
-  # - jekyll-readme-index
-  # - jekyll-default-layout
-  # - jekyll-titles-from-headings
+  - jekyll-seo-tag # Re-enabled, it's generally useful for SEO
 
-# Variables para el menú de navegación
+# Navigation variables for your menu
 navigation:
   - title: "Inicio"
     url: "/"
   - title: "Sesiones"
-    url: "/sesiones/"
+    url: "/sesiones/" # This will be the new main sessions listing page
   - title: "Presentaciones"
     url: "/presentaciones/"
   - title: "Actividades"
@@ -55,43 +47,7 @@ instructor:
   position: "Consultor"
   institution: "Zintegra"
 
-# Colecciones personalizadas
-# Only 'sessions' is a collection
-collections:
-  sessions:
-    output: true
-    permalink: /:block/:slug/ # This still requires 'block' in session front matter
-
-# Default layouts
-defaults:
-  - scope:
-      path: ""
-      type: "pages" # Applies to regular pages like index.md, about.md, and now your block overview pages, actividades.md, presentaciones.md
-    values:
-      layout: "default"
-  - scope:
-      path: "_sessions"
-      type: "sessions"
-    values:
-      layout: "session" 
-
-# Site metadata (make sure these are correct)
-title: Impacto AI
-email: your-email@example.com
-description: >-
-  Un curso sobre el impacto social y económico de la Inteligencia Artificial.
-baseurl: "/impacto_ai" # the subpath of your site, e.g. /blog
-url: "https://arnulfoperez.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-repository: "ArnulfoPerez/impacto_ai"
-
-# Theme and Plugins
-theme: minima
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-# Add any other plugins you might be using
-
-# Curso y objetivos generales
+# Course and general objectives
 course:
   objectives:
     - "Comprender la evolución de la IA y diferenciar sus etapas."
@@ -100,26 +56,49 @@ course:
     - "Evaluar el impacto social, laboral, ético y ambiental de la IA."
     - "Participar informadamente en debates y decisiones sobre el uso y la regulación de la IA."
 
-# Metadata de Bloques (para usar en layouts o includes)
+# Custom collections
+collections:
+  sessions:
+    output: true
+    permalink: /:block/:slug/ # This still requires 'block' in session front matter
+
+# Default layouts
+defaults:
+  - scope:
+      path: "" # Applies to all pages not in a collection (index.md, bloques.md, actividades.md, presentaciones.md, etc.)
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: "_sessions" # Applies to all session documents
+      type: "sessions"
+    values:
+      layout: "session" # Using the new 'session.html' layout
+
+# Metadata for Blocks (crucial for dynamic listing and sorting)
 blocks_metadata:
   inteligencia:
     title: "Inteligencia desde las perspectivas evolutiva, cognitiva, y computacional"
     description: "La inteligencia se analiza desde tres ejes fundamentales..."
     icon: "🧠"
+    order: 1 # <--- ADDED: Required for sorting in index.md/bloques.md
   infraestructura:
     title: "La Inteligencia Artificial y su infraestructura"
     description: "En esencia, la IA moderna 'aprende' mediante redes neuronales..."
     icon: "🌐"
+    order: 2 # <--- ADDED: Required for sorting
   impacto:
     title: "El impacto socioeconómico de la Inteligencia Artificial"
     description: "La IA contemporánea plantea paradojas sistémicas..."
     icon: "⚖️"
+    order: 3 # <--- ADDED: Required for sorting
   percepcion:
     title: "La percepción sociocultural de la Inteligencia Artificial (IA) y sus tendencias futuras"
     description: "El análisis de películas, literatura y marketing tecnológico revela..."
     icon: "🎭"
+    order: 4 # <--- ADDED: Required for sorting
 
-# Metadata de Sesiones (para usar en layouts o includes)
+# Metadata for Sessions (useful for display, but session files are primary data source)
 session_metadata:
   inteligencia:
     intro:
