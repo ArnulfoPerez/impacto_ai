@@ -1,7 +1,7 @@
 ---
 block: percepcion
 slug: cierre
-title: El impacto socioeconómico de la IA
+title: "El impacto socioeconómico de la IA"
 order: 8
 ---
 
