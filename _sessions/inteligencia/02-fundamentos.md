@@ -1,7 +1,7 @@
 ---
 block: inteligencia
 slug: fundamentos
-title: Fundamentos conceptuales e historia de la inteligencia artificial (IA)
+title: "Fundamentos conceptuales e historia de la inteligencia artificial (IA)"
 order: 2
 ---
 
