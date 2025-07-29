@@ -62,12 +62,6 @@ collections:
     output: true
     permalink: /:block/:slug/ # This still requires 'block' in session front matter
 
-# Custom collections
-collections:
-  sessions:
-    output: true
-    permalink: /:block/:slug/ # This still requires 'block' in session front matter
-
 # Default layouts and permalinks
 defaults:
   - scope:
