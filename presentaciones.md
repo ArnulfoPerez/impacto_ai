@@ -29,6 +29,8 @@ Esta sección presenta las presentaciones de forma simple, numeradas secuencialm
 
 ---
 
+---
+
 
 # 💻 Presentaciones del Curso
 
@@ -47,8 +49,9 @@ _Aquí encontrarás todas las presentaciones utilizadas en cada sesión del curs
       <p class="block-description">{{ block_data.description }}</p>
       
       <ul class="session-list">
-        {% assign sessions_in_block = site.session_metadata[block[0]] | sort: "order" %}
-        {% for session in sessions_in_block %}
+        {% assign sessions_in_block = site.session_metadata[block[0]] %}
+        {% for session_data in sessions_in_block %}
+          {% assign session = session_data[1] %}
           {% assign session_number_padded = session.order | prepend: "00" | slice: -2, 2 %}
           <li class="session-item">
             <div class="session-header">
