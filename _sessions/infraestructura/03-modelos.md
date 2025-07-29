@@ -1,7 +1,7 @@
 ---
 block: infraestructura
 slug: modelos
-title: Modelos, datos y entrenamiento
+title: "Modelos, datos y entrenamiento"
 order: 3
 ---
 
