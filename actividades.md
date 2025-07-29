@@ -18,7 +18,7 @@ Esta sección presenta las presentaciones de forma simple, numeradas secuencialm
   {% for i in (1..8) %}
     {% assign session_num = i | prepend: '00' | slice: -2, 2 %}
     <li>
-      <li><a href="{{ site.baseurl }}/assets/activities/Actividad_S{{ session_num }}.pdf" target="_blank">Actividad de la sesión {{ i }}</a></li>
+      <a href="{{ site.baseurl }}/assets/activities/Actividad_S{{ session_num }}.pdf" target="_blank">Actividad de la sesión {{ i }}</a>
     </li>
   {% endfor %}
 </ul>
