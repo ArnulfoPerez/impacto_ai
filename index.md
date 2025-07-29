@@ -2,7 +2,7 @@
 layout: default
 title: Inicio
 ---
-
+ 
 <main class="home">
     <section class="course-intro">
         <h1>Bienvenido al Curso: {{ site.title }}</h1>
