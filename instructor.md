@@ -3,7 +3,7 @@ layout: default
 title: Sobre el Instructor
 permalink: /instructor/ # Asegura que la URL sea /instructor/
 ---
-
+ 
 <section class="instructor-page-intro">
     <h1>{{ page.title }}</h1>
     <p class="lead">Conoce al experto que te guiará a través de este fascinante curso.</p>
