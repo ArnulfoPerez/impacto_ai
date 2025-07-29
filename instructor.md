@@ -12,7 +12,7 @@ permalink: /instructor/ # Asegura que la URL sea /instructor/
 <section class="instructor-details">
     {# Incluimos la tarjeta del instructor que ya hemos definido #}
     {% include instructor_card.html %}
-
+ 
     <div class="instructor-bio">
         <p>Desde siempre me ha fascinado la mente humana; entender cómo funciona y como se pudiera emular. Mi niñez coincidió con el desarrollo de la Cibernética por Norbert Wiener y el mexicano Arturo Rosenblueth. Digamos la época romántica de la Inteligencia Artificial. La Cibernética estudia sistemas que mantienen un estado homeostático, persiguen objetivos y se adaptan a su entorno. En los años 60, Marvin Minsky-junto con Seymour Papert jugó un papel crucial en definir los límites y posibilidades de la inteligencia artificial temprana, especialmente a través de su análisis del perceptrón. El perceptrón, propuesto inicialmente por Frank Rosenblatt, era un modelo de red neuronal simple que prometía emular ciertas capacidades cognitivas humanas, como el reconocimiento visual. En ese momento, las expectativas eran altísimas: se pensaba que las máquinas podrían aprender a ver, razonar y actuar como humanos en cuestión de décadas. Esta visión ha guiado mi formación, donde he buscado entender como intervenir en sistemas complejos tecnológicos, sociales y humanos desde una perspectiva estructurada y sistémica.</p>
 
