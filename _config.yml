@@ -56,31 +56,40 @@ instructor:
   institution: "Zintegra"
 
 # Colecciones personalizadas
+# Only 'sessions' is a collection
 collections:
-  blocks:
-    output: true
-    permalink: /:slug/ # URL para los bloques: /inteligencia/
   sessions:
     output: true
-    permalink: /:block_slug/:slug/ # URL para las sesiones: /inteligencia/intro/
-  lecturas: # Tu colección lecturas que ya tenías
-    output: true
-    permalink: /lecturas/:slug/
+    permalink: /:block/:slug/ # This still requires 'block' in session front matter
 
-# Defaults para layouts de colecciones
+# Default layouts
 defaults:
   - scope:
-      path: "_blocks"
-      type: "blocks"
+      path: ""
+      type: "pages" # Applies to regular pages like index.md, about.md, and now your block overview pages, actividades.md, presentaciones.md
     values:
       layout: "default"
-      toc: true # Activar la Tabla de Contenidos para bloques (si tu layout de bloque la soporta)
   - scope:
-      path: "_sessions" # CORRECTO: Todas las sesiones deben estar en el directorio raíz _sessions
+      path: "_sessions"
       type: "sessions"
     values:
-      layout: "session"
-      toc: true # Activar la Tabla de Contenidos para sesiones (si tu layout de sesión la soporta)
+      layout: "session" 
+
+# Site metadata (make sure these are correct)
+title: Impacto AI
+email: your-email@example.com
+description: >-
+  Un curso sobre el impacto social y económico de la Inteligencia Artificial.
+baseurl: "/impacto_ai" # the subpath of your site, e.g. /blog
+url: "https://arnulfoperez.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+repository: "ArnulfoPerez/impacto_ai"
+
+# Theme and Plugins
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+# Add any other plugins you might be using
 
 # Curso y objetivos generales
 course:
