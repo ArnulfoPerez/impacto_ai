@@ -10,12 +10,11 @@ _Aquí puedes encontrar todas las sesiones del curso, organizadas por bloque tem
 
 ---
 
-{% comment %} Sort blocks_metadata by the 'order' property {% endcomment %}
-{% assign ordered_blocks = site.blocks_metadata | sort: "1.order" %}
+{% comment %} Convert blocks_metadata hash to an array of values and sort by 'order' {% endcomment %}
+{% assign ordered_blocks = site.blocks_metadata | values | sort: "order" %} {# <-- FIX HERE! #}
 
-{% for block_slug_pair in ordered_blocks %}
-  {% assign block_slug = block_slug_pair[0] %}
-  {% assign block_data = block_slug_pair[1] %}
+{% for block_data in ordered_blocks %} {# <-- Iterate directly over block_data now #}
+  {% assign block_slug = block_data.slug | default: block_data.title | slugify %} {# Fallback if slug isn't explicitly in metadata #}
 
   <div class="block-section">
     <h2>{{ block_data.icon }} {{ block_data.title }}</h2>
