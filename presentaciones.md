@@ -38,31 +38,39 @@ _Aquí encontrarás todas las presentaciones utilizadas en cada sesión del curs
 
 ---
 
-## 1. Listado Secuencial de Presentaciones
+## 1. Listado Secuencial de Presentaciones (1 a 8)
 
-Esta sección presenta las presentaciones de forma simple, numeradas secuencialmente.
+Esta sección presenta las presentaciones de forma simple, numeradas secuencialmente. Son ideales si el usuario ya sabe qué presentación busca por su número de sesión.
+
+{% comment %}
+  Create a lookup hash for sessions by their 'order' number from session_metadata in _config.yml.
+  This allows us to access session details directly using the loop variable 'i'.
+{% endcomment %}
+{% assign session_lookup_by_order = {} %}
+{% for block_key in site.session_metadata %} {# Iterate through each block (e.g., 'inteligencia') #}
+  {% for session_key_value in block_key[1] %} {# Iterate through sessions within that block (e.g., 'intro': {data}) #}
+    {% assign session_data_hash = session_key_value[1] %} {# Extract the actual session data hash #}
+    {% assign current_order = session_data_hash.order | to_string %} {# Convert order to string for hash key #}
+    {% assign session_lookup_by_order = session_lookup_by_order | merge: {current_order: session_data_hash} %}
+  {% endfor %}
+{% endfor %}
+
 
 <ul class="activity-list">
-  {% comment %}
-    Correctly extract all individual session hashes from site.session_metadata
-    and then sort them by their 'order' property.
-  {% endcomment %}
-  {% assign all_session_data = "" | split: "," %} {# Initialize an empty array #}
-  {% for block_key in site.session_metadata %} {# Iterate through each block (e.g., 'inteligencia') #}
-    {% for session_key_value in block_key[1] %} {# Iterate through sessions within that block (e.g., 'intro': {data}) #}
-      {% assign session_data_hash = session_key_value[1] %} {# Extract the actual session data hash #}
-      {% assign all_session_data = all_session_data | push: session_data_hash %} {# Add it to our array #}
-    {% endfor %}
-  {% endfor %}
-  {% assign sorted_session_data = all_session_data | sort: 'order' %}
-
-  {% for session_entry in sorted_session_data %}
-    {% assign session_number_padded = session_entry.order | prepend: "0" | slice: -2, 2 %}
+  {% for i in (1..8) %}
+    {% assign session_number_string = i | to_string %}
+    {% assign current_session = session_lookup_by_order[session_number_string] %}
+    {% assign session_number_padded = i | prepend: "0" | slice: -2, 2 %} {# This uses the loop variable 'i' for padding #}
     <li>
       <a href="{{ '/assets/presentations/' | relative_url }}sesion_S{{ session_number_padded }}.pptx"
          target="_blank"
          class="activity-link">
-        Presentación Sesión {{ session_entry.order }}: {{ session_entry.title }}
+        Presentación Sesión {{ i }}
+        {% if current_session.title %}
+          : {{ current_session.title }}
+        {% else %}
+          (Título no disponible)
+        {% endif %}
       </a>
     </li>
   {% endfor %}
@@ -72,7 +80,7 @@ Esta sección presenta las presentaciones de forma simple, numeradas secuencialm
 
 ## 2. Listado por Bloques y Sesiones
 
-Aquí encontrarás las presentaciones organizadas por bloque temático, utilizando la metadata de configuración.
+Aquí encontrarás las presentaciones organizadas por bloque temático, utilizando la metadata de configuración. This section did not have the error, so it remains largely the same, but with slight cleanup.
 
 <div class="presentations-container">
   {% assign blocks_ordered = site.blocks_metadata | sort: "order" %}
@@ -85,11 +93,7 @@ Aquí encontrarás las presentaciones organizadas por bloque temático, utilizan
       <p class="block-description">{{ block_data.description }}</p>
       
       <ul class="session-list">
-        {% comment %}
-          Sort the sessions directly within the current block of session_metadata.
-          This works because session_metadata[block_slug] is a hash, and 'sort' on a hash
-          iterates key-value pairs. session_data_entry[1] then gives the actual session data.
-        {% endcomment %}
+        {# Sort the sessions directly within the current block of session_metadata. #}
         {% assign sessions_in_config_block = site.session_metadata[block_slug] | sort %}
         
         {% for session_data_entry in sessions_in_config_block %}
