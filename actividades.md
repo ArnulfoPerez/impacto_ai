@@ -6,7 +6,7 @@ permalink: /actividades/
 
 # ✍️ Actividades del Curso
 
-_Aquí encontrarás todas las actividades prácticas y ejercicios propuestos para cada sesión del curso. Las hemos organizado de dos maneras para facilitar su acceso._
+_Aquí encontrarás todas las actividades prácticas y ejercicios propuestos para cada sesión del curso. Hemos organizado las actividades de dos maneras para facilitar su acceso._
 
 ---
 
@@ -39,7 +39,8 @@ Esta sección presenta las actividades de forma simple, numeradas secuencialment
 <ul>
 {% for i in (1..max_session_order) %}
     {% assign session_number_padded = i | prepend: "0" | slice: -2, 2 %}
-    <li><a href="/assets/activities/Actividad_S{{ session_number_padded }}.pdf" target="_blank">Actividad de la sesión {{ i }}</a></li>
+    {% comment %} Corrected link generation for baseurl compatibility {% endcomment %}
+    <li><a href="{{ site.baseurl }}/assets/activities/Actividad_S{{ session_number_padded }}.pdf" target="_blank">Actividad de la sesión {{ i }}</a></li>
 {% endfor %}
 </ul>
 
@@ -63,7 +64,8 @@ Esta sección organiza las actividades en función de los bloques y sesiones del
             <a href="{{ session.url | relative_url }}">**{{ session.title }}**</a>
             <ul>
                 {% assign session_number_padded = session.order | prepend: "0" | slice: -2, 2 %}
-                <li><a href="/assets/activities/Actividad_S{{ session_number_padded }}.pdf" target="_blank">Actividad de la sesión {{ session.order }}</a></li>
+                {% comment %} Corrected link generation for baseurl compatibility {% endcomment %}
+                <li><a href="{{ site.baseurl }}/assets/activities/Actividad_S{{ session_number_padded }}.pdf" target="_blank">Actividad de la sesión {{ session.order }}</a></li>
             </ul>
         </li>
     {% endif %}
