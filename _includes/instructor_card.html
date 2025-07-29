@@ -1,0 +1,18 @@
+<div class="instructor-profile">
+    <h3>{{ site.instructor.name }}</h3>
+    <p class="position">{{ site.instructor.position }}</p>
+    <p class="institution">{{ site.instructor.institution }}</p>
+
+    <div class="contact-links">
+        {% if site.instructor.email %}
+        <a href="mailto:{{ site.instructor.email }}" class="email-link">
+            <i class="icon-mail"></i> Contactar
+        </a>
+        {% endif %}
+        {% if site.instructor.linkedin %}
+        <a href="{{ site.instructor.linkedin }}" target="_blank" rel="noopener noreferrer" class="linkedin-link">
+            <i class="icon-linkedin"></i> LinkedIn
+        </a>
+        {% endif %}
+    </div>
+</div>
