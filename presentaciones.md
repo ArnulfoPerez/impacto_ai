@@ -39,8 +39,7 @@ Esta sección presenta las presentaciones de forma simple, numeradas secuencialm
 <ul>
 {% for i in (1..max_session_order) %}
     {% assign session_number_padded = i | prepend: "0" | slice: -2, 2 %}
-    {% comment %} Corrected link generation for baseurl compatibility {% endcomment %}
-    <li><a href="{{ site.baseurl }}/assets/presentations/Sesion_S{{ session_number_padded }}.pptx" target="_blank">Presentación de la sesión {{ i }}</a></li>
+    <li><a href="{{ site.baseurl }}/assets/presentations/sesion_S{{ session_number_padded }}.pptx" target="_blank">Presentación de la sesión {{ i }}</a></li>
 {% endfor %}
 </ul>
 
@@ -64,8 +63,7 @@ Esta sección organiza las presentaciones en función de los bloques y sesiones 
             <a href="{{ session.url | relative_url }}">**{{ session.title }}**</a>
             <ul>
                 {% assign session_number_padded = session.order | prepend: "0" | slice: -2, 2 %}
-                {% comment %} Corrected link generation for baseurl compatibility {% endcomment %}
-                <li><a href="{{ site.baseurl }}/assets/presentations/Sesion_S{{ session_number_padded }}.pptx" target="_blank">Presentación de la sesión {{ session.order }}</a></li>
+                <li><a href="{{ site.baseurl }}/assets/presentations/sesion_S{{ session_number_padded }}.pptx" target="_blank">Presentación de la sesión {{ session.order }}</a></li>
             </ul>
         </li>
     {% endif %}
