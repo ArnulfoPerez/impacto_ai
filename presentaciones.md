@@ -10,9 +10,27 @@ _Aquí encontrarás todas las presentaciones utilizadas en cada sesión del curs
 
 ---
 
-{% comment %} Obtener el número máximo de sesiones para el bucle {% endcomment %}
+{% comment %} Obtener el número máximo de sesiones para el bucle.
+   Si no se encuentran sesiones o sus órdenes, se usará 8 como valor predeterminado.
+{% endcomment %}
 {% assign all_session_orders = site.sessions | map: "order" %}
-{% assign max_session_order = all_session_orders | max %}
+
+{% comment %} Filtrar valores nulos o vacíos antes de encontrar el máximo {% endcomment %}
+{% assign valid_session_orders = "" | split: "," %}
+{% for order_val in all_session_orders %}
+  {% if order_val != null and order_val != "" %}
+    {% assign valid_session_orders = valid_session_orders | push: order_val %}
+  {% endif %}
+{% endfor %}
+
+{% assign max_session_order = 8 %} {# Valor predeterminado a 8 #}
+{% if valid_session_orders.size > 0 %}
+  {% assign calculated_max = valid_session_orders | max %}
+  {% if calculated_max > max_session_order %}
+    {% assign max_session_order = calculated_max %} {# Usar el máximo calculado si es mayor que 8 #}
+  {% endif %}
+{% endif %}
+
 
 ## 1. Listado Secuencial de Presentaciones (1 a {{ max_session_order }})
 
@@ -39,8 +57,8 @@ Esta sección organiza las presentaciones en función de los bloques y sesiones 
 
 <ul>
     {% for session in block.items %}
-    {% comment %} Mostramos presentaciones solo para las sesiones hasta el número máximo encontrado {% endcomment %}
-    {% if session.order <= max_session_order %}
+    {% comment %} Mostramos presentaciones solo para las sesiones hasta el número máximo dinámico o 8 {% endcomment %}
+    {% if session.order != null and session.order != "" and session.order <= max_session_order %}
         <li>
             <a href="{{ session.url | relative_url }}">**{{ session.title }}**</a>
             <ul>
