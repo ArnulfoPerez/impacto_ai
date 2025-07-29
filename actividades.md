@@ -23,7 +23,7 @@ _Aquí encontrarás todas las actividades prácticas y ejercicios propuestos par
   {% endif %}
 {% endfor %}
 
-{% assign max_session_order = 8 %} {# Valor predeterminado a 8 #}
+{% assign max_session_order = 8 %} 
 {% if valid_session_orders.size > 0 %}
   {% assign calculated_max = valid_session_orders | max %}
   {% if calculated_max > max_session_order %}
