@@ -1,7 +1,7 @@
 ---
 block: infraestructura
 slug: infraestructura
-title: Infraestructura de IA
+title: "Infraestructura de IA"
 order: 4
 ---
 
