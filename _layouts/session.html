@@ -21,23 +21,29 @@ layout: default
 <div class="session-resources">
   <h2>Materiales de la Sesión</h2>
 
-  {% comment %} Activities section (dynamic based on naming convention) {% endcomment %}
+  {% comment %} Activities section {% endcomment %}
   {% assign activity_pdf_name = "Actividad_S" | append: page.order | append: ".pdf" %}
-  {% assign activity_url = site.baseurl | append: "/assets/docs/" | append: activity_pdf_name %}
-  {% assign activity_exists = site.static_files | where: "relative_path", "/assets/docs/" | append: activity_pdf_name %}
+  {% assign activity_path = "/assets/docs/" | append: activity_pdf_name %}
+  {% assign activity_url = activity_path | relative_url %}
+  
+  {% for file in site.static_files %}
+    {% if file.path == activity_path %}
+      <p><strong>Actividad:</strong> <a href="{{ activity_url }}" target="_blank">Actividad Sesión {{ page.order }}</a></p>
+      {% break %}
+    {% endif %}
+  {% endfor %}
 
-  {% if activity_exists.size > 0 %}
-    <p><strong>Actividad:</strong> <a href="{{ activity_url }}" target="_blank">Actividad Sesión {{ page.order }}</a></p>
-  {% endif %}
-
-  {% comment %} Presentations section (dynamic based on naming convention) {% endcomment %}
+  {% comment %} Presentations section {% endcomment %}
   {% assign presentation_pptx_name = "sesion_s" | append: page.order | append: ".pptx" %}
-  {% assign presentation_url = site.baseurl | append: "/assets/slides/" | append: presentation_pptx_name %}
-  {% assign presentation_exists = site.static_files | where: "relative_path", "/assets/slides/" | append: presentation_pptx_name %}
-
-  {% if presentation_exists.size > 0 %}
-    <p><strong>Presentación:</strong> <a href="{{ presentation_url }}" target="_blank">Presentación Sesión {{ page.order }}</a></p>
-  {% endif %}
+  {% assign presentation_path = "/assets/slides/" | append: presentation_pptx_name %}
+  {% assign presentation_url = presentation_path | relative_url %}
+  
+  {% for file in site.static_files %}
+    {% if file.path == presentation_path %}
+      <p><strong>Presentación:</strong> <a href="{{ presentation_url }}" target="_blank">Presentación Sesión {{ page.order }}</a></p>
+      {% break %}
+    {% endif %}
+  {% endfor %}
 
   {% if page.external_links %}
     <h4>Enlaces Adicionales:</h4>
