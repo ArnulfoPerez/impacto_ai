@@ -19,14 +19,15 @@ permalink: /sesiones/
     </ul>
   </section>
 
-  {% assign sorted_blocks = site.data.blocks_metadata | sort: "order" %}
+  {# CORRECTED LINE BELOW #}
+  {% assign sorted_blocks = site.blocks_metadata | sort: "order" %}
 
   {% for block in sorted_blocks %}
     <section class="session-block">
       <h2 class="block-title">{{ block.icon }} {{ block.title }}</h2>
       <p class="block-description">{{ block.description }}</p>
       <div class="block-sessions-grid">
-        {% assign block_sessions = block.sessions | sort %} {# Assuming 'sessions' in blocks_metadata holds numbers #}
+        {% assign block_sessions = block.sessions | sort %}
         {% for session_order in block_sessions %}
           {% assign current_session = site.sessions | where: "order", session_order | first %}
           {% if current_session %}
@@ -39,7 +40,7 @@ permalink: /sesiones/
               <p>{{ current_session.description }}</p>
               <ul class="session-objectives-list">
                 {% if current_session.obj %}
-                  {% for obj in current_session.obj limit: 3 %} {# Show first 3 objectives #}
+                  {% for obj in current_session.obj limit: 3 %}
                     <li>{{ obj }}</li>
                   {% endfor %}
                   {% if current_session.obj.size > 3 %}
@@ -47,7 +48,7 @@ permalink: /sesiones/
                   {% endif %}
                 {% endif %}
               </ul>
-              <a href="{{ current_session.url | relative_url }}" class="button button-secondary">Ver Sesión &rarr;</a>
+              <a href="{{ current_session.url | relative_url }}" class="button button-secondary">Ver Sesión →</a>
             </div>
           {% endif %}
         {% endfor %}
