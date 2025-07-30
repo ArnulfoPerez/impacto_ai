@@ -16,61 +16,6 @@ permalink: /
   {% endfor %}
 </ul>
 
-## 📚 Bloques Temáticos
-
-<div class="blocks-container">
-  {% assign sorted_blocks = site.blocks_metadata | sort_by: "order" %}
-  {% for block in site.blocks_metadata %}
-    {% assign block_data = block[1] %}
-    <div class="block-card">
-      <h3>{{ block_data.icon }} {{ block_data.title }}</h3>
-      <p>{{ block_data.description }}</p>
-      <div class="sessions-list">
-        <h4>Sesiones:</h4>
-        <ul>
-          {% assign sessions = site.session_metadata[block[0]] %}
-          {% for session in sessions %}
-            <li>
-              <strong>{{ session[1].title }}</strong>:
-              {{ session[1].description }}
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  {% endfor %}
-</div>
-
-## 🔗 Navegación Rápida
-<ul class="quick-links">
-  {% for item in site.navigation %}
-    <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
-  {% endfor %}
-</ul>
-
-# Curso: {{ site.title }}
-
-<p>{{ site.description }}</p>
-
-## Objetivos Generales del Curso:
-<ul>
-{% for objective in site.course.objectives %}
-    <li>{{ objective }}</li>
-{% endfor %}
-</ul>
-
-## Bloques Temáticos
-
-{% include block_toc.html %} {# Incluye el TOC principal de bloques y sesiones #}
-
-
-## Instructor
-### {{ site.instructor.name }}
-{{ site.instructor.position }} en {{ site.instructor.institution }}
-[Contacto]({{ site.instructor.email | prepend: "mailto:" }}) | [LinkedIn]({{ site.instructor.linkedin }})
-
-# Descripción General del Curso "{{ site.title }}"
-
 Este curso está diseñado para proporcionar una comprensión accesible, crítica y culturalmente enriquecida de la Inteligencia Artificial (IA). A lo largo de 8 sesiones de una hora cada una (organizadas en 4 bloques temáticos de 2 horas), los participantes explorarán los fundamentos conceptuales de la IA y sus implicaciones sociales, éticas, laborales y culturales. 
 
 El programa busca desmitificar la IA, ofrecer una visión equilibrada y práctica. Este curso está dirigido a personas sin formación técnica previa en programación, matemáticas avanzadas o ingeniería de software, pero con un interés genuino en comprender la IA desde una perspectiva conceptual, social y estratégica. 
