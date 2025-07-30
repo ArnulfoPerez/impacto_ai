@@ -3,22 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }} | {{ site.title }}</title> 
+    <title>{{ page.title }} | {{ site.title }}</title>
+
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
 
+    {# MathJax can stay here for early processing, or be deferred if FOUC is acceptable #}
     <script id="MathJax-script" async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
 
-    <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-
-    <script type="module">
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-      mermaid.initialize({ startOnLoad: true });
-    </script>
+    {# Highlight.js and Mermaid.js CSS are fine in head to prevent FOUC for their styles #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
 </head>
 <body>
     <header>
@@ -30,8 +25,21 @@
     </main>
 
     <footer>
+        {# The instructor_card.html now contains the .instructor-section wrapper #}
         {% include instructor_card.html %}
         {% include footer.html %}
     </footer>
+
+    {# Load JavaScripts at the end of the body for better performance #}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+
+    {# Include the TOC script here to ensure main content is loaded #}
+    {% include toc_script.html %}
 </body>
 </html>
