@@ -85,6 +85,56 @@ Diseño participativo de escenarios futuros. ¿Qué IA queremos construir? ¿Qu�
 
 ---
 
+<div class="sessions-list-container">
+  <header class="sessions-list-header">
+    <h1>Sesiones del Curso: {{ site.title }}</h1>
+    <p class="subtitle" style="color: blue;">Explora cada una de las sesiones de este curso.</p>
+  </header>
+
+  <section class="course-objectives-summary">
+    <h2>Objetivos Generales del Curso</h2>
+    <ul>
+      {% for obj in site.course.objectives %}
+        <li>{{ obj }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  {# Sort blocks_metadata directly as it's a list of hashes #}
+  {% assign sorted_blocks = site.blocks_metadata | sort_by: "order" %}
+
+  {% for block in sorted_blocks %} {# Iterate through the sorted list of blocks #}
+    <section class="session-block">
+      {# Access properties directly: block.icon, block.title #}
+      <h2 class="block-title">{{ block.icon }} {{ block.title }}</h2>
+      {% if block.description %}
+        <p class="block-description">{{ block.description }}</p>
+      {% endif %}
+
+      <div class="block-sessions-grid">
+        <h4>Sesiones:</h4>
+        <ul>
+          {# block.sessions is a list of session ORDER numbers (e.g., [1,2]) #}
+          {% for session_order_number in block.sessions %}
+            {# Find the corresponding session data from site.session_metadata list #}
+            {% assign current_session_data = site.session_metadata | where: "order", session_order_number | first %}
+
+            {% if current_session_data %}
+              <li>
+                {# Access properties directly from current_session_data #}
+                <strong>Sesión {{ current_session_data.order }} – {{ current_session_data.title }}</strong>:
+                {{ current_session_data.description }}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+  {% endfor %}
+</div>
+
+---
+
 ## Metodología
 
 - **Clases sincrónicas por Zoom Business** (con herramientas como encuestas, salas paralelas y pizarras colaborativas)
