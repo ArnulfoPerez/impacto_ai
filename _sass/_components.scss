@@ -1,3 +1,5 @@
+// _sass/_components.scss
+
 // --- Navigation Component ---
 .nav {
     &__list {
@@ -102,6 +104,7 @@
 }
 
 // --- Session Layout and TOC (for original individual session pages, if still used) ---
+// These styles are for a specific session page layout, not the list pages.
 .session-container {
     display: grid;
     grid-template-columns: 1fr 250px;
@@ -143,10 +146,12 @@
 }
 
 // --- Specific Content Block & List Styles (for /presentaciones/ and /actividades/ pages) ---
+// Main container for content on /presentaciones/ and /actividades/
 .content-container {
     margin-top: 2rem;
 }
 
+// Section for each block (e.g., 'Inteligencia desde las perspectivas...')
 .block-section {
     margin-bottom: 3rem;
     padding: 1.5rem;
@@ -160,11 +165,13 @@
     margin-bottom: 1.5rem;
 }
 
+// List of sessions within a block
 .session-list {
     list-style: none;
     padding-left: 0;
 }
 
+// Individual session item within the list
 .session-item {
     margin-bottom: 1.5rem;
     padding: 1rem;
@@ -185,6 +192,7 @@
     color: $text-heading;
 }
 
+// Text description for individual sessions
 .session-description {
     color: $text-base;
     margin: 0.5rem 0;
@@ -196,6 +204,7 @@
     margin-bottom: 1rem;
 }
 
+// Styles for sequential activity list (the first list on the page)
 .activity-list {
     list-style: none;
     padding-left: 0;
@@ -206,6 +215,7 @@
     }
 }
 
+// --- Specific Link Styles for Presentations and Activities ---
 .presentation-link {
     display: inline-flex;
     align-items: center;
@@ -217,7 +227,7 @@
     border-radius: $border-radius;
     transition: background-color 0.2s;
 
-    &:hover {
+    &:hover { // Nested hover state for consistency
         background-color: darken($brand-primary, 10%);
     }
 }
@@ -227,13 +237,13 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background-color: #28a745;
+    background-color: #28a745; /* A distinct green for activities */
     color: $white;
     text-decoration: none;
     border-radius: $border-radius;
     transition: background-color 0.2s;
 
-    &:hover {
+    &:hover { // Nested hover state for consistency
         background-color: darken(#28a745, 10%);
     }
 }
@@ -308,18 +318,290 @@
 }
 
 .session-page-main-content-area {
-    display: flex;
-    gap: $spacing-unit * 2;
+    display: flex; /* Use flexbox for content and TOC side-by-side */
+    gap: $spacing-unit * 2; /* Space between TOC and content */
     margin-bottom: $spacing-unit * 3;
 
-    @media (max-width: 992px) {
-        flex-direction: column;
+    @media (max-width: 992px) { /* Adjust for smaller screens */
+        flex-direction: column; /* Stack TOC and content vertically */
         .session-page-toc {
-            order: 1;
+            order: 1; /* TOC above content on small screens */
             margin-bottom: $spacing-unit * 2;
         }
         .session-page-content {
             order: 2;
         }
+    }
+}
+
+.session-page-toc {
+    flex: 0 0 250px; /* Fixed width for TOC */
+    padding: $spacing-unit;
+    background-color: $bg-light;
+    border-radius: $border-radius;
+    position: sticky; /* Keep TOC visible while scrolling */
+    top: $spacing-unit; /* Distance from top of viewport */
+    align-self: flex-start; /* Align to the start of the flex container */
+    height: fit-content; /* Only take up necessary height */
+
+    h4 {
+        margin-top: 0;
+        margin-bottom: $spacing-unit;
+        color: $text-heading;
+    }
+    ul {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0; /* Remove default margin */
+    }
+    li {
+        margin-bottom: $spacing-unit / 4;
+        font-size: 0.95em;
+        a {
+            color: $text-base;
+            text-decoration: none;
+            &:hover {
+                color: $brand-primary;
+                text-decoration: underline;
+            }
+        }
+    }
+    .toc-level-3 { /* Style for H3 items in TOC */
+        padding-left: $spacing-unit; /* Indent sub-items */
+        font-size: 0.9em;
+    }
+    .toc-note { // Correctly nested within .session-page-toc
+        font-size: 0.8em;
+        color: $text-muted;
+        margin-top: $spacing-unit / 2;
+    }
+} // Correct closing brace for .session-page-toc
+
+.session-page-content {
+    flex-grow: 1; /* Allow content to take up remaining space */
+    line-height: 1.7; // Ensure basic content styles are there
+    color: $text-base; // Ensure basic content styles are there
+
+    p {
+        margin-bottom: $spacing-unit;
+    }
+    h2, h3, h4 { // Styles for headers within the content
+        color: $text-heading;
+        margin-top: $spacing-unit * 1.5;
+        margin-bottom: $spacing-unit;
+    }
+}
+
+.session-page-resources {
+    border-top: 1px solid $border-light;
+    padding-top: $spacing-unit * 2;
+
+    h3 {
+        color: $text-heading;
+        margin-bottom: $spacing-unit;
+    }
+
+    .session-page-links {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-unit;
+
+        li {
+            margin-bottom: 0;
+        }
+
+        .presentation-link,
+        .activity-link,
+        .session-additional-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: $border-radius;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .session-additional-link {
+            background-color: $bg-light;
+            color: $text-base;
+            border: 1px solid $border-light;
+
+            &:hover {
+                background-color: darken($bg-light, 5%);
+                color: $brand-primary;
+                border-color: $brand-primary;
+            }
+        }
+    }
+
+    .session-page-related-notes {
+        list-style: disc;
+        padding-left: 1.5em;
+        margin-top: $spacing-unit;
+
+        a {
+            color: $brand-secondary;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+// --- New Styles for Individual Note Pages (note.html layout) ---
+.note-page-container {
+    padding: $spacing-unit * 2;
+    background-color: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    margin-top: $spacing-unit * 2;
+}
+
+.note-page-header {
+    text-align: center;
+    margin-bottom: $spacing-unit * 2;
+
+    .note-page-title {
+        color: $text-heading;
+        margin-bottom: $spacing-unit / 2;
+    }
+
+    .note-page-author,
+    .note-page-date {
+        color: $text-muted;
+        font-size: 0.9em;
+    }
+}
+
+.note-section {
+    background-color: lighten($bg-light, 2%);
+    border-left: 4px solid $brand-primary;
+    padding: $spacing-unit;
+    border-radius: $border-radius-sm;
+    margin-bottom: $spacing-unit * 1.5;
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: $spacing-unit;
+        color: $brand-primary;
+    }
+
+    p, ul, ol { // Ensure general markdown content within sections is styled
+        margin-bottom: $spacing-unit / 2;
+        line-height: 1.6;
+        color: $text-base;
+    }
+    ul, ol {
+        padding-left: 1.5em;
+    }
+}
+
+.note-introduction { border-color: $brand-secondary; }
+.note-main-points { border-color: $success-color; }
+.note-conclusion { border-color: $info-color; }
+.note-references { border-color: $warning-color; }
+
+
+.note-page-tags {
+    border-top: 1px solid $border-light;
+    padding-top: $spacing-unit;
+    margin-top: $spacing-unit * 2;
+    text-align: center;
+
+    span {
+        font-weight: bold;
+        color: $text-secondary;
+        margin-right: 0.5em;
+    }
+
+    // This is the primary definition for .note-tag
+    .note-tag {
+        display: inline-block;
+        background-color: lighten($brand-primary, 50%);
+        color: $brand-primary;
+        padding: 0.2em 0.6em;
+        border-radius: $border-radius-sm;
+        font-size: 0.8em;
+        margin-right: 0.5em;
+        margin-bottom: 0.5em;
+    }
+}
+
+// --- Styles for Notes List Page (notas.md) ---
+.notes-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: $spacing-unit * 2;
+}
+
+.note-list-item {
+    background-color: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    margin-bottom: $spacing-unit * 2;
+    padding: $spacing-unit * 1.5;
+
+    h3 {
+        margin-top: 0;
+        margin-bottom: $spacing-unit / 2;
+        a {
+            color: $text-heading;
+            text-decoration: none;
+            &:hover {
+                color: $brand-primary;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .note-list-author,
+    .note-list-date {
+        font-size: 0.85em;
+        color: $text-muted;
+        margin-bottom: $spacing-unit;
+    }
+
+    .note-list-excerpt {
+        color: $text-base;
+        line-height: 1.6;
+        margin-bottom: $spacing-unit;
+    }
+
+    .note-list-tags {
+        margin-top: $spacing-unit;
+        margin-bottom: $spacing-unit;
+        // The .note-tag class should be applied directly in HTML here,
+        // no need for an @extend or nested definition here.
+    }
+
+    .read-more-link {
+        display: inline-block;
+        margin-top: $spacing-unit / 2;
+        color: $brand-secondary;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+// --- Additional style for actions in session list on main pages ---
+.session-item-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-unit / 2;
+    margin-top: $spacing-unit; // Add some space above action links
+
+    .presentation-link,
+    .activity-link {
+        padding: 0.6em 1em; // Slightly smaller buttons for lists
+        font-size: 0.9em;
     }
 }
