@@ -66,7 +66,7 @@ La IA ya no es solo una herramienta tecnológica; es un fenómeno sociocultural 
         <ul>
           
           {% for session_order_number in block.sessions %}
-            {# Find the corresponding session data from site.session_metadata list #}
+           
             {% assign current_session_data = site.session_metadata | where: "order", session_order_number | first %}
 
             {% if current_session_data %}
