@@ -47,6 +47,27 @@ permalink: /sesiones/
                   {% endif %}
                 {% endif %}
               </ul>
+
+<h3>Recursos de la Sesión</h3>
+    <ul class="session-page-links">
+      {% assign session_number_padded = session_order | prepend: "00" | slice: -2, 2 %}
+      <li>
+        <a href="{{ '/assets/presentations/' | relative_url }}sesion_S{{ session_number_padded }}.pptx"
+           target="_blank"
+           class="presentation-link">
+          Descargar Presentación <span class="icon">↓</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/assets/activities/' | relative_url }}Actividad_S{{ session_number_padded }}.pdf"
+           target="_blank"
+           class="activity-link">
+          Descargar Actividad <span class="icon">↓</span>
+        </a>
+      </li>
+      
+    </ul>
+              
               <a href="{{ current_session.url | relative_url }}" class="button button-secondary">Ver Sesión →</a>
             </div>
           {% endif %}
