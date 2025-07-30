@@ -1,33 +1,44 @@
 // _sass/_variables.scss
 
-// Brand Colors (Basadas en tus valores)
-$brand-primary: #3498db;        // El azul claro que definiste como principal
-$brand-dark: #2c3e50;           // El azul oscuro de GitHub, útil para fondos o texto fuerte
-$brand-light: lighten($brand-primary, 40%); // Un tono más claro del primario
+// --- Brand Colors ---
+$brand-primary: #3498db;          // Your main brand blue (e.g., for links, buttons)
+$brand-secondary: #6c757d;        // A muted gray for secondary elements (used in session layout)
+$brand-dark: #2c3e50;             // A dark blue, good for headers or strong text
+$brand-light: lighten($brand-primary, 40%); // A lighter tint of your primary blue
 
-// Text Colors
-$text-base: #333;               // Color general para el texto del cuerpo
-$text-heading: $brand-dark;     // Color para los títulos (usando el azul oscuro de marca)
-$text-muted: #7f8c8d;           // Color para texto secundario o atenuado
-$text-secondary: #555;   // Color de texto secundario/más claro
+// --- Semantic Colors ---
+$success-color: #28a745;          // Green for success/positive (used in note layout)
+$info-color: #17a2b8;             // Cyan/light blue for info (used in note layout)
+$warning-color: #ffc107;          // Yellow/orange for warning (used in note layout)
+$danger-color: #dc3545;           // Red for danger/error (good to have for future use)
 
-// Neutral Colors
+// --- Text Colors ---
+$text-base: #333;                 // Standard body text
+$text-heading: $brand-dark;       // Color for headings (using your dark brand color)
+$text-secondary: #555;            // Slightly lighter text for secondary info
+$text-muted: #888;                // Muted text for subtle elements (more general than #7f8c8d)
+
+// --- Background Colors ---
 $white: #ffffff;
-$bg-light: #f5f5f5;             // Color de fondo general (más claro)
-$border-light: #eaeaea;         // Color para bordes y fondos de elementos ligeros
+$bg-light: #f8f9fa;               // A very light grey background (using the slightly lighter value from the second block)
 
-// Component Specifics (Derivados de los colores de marca/neutros)
-$header-bg: $brand-dark;        // Fondo del encabezado (usando el azul oscuro de marca)
-$header-text: $white;           // Color del texto del encabezado
-$nav-link-color: $brand-light;  // Color de los enlaces de navegación (usando el tono claro de marca)
-$footer-bg: $border-light;      // Fondo del pie de página (usando el color de borde/fondo claro)
-$footer-text: $text-muted;      // Texto del pie de página
+// --- Border Colors ---
+$border-light: #dee2e6;           // Light border for separators (using the slightly darker value from the second block)
 
-// Spacing & Layout
-$spacing-unit: 1em;
-$content-max-width: 960px; // Coincide con el valor en tu style.css
+// --- Spacing & Layout ---
+$spacing-unit: 16px;              // Base unit for spacing and padding (using px for consistency with CSS)
+$content-max-width: 960px;        // Max width for content areas
 
-// UI Elements
-$border-radius: 8px;
-$box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-$box-shadow-hover: 0 4px 8px rgba(0,0,0,0.15);
+// --- UI Elements ---
+$border-radius: 5px;             // Common border radius (using the smaller, more common value)
+$border-radius-sm: 3px;           // Smaller border radius for minor elements
+$box-shadow: 0 2px 5px rgba(0,0,0,0.1); // Standard shadow
+$box-shadow-hover: 0 4px 8px rgba(0,0,0,0.15); // Slightly larger shadow for hover effects
+
+// --- Navigation Specifics ---
+$nav-link-color: $text-heading;     // Using a clear dark color for nav links
+$nav-link-hover-color: $brand-primary; // Hover color for nav links
+$header-bg: $brand-dark;            // Background for site header
+$header-text: $white;               // Text color for site header
+$footer-bg: $bg-light;              // Background for site footer
+$footer-text: $text-muted;          // Text color for site footer
