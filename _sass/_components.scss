@@ -1,6 +1,6 @@
 // _sass/_components.scss
 
-// Navigation Component (from your existing _components.scss)
+// --- Navigation Component ---
 .nav {
     &__list {
         list-style: none;
@@ -20,7 +20,7 @@
     }
 }
 
-/* 🧩 Definición temática (from your existing _components.scss) */
+// --- Thematic Definition Component (🧩 Definición temática) ---
 .definicion {
     border: 2px solid #00cc66;       /* Borde verde */
     background-color: #e8ffe5;       /* Fondo verde claro */
@@ -30,7 +30,7 @@
     box-shadow: $box-shadow;         /* Usando variable */
 }
 
-/* ⚠️ Advertencia visual (from your existing _components.scss) */
+// --- Warning Component (⚠️ Advertencia visual) ---
 .advertencia {
     border: 2px solid #ff4d4d;       /* Borde rojo */
     background-color: #ffe5e5;       /* Fondo rojo claro */
@@ -40,7 +40,7 @@
     box-shadow: $box-shadow;         /* Opcional: añade sombra si quieres consistencia */
 }
 
-/* 💡 Ejemplo destacado (from your existing _components.scss) */
+// --- Highlighted Example Component (💡 Ejemplo destacado) ---
 .ejemplo {
     border: 2px solid #ffa500;       /* Borde naranja */
     background-color: #fff8e5;       /* Fondo amarillo claro */
@@ -50,7 +50,7 @@
     box-shadow: $box-shadow;         /* Opcional: añade sombra si quieres consistencia */
 }
 
-// Instructor Profile Component (from your existing _components.scss)
+// --- Instructor Profile Component ---
 .instructor-profile {
     @include card-base; // Reusing the mixin from _base.scss
     padding: $spacing-unit * 2;
@@ -95,7 +95,7 @@
     }
 }
 
-// Contact Info Component (from your existing _components.scss)
+// --- Contact Info Component ---
 .contact-info {
     background: $bg-light;
     padding: 1rem;
@@ -103,7 +103,7 @@
     margin: 1rem 0;
 }
 
-// Session Layout and TOC (from original _components.scss, likely for individual session pages)
+// --- Session Layout and TOC (for original individual session pages, if still used) ---
 // These styles are for a specific session page layout, not the list pages.
 .session-container {
     display: grid;
@@ -148,60 +148,60 @@
 // --- Specific Content Block & List Styles (for /presentaciones/ and /actividades/ pages) ---
 // Main container for content on /presentaciones/ and /actividades/
 .content-container {
-  margin-top: 2rem;
+    margin-top: 2rem;
 }
 
 // Section for each block (e.g., 'Inteligencia desde las perspectivas...')
 .block-section {
-  margin-bottom: 3rem;
-  padding: 1.5rem;
-  background-color: $white; /* Using your defined white variable */
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background-color: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
 }
 
 .block-description {
-  color: $text-secondary; /* Using your defined text-secondary variable */
-  margin-bottom: 1.5rem;
+    color: $text-secondary;
+    margin-bottom: 1.5rem;
 }
 
 // List of sessions within a block
 .session-list {
-  list-style: none;
-  padding-left: 0;
+    list-style: none;
+    padding-left: 0;
 }
 
 // Individual session item within the list
 .session-item {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: lighten($bg-light, 2%); /* Slightly lighter than general background */
-  border-radius: $border-radius;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Lighter shadow for inner items */
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: lighten($bg-light, 2%);
+    border-radius: $border-radius;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .session-header {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .session-order {
-  font-weight: bold;
-  color: $text-heading;
+    font-weight: bold;
+    color: $text-heading;
 }
 
 // Text description for individual sessions
 .session-description {
-  color: $text-base;
-  margin: 0.5rem 0;
+    color: $text-base;
+    margin: 0.5rem 0;
 }
 
 .session-objectives {
-  font-size: 0.9em;
-  color: $text-muted;
-  margin-bottom: 1rem;
+    font-size: 0.9em;
+    color: $text-muted;
+    margin-bottom: 1rem;
 }
 
 // Styles for sequential activity list (the first list on the page)
@@ -215,397 +215,155 @@
     }
 }
 
-/* Specific link styles for presentations and activities */
+// --- Specific Link Styles for Presentations and Activities ---
 .presentation-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: $brand-primary;
-  color: $white;
-  text-decoration: none;
-  border-radius: $border-radius;
-  transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: $brand-primary;
+    color: $white;
+    text-decoration: none;
+    border-radius: $border-radius;
+    transition: background-color 0.2s;
 }
 
 .presentation-link:hover {
-  background-color: darken($brand-primary, 10%);
+    background-color: darken($brand-primary, 10%);
 }
 
 .activity-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background-color: #28a745; /* A distinct green for activities */
-  color: $white;
-  text-decoration: none;
-  border-radius: $border-radius;
-  transition: background-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #28a745; /* A distinct green for activities */
+    color: $white;
+    text-decoration: none;
+    border-radius: $border-radius;
+    transition: background-color 0.2s;
 }
 
 .activity-link:hover {
-  background-color: darken(#28a745, 10%);
+    background-color: darken(#28a745, 10%);
 }
 
 .icon {
-  font-size: 0.9em;
+    font-size: 0.9em;
 }
-
-// _sass/_components.scss
-
-// ... (Your existing CSS code in _components.scss) ...
 
 // --- New Styles for Individual Session Pages (session.html layout) ---
 .session-page-container {
-  padding: $spacing-unit * 2;
-  background-color: $white;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
-  margin-top: $spacing-unit * 2;
+    padding: $spacing-unit * 2;
+    background-color: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    margin-top: $spacing-unit * 2;
 }
 
 .session-page-header {
-  text-align: center;
-  margin-bottom: $spacing-unit * 2;
+    text-align: center;
+    margin-bottom: $spacing-unit * 2;
 
-  .session-page-order {
-    display: block;
-    font-size: 1.1em;
-    font-weight: bold;
-    color: $brand-primary;
-    margin-bottom: $spacing-unit / 2;
-  }
-
-  .session-page-title {
-    color: $text-heading;
-    margin-bottom: $spacing-unit;
-  }
-
-  .session-page-objectives {
-    font-style: italic;
-    color: $text-muted;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.6;
-    span {
-      display: inline-block;
-      margin-right: 0.5em;
-      &:last-child {
-        margin-right: 0;
-      }
+    .session-page-order {
+        display: block;
+        font-size: 1.1em;
+        font-weight: bold;
+        color: $brand-primary;
+        margin-bottom: $spacing-unit / 2;
     }
-  }
+
+    .session-page-title {
+        color: $text-heading;
+        margin-bottom: $spacing-unit;
+    }
+
+    .session-page-objectives {
+        font-style: italic;
+        color: $text-muted;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        span {
+            display: inline-block;
+            margin-right: 0.5em;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
 }
 
 .session-course-objectives {
-  margin-top: $spacing-unit * 1.5;
-  padding: $spacing-unit;
-  background-color: lighten($bg-light, 2%);
-  border-left: 4px solid $brand-secondary;
-  border-radius: $border-radius-sm;
+    margin-top: $spacing-unit * 1.5;
+    padding: $spacing-unit;
+    background-color: lighten($bg-light, 2%);
+    border-left: 4px solid $brand-secondary;
+    border-radius: $border-radius-sm;
 
-  h4 {
-    margin-top: 0;
-    margin-bottom: $spacing-unit / 2;
-    color: $text-heading;
-  }
-  ul {
-    list-style: disc;
-    padding-left: 1.5em;
-    margin-bottom: 0;
-  }
-  li {
-    margin-bottom: $spacing-unit / 4;
-    color: $text-base;
-  }
+    h4 {
+        margin-top: 0;
+        margin-bottom: $spacing-unit / 2;
+        color: $text-heading;
+    }
+    ul {
+        list-style: disc;
+        padding-left: 1.5em;
+        margin-bottom: 0;
+    }
+    li {
+        margin-bottom: $spacing-unit / 4;
+        color: $text-base;
+    }
 }
 
 .session-page-main-content-area {
-  display: flex; /* Use flexbox for content and TOC side-by-side */
-  gap: $spacing-unit * 2; /* Space between TOC and content */
-  margin-bottom: $spacing-unit * 3;
+    display: flex; /* Use flexbox for content and TOC side-by-side */
+    gap: $spacing-unit * 2; /* Space between TOC and content */
+    margin-bottom: $spacing-unit * 3;
 
-  @media (max-width: 992px) { /* Adjust for smaller screens */
-    flex-direction: column; /* Stack TOC and content vertically */
-    .session-page-toc {
-      order: 1; /* TOC above content on small screens */
-      margin-bottom: $spacing-unit * 2;
+    @media (max-width: 992px) { /* Adjust for smaller screens */
+        flex-direction: column; /* Stack TOC and content vertically */
+        .session-page-toc {
+            order: 1; /* TOC above content on small screens */
+            margin-bottom: $spacing-unit * 2;
+        }
+        .session-page-content {
+            order: 2;
+        }
     }
-    .session-page-content {
-      order: 2;
-    }
-  }
 }
 
 .session-page-toc {
-  flex: 0 0 250px; /* Fixed width for TOC */
-  padding: $spacing-unit;
-  background-color: $bg-light;
-  border-radius: $border-radius;
-  position: sticky; /* Keep TOC visible while scrolling */
-  top: $spacing-unit; /* Distance from top of viewport */
-  align-self: flex-start; /* Align to the start of the flex container */
-  height: fit-content; /* Only take up necessary height */
+    flex: 0 0 250px; /* Fixed width for TOC */
+    padding: $spacing-unit;
+    background-color: $bg-light;
+    border-radius: $border-radius;
+    position: sticky; /* Keep TOC visible while scrolling */
+    top: $spacing-unit; /* Distance from top of viewport */
+    align-self: flex-start; /* Align to the start of the flex container */
+    height: fit-content; /* Only take up necessary height */
 
-  h4 {
-    margin-top: 0;
-    margin-bottom: $spacing-unit;
-    color: $text-heading;
-  }
-  ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 0; /* Remove default margin */
-  }
-  li {
-    margin-bottom: $spacing-unit / 4;
-    font-size: 0.95em;
-    a {
-      color: $text-base;
-      text-decoration: none;
-      &:hover {
-        color: $brand-primary;
-        text-decoration: underline;
-      }
+    h4 {
+        margin-top: 0;
+        margin-bottom: $spacing-unit;
+        color: $text-heading;
     }
-  }
-  .toc-level-3 { /* Style for H3 items in TOC */
-    padding-left: $spacing-unit; /* Indent sub-items */
-    font-size: 0.9em;
-  }
-  .toc-note {
-    font-size: 0.8em;
-    color: $text-muted;
-    margin-top: $spacing-unit / 2;
-  }
-}
-
-.session-page-content {
-  flex-grow: 1; /* Allow content to take up remaining space */
-  line-height: 1.7; // Ensure basic content styles are there
-  color: $text-base; // Ensure basic content styles are there
-
-  p {
-    margin-bottom: $spacing-unit;
-  }
-  h2, h3, h4 { // Styles for headers within the content
-    color: $text-heading;
-    margin-top: $spacing-unit * 1.5;
-    margin-bottom: $spacing-unit;
-  }
-}
-
-.session-page-resources {
-  border-top: 1px solid $border-light;
-  padding-top: $spacing-unit * 2;
-
-  h3 {
-    color: $text-heading;
-    margin-bottom: $spacing-unit;
-  }
-
-  .session-page-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: $spacing-unit;
-
+    ul {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0; /* Remove default margin */
+    }
     li {
-      margin-bottom: 0;
+        margin-bottom: $spacing-unit / 4;
+        font-size: 0.95em;
+        a {
+            color: $text-base;
+            text-decoration: none;
+            &:hover {
+                color: $brand-primary;
+                text-decoration: underline;
+            }
+        }
     }
-
-    .presentation-link,
-    .activity-link,
-    .session-additional-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.25rem;
-      border-radius: $border-radius;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.2s, color 0.2s;
-    }
-
-    .session-additional-link {
-      background-color: $bg-light;
-      color: $text-base;
-      border: 1px solid $border-light;
-
-      &:hover {
-        background-color: darken($bg-light, 5%);
-        color: $brand-primary;
-        border-color: $brand-primary;
-      }
-    }
-  }
-
-  .session-page-related-notes {
-    list-style: disc;
-    padding-left: 1.5em;
-    margin-top: $spacing-unit;
-
-    a {
-      color: $brand-secondary;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
-// --- New Styles for Individual Note Pages (note.html layout) ---
-.note-page-container {
-  padding: $spacing-unit * 2;
-  background-color: $white;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
-  margin-top: $spacing-unit * 2;
-}
-
-.note-page-header {
-  text-align: center;
-  margin-bottom: $spacing-unit * 2;
-
-  .note-page-title {
-    color: $text-heading;
-    margin-bottom: $spacing-unit / 2;
-  }
-
-  .note-page-author,
-  .note-page-date {
-    color: $text-muted;
-    font-size: 0.9em;
-  }
-}
-
-.note-section {
-  background-color: lighten($bg-light, 2%);
-  border-left: 4px solid $brand-primary;
-  padding: $spacing-unit;
-  border-radius: $border-radius-sm;
-  margin-bottom: $spacing-unit * 1.5;
-
-  h2 {
-    margin-top: 0;
-    margin-bottom: $spacing-unit;
-    color: $brand-primary;
-  }
-
-  p, ul, ol { // Ensure general markdown content within sections is styled
-    margin-bottom: $spacing-unit / 2;
-    line-height: 1.6;
-    color: $text-base;
-  }
-  ul, ol {
-    padding-left: 1.5em;
-  }
-}
-
-.note-introduction { border-color: $brand-secondary; }
-.note-main-points { border-color: $success-color; }
-.note-conclusion { border-color: $info-color; }
-.note-references { border-color: $warning-color; }
-
-
-.note-page-tags {
-  border-top: 1px solid $border-light;
-  padding-top: $spacing-unit;
-  margin-top: $spacing-unit * 2;
-  text-align: center;
-
-  span {
-    font-weight: bold;
-    color: $text-secondary;
-    margin-right: 0.5em;
-  }
-
-  .note-tag {
-    display: inline-block;
-    background-color: lighten($brand-primary, 50%);
-    color: $brand-primary;
-    padding: 0.2em 0.6em;
-    border-radius: $border-radius-sm;
-    font-size: 0.8em;
-    margin-right: 0.5em;
-    margin-bottom: 0.5em;
-  }
-}
-
-// --- Styles for Notes List Page (notas.md) ---
-.notes-list {
-  list-style: none;
-  padding-left: 0;
-  margin-top: $spacing-unit * 2;
-}
-
-.note-list-item {
-  background-color: $white;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
-  margin-bottom: $spacing-unit * 2;
-  padding: $spacing-unit * 1.5;
-
-  h3 {
-    margin-top: 0;
-    margin-bottom: $spacing-unit / 2;
-    a {
-      color: $text-heading;
-      text-decoration: none;
-      &:hover {
-        color: $brand-primary;
-        text-decoration: underline;
-      }
-    }
-  }
-
-  .note-list-author,
-  .note-list-date {
-    font-size: 0.85em;
-    color: $text-muted;
-    margin-bottom: $spacing-unit;
-  }
-
-  .note-list-excerpt {
-    color: $text-base;
-    line-height: 1.6;
-    margin-bottom: $spacing-unit;
-  }
-
-  .note-list-tags {
-    margin-top: $spacing-unit;
-    margin-bottom: $spacing-unit;
-    .note-tag {
-      @extend .note-page-tags .note-tag; // Reuse tag styling
-    }
-  }
-
-  .read-more-link {
-    display: inline-block;
-    margin-top: $spacing-unit / 2;
-    color: $brand-secondary;
-    text-decoration: none;
-    font-weight: bold;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
-// --- Additional style for actions in session list on main pages ---
-.session-item-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-unit / 2;
-  margin-top: $spacing-unit; // Add some space above action links
-
-  .presentation-link,
-  .activity-link {
-    padding: 0.6em 1em; // Slightly smaller buttons for lists
-    font-size: 0.9em;
-  }
-}
+    .toc-level-3 { /* Style for H3 items in TOC */
