@@ -1,6 +1,6 @@
 ---
 layout: session
-title: IA en las organizaciones: Estrategias empresariales
+title: "IA en las organizaciones: Estrategias empresariales"
 order: 6
 id: ia-en-organizaciones
 obj:
