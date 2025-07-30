@@ -56,26 +56,22 @@ course:
 
 # Metadata for Blocks (crucial for dynamic listing and sorting)
 blocks_metadata:
-  inteligencia:
-    title: "Inteligencia desde las perspectivas evolutiva, cognitiva, y computacional"
+  - title: "Inteligencia desde las perspectivas evolutiva, cognitiva, y computacional"
     description: "La inteligencia se analiza desde tres ejes fundamentales..."
     icon: "🧠"
     order: 1 # <--- ADDED: Required for sorting in index.md/bloques.md
     sessions: [1,2]
-  infraestructura:
-    title: "La Inteligencia Artificial y su infraestructura"
+  - title: "La Inteligencia Artificial y su infraestructura"
     description: "En esencia, la IA moderna 'aprende' mediante redes neuronales..."
     icon: "🌐"
     order: 2 # <--- ADDED: Required for sorting
     sessions: [3,4]
-  impacto:
-    title: "El impacto socioeconómico de la Inteligencia Artificial"
+  - title: "El impacto socioeconómico de la Inteligencia Artificial"
     description: "La IA contemporánea plantea paradojas sistémicas..."
     icon: "⚖️"
     order: 3 # <--- ADDED: Required for sorting
     sessions: [5,6]
-  percepcion:
-    title: "La percepción sociocultural de la Inteligencia Artificial (IA) y sus tendencias futuras"
+  - title: "La percepción sociocultural de la Inteligencia Artificial (IA) y sus tendencias futuras"
     description: "El análisis de películas, literatura y marketing tecnológico revela..."
     icon: "🎭"
     order: 4 # <--- ADDED: Required for sorting
