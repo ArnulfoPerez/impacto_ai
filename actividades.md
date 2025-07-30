@@ -1,24 +1,76 @@
 ---
 layout: default
-title: Presentaciones del Curso
+title: Actividades del Curso
 permalink: /actividades/
 ---
 
-# 💻 Actividades del Curso
+# 📝 Actividades del Curso
 
-_Aquí encontrarás todas las presentaciones utilizadas en cada sesión del curso. Las hemos organizado de dos maneras para facilitar tu acceso._
+_Aquí encontrarás las actividades correspondientes a cada sesión del curso. Las hemos organizado de dos maneras para facilitar tu acceso._
 
 ---
 
-## 1. Listado Secuencial de Presentaciones (1 a 8)
+## 1. Listado Secuencial de Actividades
 
-Esta sección presenta las presentaciones de forma simple, numeradas secuencialmente. Son ideales si el usuario ya sabe qué presentación busca por su número de sesión.
+Esta sección presenta las actividades de forma simple, numeradas secuencialmente.
 
-<ul>
-  {% for i in (1..8) %}
-    {% assign session_num = i | prepend: '00' | slice: -2, 2 %}
+{% assign sorted_sessions = site.session_metadata | sort: "order" %}
+
+<ul class="activity-list"> {# This class is defined in your _components.scss #}
+  {% for session in sorted_sessions %}
+    {% assign session_number_padded = session.order | prepend: "00" | slice: -2, 2 %}
     <li>
-      <a href="{{ site.baseurl }}/assets/activities/Actividad_S{{ session_num }}.pdf" target="_blank">Actividad de la sesión {{ i }}</a>
+      <a href="{{ '/assets/activities/' | relative_url }}Actividad_S{{ session_number_padded }}.pdf"
+         target="_blank"
+         class="activity-link"> {# This class is defined in your _components.scss #}
+        Actividad Sesión {{ session.order }}: {{ session.title }}
+      </a>
     </li>
   {% endfor %}
 </ul>
+
+---
+
+## 2. Listado por Bloques y Sesiones
+
+Aquí encontrarás las actividades organizadas por bloque temático, utilizando la metadata de configuración.
+
+<div class="content-container"> {# This class is defined in your _components.scss #}
+  {% assign blocks_ordered = site.blocks_metadata | sort: "order" %}
+  {% for block_data in blocks_ordered %}
+    <div class="block-section"> {# This class is defined in your _components.scss #}
+      <h2>{{ block_data.icon }} {{ block_data.title }}</h2>
+      <p class="block-description">{{ block_data.description }}</p>
+
+      <ul class="session-list"> {# This class is defined in your _components.scss #}
+        {% for session_order_in_block in block_data.sessions %}
+          {% assign numeric_session_order = session_order_in_block | plus: 0 %}
+          
+          {% assign found_sessions = site.session_metadata | where: "order", numeric_session_order %}
+          {% assign current_session = found_sessions[0] %}
+
+          {% if current_session %}
+            {% assign session_number_padded = current_session.order | prepend: "00" | slice: -2, 2 %}
+            <li class="session-item"> {# This class is defined in your _components.scss #}
+              <div class="session-header"> {# This class is defined in your _components.scss #}
+                <span class="session-order">Sesión {{ current_session.order }}</span>
+                <h3>{{ current_session.title }}</h3>
+              </div>
+              <p class="session-description">{{ current_session.description }}</p>
+              {% if current_session.obj %}
+                <p class="session-objectives">Objetivos: {{ current_session.obj | join: ", " }}</p>
+              {% endif %}
+
+              <a href="{{ '/assets/activities/' | relative_url }}Actividad_S{{ session_number_padded }}.pdf"
+                 target="_blank"
+                 class="activity-link"> {# This class is defined in your _components.scss #}
+                Descargar Actividad
+                <span class="icon">↓</span>
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
