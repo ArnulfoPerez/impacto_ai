@@ -26,10 +26,14 @@ plugins:
 navigation:
   - title: "Inicio"
     url: "/"
+  - title: "Sesiones" # NEW: Link to the new sessions listing page
+    url: "/sesiones/"
   - title: "Presentaciones"
     url: "/presentaciones/"
   - title: "Actividades"
     url: "/actividades/"
+  - title: "Notas" # NEW: Link to the new notes listing page
+    url: "/notas/"
   - title: "Glosario"
     url: "/glosario/"
   - title: "Lecturas"
