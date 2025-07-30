@@ -10,9 +10,6 @@ description: Esta sesión explorará cómo la inteligencia artificial está tran
 related_notes:
   - ia-en-vida-diaria # Ejemplo de ID de nota
   - privacidad-ia # Ejemplo de ID de nota
-additional_links:
-  - title: Informe: El futuro del trabajo y la IA
-    url: https://www.ejemplo.com/informe-trabajo-ia
 ---
 
 ## 5.1 La IA en Nuestra Vida Cotidiana
