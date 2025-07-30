@@ -11,7 +11,7 @@ related_notes:
   - aprendizaje-supervisado # Ejemplo de ID de nota
   - datasets-en-ia # Ejemplo de ID de nota
 additional_links:
-  - title: Artículo: La importancia de los datos en IA
+  - title: "Artículo: La importancia de los datos en IA"
     url: https://www.ejemplo.com/articulo-datos-ia
 ---
 
