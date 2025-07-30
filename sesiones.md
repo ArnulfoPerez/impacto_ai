@@ -6,8 +6,8 @@ permalink: /sesiones/
 
 <div class="sessions-list-container">
   <header class="sessions-list-header">
-    <h1>Sesiones del Curso: Impacto social de la Inteligencia Artificial</h1>
-    <p class="subtitle">Explora cada una de las sesiones de este curso intensivo sobre la IA.</p>
+    <h1>Sesiones del Curso: {{ site.title }}</h1>
+    <p class="subtitle">Explora cada una de las sesiones de este curso.</p>
   </header>
 
   <section class="course-objectives-summary">
@@ -19,7 +19,6 @@ permalink: /sesiones/
     </ul>
   </section>
 
-  {# CORRECTED LINE BELOW #}
   {% assign sorted_blocks = site.blocks_metadata | sort: "order" %}
 
   {% for block in sorted_blocks %}
