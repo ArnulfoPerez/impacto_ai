@@ -13,60 +13,69 @@ layout: default
     {% endif %}
   </header>
 
-  <section class="note-section note-introduction">
-    <h2>Introducción</h2>
-    {% if page.introduction %}
-      {{ page.introduction | markdownify }}
-    {% else %}
-      <p><em>No se ha proporcionado una introducción específica para esta nota.</em></p>
-    {% endif %}
-  </section>
+  {# Use the page-content-wrapper for sidebar + main content layout #}
+  <div class="page-content-wrapper">
 
-  <section class="note-section note-main-points">
-    <h2>Puntos Principales</h2>
-    {% if page.main_points %}
-      {{ page.main_points | markdownify }}
-    {% else %}
-      <p><em>No se han detallado puntos principales específicos para esta nota.</em></p>
-    {% endif %}
-  </section>
+    {# Example of how to include a TOC sidebar specifically for notes #}
+    {# Ensure your _includes/toc_sidebar.html (or similar) exists and contains <ul id="toc-list"> #}
+    <aside class="toc-sidebar">
+      <h4>Contenido de la Nota</h4>
+      <ul id="toc-list">
+        {# TOC will be populated by toc_script.html #}
+      </ul>
+      <p class="toc-note">(Sección generada dinámicamente)</p>
+    </aside>
 
-<section class="session-page-main-content-area">
-    <div class="session-page-content-with-toc">
-      <div class="session-page-toc">
-        <h4>Contenido de la Sesión</h4>
-        <ul id="toc-list">
-          {# This Liquid code is for a simple TOC. It requires JavaScript to populate headers. #}
-          {# For a purely Jekyll-generated TOC, you'd need a plugin like jekyll-toc or manual parsing, #}
-          {# but for dynamic pages, JavaScript is often more robust. #}
-        </ul>
-        <p class="toc-note"> (Sección generada dinámicamente)</p>
-      </div>
+    {# The main content area for the note, including its structured sections and markdown content #}
+    <div class="main-content-area">
 
-      <div class="session-page-content">
-        {{ content }} {# This is where the Markdown content of each session file will go #}
-      </div>
-    </div>
-  </section>
+      {# Structured sections for note front matter #}
+      <section class="note-section note-introduction">
+        <h2>Introducción</h2>
+        {% if page.introduction %}
+          {{ page.introduction | markdownify }}
+        {% else %}
+          <p><em>No se ha proporcionado una introducción específica para esta nota.</em></p>
+        {% endif %}
+      </section>
+
+      <section class="note-section note-main-points">
+        <h2>Puntos Principales</h2>
+        {% if page.main_points %}
+          {{ page.main_points | markdownify }}
+        {% else %}
+          <p><em>No se han detallado puntos principales específicos para esta nota.</em></p>
+        {% endif %}
+      </section>
+
+      {# This is where the core markdown content of your note file will go #}
+      {# Apply the .content-section class if you want the card-base styling here #}
+      <section class="content-section">
+        {{ content }}
+      </section>
+      
+      <section class="note-section note-conclusion">
+        <h2>Conclusión</h2>
+        {% if page.conclusion %}
+          {{ page.conclusion | markdownify }}
+        {% else %}
+          <p><em>No se ha proporcionado una conclusión específica para esta nota.</em></p>
+        {% endif %}
+      </section>
+
+      <section class="note-section note-references">
+        <h2>Referencias</h2>
+        {% if page.references %}
+          {{ page.references | markdownify }}
+        {% else %}
+          <p><em>No se han listado referencias para esta nota.</em></p>
+        {% endif %}
+      </section>
+
+    </div> {# /main-content-area #}
+
+  </div> {# /page-content-wrapper #}
   
-  <section class="note-section note-conclusion">
-    <h2>Conclusión</h2>
-    {% if page.conclusion %}
-      {{ page.conclusion | markdownify }}
-    {% else %}
-      <p><em>No se ha proporcionado una conclusión específica para esta nota.</em></p>
-    {% endif %}
-  </section>
-
-  <section class="note-section note-references">
-    <h2>Referencias</h2>
-    {% if page.references %}
-      {{ page.references | markdownify }}
-    {% else %}
-      <p><em>No se han listado referencias para esta nota.</em></p>
-    {% endif %}
-  </section>
-
   {% if page.tags %}
     <footer class="note-page-tags">
       <span>Etiquetas:</span>
@@ -77,38 +86,4 @@ layout: default
   {% endif %}
 </article>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const contentDiv = document.querySelector('.session-page-content');
-    const tocList = document.getElementById('toc-list');
-
-    if (!contentDiv || !tocList) return;
-
-    // Select H2 and H3 headers within the content
-    const headers = contentDiv.querySelectorAll('h2, h3');
-    let tocHtml = '';
-
-    headers.forEach((header, index) => {
-        // Generate a unique ID for each header if it doesn't have one
-        const id = header.id || `toc-${header.tagName.toLowerCase()}-${index}`;
-        header.id = id; // Assign the ID back to the header
-
-        const level = parseInt(header.tagName.substring(1)); // H2 = 2, H3 = 3
-        const className = `toc-level-${level}`;
-        
-        tocHtml += `<li class="${className}"><a href="#${id}">${header.textContent}</a></li>`;
-    });
-
-    tocList.innerHTML = tocHtml;
-
-    // Optional: Smooth scroll for TOC links
-    tocList.querySelectorAll('a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-});
-</script>
+{# The TOC script is now included globally in default.html, no need to duplicate it here #}
