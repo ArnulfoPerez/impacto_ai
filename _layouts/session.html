@@ -1,0 +1,123 @@
+---
+layout: default
+---
+
+<article class="session-page-container">
+  <header class="session-page-header">
+    <span class="session-page-order">Sesión {{ page.order }}</span>
+    <h1 class="session-page-title">{{ page.title }}</h1>
+    {% if page.obj %}
+      <p class="session-page-objectives">
+        **Objetivos de la Sesión:**
+        {% for objective in page.obj %}
+          <span>{{ objective }}</span>{% if forloop.last == false %},{% endif %}
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    <div class="session-course-objectives">
+      <h4>Objetivos Generales del Curso:</h4>
+      <ul>
+        {% for obj in site.course.objectives %}
+          <li>{{ obj }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </header>
+
+  <section class="session-page-main-content-area">
+    <div class="session-page-content-with-toc">
+      <div class="session-page-toc">
+        <h4>Contenido de la Sesión</h4>
+        <ul id="toc-list">
+          {# This Liquid code is for a simple TOC. It requires JavaScript to populate headers. #}
+          {# For a purely Jekyll-generated TOC, you'd need a plugin like jekyll-toc or manual parsing, #}
+          {# but for dynamic pages, JavaScript is often more robust. #}
+        </ul>
+        <p class="toc-note"> (Sección generada dinámicamente)</p>
+      </div>
+
+      <div class="session-page-content">
+        {{ content }} {# This is where the Markdown content of each session file will go #}
+      </div>
+    </div>
+  </section>
+
+  <section class="session-page-resources">
+    <h3>Recursos de la Sesión</h3>
+    <ul class="session-page-links">
+      {% assign session_number_padded = page.order | prepend: "00" | slice: -2, 2 %}
+      <li>
+        <a href="{{ '/assets/presentations/' | relative_url }}sesion_S{{ session_number_padded }}.pptx"
+           target="_blank"
+           class="presentation-link">
+          Descargar Presentación <span class="icon">↓</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/assets/activities/' | relative_url }}Actividad_S{{ session_number_padded }}.pdf"
+           target="_blank"
+           class="activity-link">
+          Descargar Actividad <span class="icon">↓</span>
+        </a>
+      </li>
+      {% if page.additional_links %}
+        {% for link in page.additional_links %}
+          <li>
+            <a href="{{ link.url | relative_url }}" target="_blank" class="session-additional-link">
+              {{ link.title }} <span class="icon">↗</span>
+            </a>
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+
+    {% if page.related_notes %}
+      <h4>Notas Relacionadas</h4>
+      <ul class="session-page-related-notes">
+        {% for note_id in page.related_notes %}
+          {% assign found_note = site.notes | where: "id", note_id | first %}
+          {% if found_note %}
+            <li><a href="{{ found_note.url | relative_url }}">{{ found_note.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </section>
+</article>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const contentDiv = document.querySelector('.session-page-content');
+    const tocList = document.getElementById('toc-list');
+
+    if (!contentDiv || !tocList) return;
+
+    // Select H2 and H3 headers within the content
+    const headers = contentDiv.querySelectorAll('h2, h3');
+    let tocHtml = '';
+
+    headers.forEach((header, index) => {
+        // Generate a unique ID for each header if it doesn't have one
+        const id = header.id || `toc-${header.tagName.toLowerCase()}-${index}`;
+        header.id = id; // Assign the ID back to the header
+
+        const level = parseInt(header.tagName.substring(1)); // H2 = 2, H3 = 3
+        const className = `toc-level-${level}`;
+        
+        tocHtml += `<li class="${className}"><a href="#${id}">${header.textContent}</a></li>`;
+    });
+
+    tocList.innerHTML = tocHtml;
+
+    // Optional: Smooth scroll for TOC links
+    tocList.querySelectorAll('a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});
+</script>
