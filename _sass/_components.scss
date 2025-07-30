@@ -705,3 +705,103 @@
         }
     }
 }
+// _sass/_components.scss
+
+// ... (tus estilos existentes, incluyendo los de .sessions-list-container, .session-card, etc.) ...
+
+// --- Notes List Page Styles ---
+.notes-list-container {
+  max-width: $content-max-width;
+  margin: 0 auto;
+  padding: $spacing-unit;
+}
+
+.notes-list-header {
+  text-align: center;
+  margin-bottom: $spacing-unit * 2;
+
+  h1 {
+    color: $text-heading;
+    margin-bottom: $spacing-unit / 2;
+  }
+
+  .subtitle {
+    color: $text-secondary;
+    font-size: 1.1em;
+  }
+}
+
+.all-notes-listing {
+  margin-top: $spacing-unit * 2;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $spacing-unit;
+  list-style: none; // Remove default list bullets
+  padding: 0; // Remove default list padding
+}
+
+.note-card {
+  background-color: $white;
+  border: 1px solid $border-light;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  padding: $spacing-unit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $box-shadow-hover;
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: $spacing-unit / 2;
+    font-size: 1.3em;
+    line-height: 1.3;
+
+    a {
+      color: $brand-primary;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  p {
+    color: $text-secondary;
+    flex-grow: 1; // Allows description to take up available space
+    margin-bottom: $spacing-unit;
+  }
+
+  .button {
+    align-self: flex-start; // Align button to the left
+    margin-top: auto; // Push button to the bottom if content varies in height
+  }
+}
+
+.no-notes-message {
+  text-align: center;
+  color: $text-muted;
+  font-style: italic;
+  padding: $spacing-unit * 2;
+  border: 1px dashed $border-light;
+  border-radius: $border-radius;
+  margin-top: $spacing-unit * 2;
+}
+
+// Media queries for responsiveness
+@media (max-width: 768px) {
+  .notes-list-container {
+    padding: $spacing-unit / 2;
+  }
+  .notes-grid {
+    grid-template-columns: 1fr; // Stack cards on small screens
+  }
+}
