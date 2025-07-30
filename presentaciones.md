@@ -60,16 +60,52 @@ Esta sección presenta las presentaciones de forma simple, numeradas secuencialm
 </ul>
 
 ---
+layout: default
+title: Presentaciones del Curso
+permalink: /presentaciones/
+---
+
+# 💻 Presentaciones del Curso
+
+_Aquí encontrarás todas las presentaciones utilizadas en cada sesión del curso. Las hemos organizado de dos maneras para facilitar tu acceso._
+
+---
+
+## 1. Listado Secuencial de Presentaciones
+
+Esta sección presenta las presentaciones de forma simple, numeradas secuencialmente.
+
+{% comment %}
+  site.session_metadata is already an array of hashes.
+  We can directly sort it by the 'order' property.
+{% endcomment %}
+{% assign sorted_sessions = site.session_metadata | sort: "order" %}
+
+<ul class="activity-list">
+  {% for session in sorted_sessions %}
+    {% assign session_number_padded = session.order | prepend: "0" | slice: -2, 2 %}
+    <li>
+      <a href="{{ '/assets/presentations/' | relative_url }}sesion_S{{ session_number_padded }}.pptx"
+         target="_blank"
+         class="activity-link">
+        Presentación Sesión {{ session.order }}: {{ session.title }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
+---
 
 ## 2. Listado por Bloques y Sesiones
 
 Aquí encontrarás las presentaciones organizadas por bloque temático, utilizando la metadata de configuración.
 
 <div class="presentations-container">
+  {% comment %}
+    site.blocks_metadata is now an array of hashes, so we can sort it directly.
+  {% endcomment %}
   {% assign blocks_ordered = site.blocks_metadata | sort: "order" %}
-  {% for block_entry in blocks_ordered %}
-    {% assign block_slug = block_entry[0] %}
-    {% assign block_data = block_entry[1] %}
+  {% for block_data in blocks_ordered %} {# block_data is now directly the hash for each block #}
 
     <div class="block-section">
       <h2>{{ block_data.icon }} {{ block_data.title }}</h2>
@@ -77,12 +113,15 @@ Aquí encontrarás las presentaciones organizadas por bloque temático, utilizan
       
       <ul class="session-list">
         {% comment %}
-          For each block, iterate through the session *order numbers* defined in blocks_metadata.
+          For each block, iterate through the session *order numbers* defined in block_data.sessions.
           Use the 'where' filter to efficiently find the corresponding session data from site.session_metadata.
         {% endcomment %}
         {% for session_order_in_block in block_data.sessions %}
-          {% assign found_sessions = site.session_metadata | where: "order", session_order_in_block %}
-          {% assign current_session = found_sessions[0] %} {# 'where' returns an array, take the first matching item #}
+          {% comment %} Ensure session_order_in_block is truly numeric for comparison {% endcomment %}
+          {% assign numeric_session_order = session_order_in_block | plus: 0 %}
+          
+          {% assign found_sessions = site.session_metadata | where: "order", numeric_session_order %}
+          {% assign current_session = found_sessions[0] %}
 
           {% if current_session %}
             {% assign session_number_padded = current_session.order | prepend: "0" | slice: -2, 2 %}
