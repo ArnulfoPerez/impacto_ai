@@ -30,12 +30,6 @@ Esta sección presenta las presentaciones de forma simple, numeradas secuencialm
 ---
 
 
----
-layout: default
-title: Presentaciones del Curso
-permalink: /presentaciones/
----
-
 # 💻 Presentaciones del Curso
 
 _Aquí encontrarás todas las presentaciones utilizadas en cada sesión del curso. Las hemos organizado de dos maneras para facilitar tu acceso._
@@ -47,13 +41,13 @@ _Aquí encontrarás todas las presentaciones utilizadas en cada sesión del curs
 Esta sección presenta las presentaciones de forma simple, numeradas secuencialmente.
 
 {% comment %}
-  Get all session data (values) from site.session_metadata and sort them by 'order'.
-  This works well because session_metadata is now a flat hash of session objects.
+  site.session_metadata is now directly an array of session hashes.
+  We can directly sort it by the 'order' property.
 {% endcomment %}
-{% assign all_sessions_flat = site.session_metadata | values | sort: "order" %}
+{% assign sorted_sessions = site.session_metadata | sort: "order" %}
 
 <ul class="activity-list">
-  {% for session in all_sessions_flat %}
+  {% for session in sorted_sessions %}
     {% assign session_number_padded = session.order | prepend: "0" | slice: -2, 2 %}
     <li>
       <a href="{{ '/assets/presentations/' | relative_url }}sesion_S{{ session_number_padded }}.pptx"
@@ -84,16 +78,11 @@ Aquí encontrarás las presentaciones organizadas por bloque temático, utilizan
       <ul class="session-list">
         {% comment %}
           For each block, iterate through the session *order numbers* defined in blocks_metadata.
-          Then, find the corresponding session data from site.session_metadata based on its 'order'.
+          Use the 'where' filter to efficiently find the corresponding session data from site.session_metadata.
         {% endcomment %}
         {% for session_order_in_block in block_data.sessions %}
-          {% assign current_session = nil %}
-          {% for session_data in site.session_metadata | values %}
-            {% if session_data.order == session_order_in_block %}
-              {% assign current_session = session_data %}
-              {% break %} {# Found it, exit inner loop #}
-            {% endif %}
-          {% endfor %}
+          {% assign found_sessions = site.session_metadata | where: "order", session_order_in_block %}
+          {% assign current_session = found_sessions[0] %} {# 'where' returns an array, take the first matching item #}
 
           {% if current_session %}
             {% assign session_number_padded = current_session.order | prepend: "0" | slice: -2, 2 %}
