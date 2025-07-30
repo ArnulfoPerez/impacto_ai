@@ -16,7 +16,7 @@ Esta sección presenta las actividades de forma simple, numeradas secuencialment
 
 {% assign sorted_sessions = site.session_metadata | sort: "order" %}
 
-<ul class="activity-list"> {# This class is defined in your _components.scss #}
+<ul class="activity-list"> 
   {% for session in sorted_sessions %}
     {% assign session_number_padded = session.order | prepend: "00" | slice: -2, 2 %}
     <li>
@@ -42,7 +42,7 @@ Aquí encontrarás las actividades organizadas por bloque temático, utilizando 
       <h2>{{ block_data.icon }} {{ block_data.title }}</h2>
       <p class="block-description">{{ block_data.description }}</p>
 
-      <ul class="session-list"> {# This class is defined in your _components.scss #}
+      <ul class="session-list"> 
         {% for session_order_in_block in block_data.sessions %}
           {% assign numeric_session_order = session_order_in_block | plus: 0 %}
           
