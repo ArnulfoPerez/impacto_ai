@@ -118,21 +118,21 @@ Los participantes recibirán una **constancia digital de participación** emitid
 
 Este repositorio es para que encuentres fácilmente lo que necesitas. Aquí un mapa rápido:
 
-* **[Notas por sesión](/sesiones/)**: Material específico para cada una de las sesiones, incluyendo presentaciones y actividades.
-* **[Actividades](/actividades/)**: Ejercicios prácticos y dinámicas para reforzar tu aprendizaje.
-* **[Presentaciones](/presentaciones/)**: Presentaciones PowerPoint sobre las sesiones del curso.
-* **[Notas adicionales](/notas/)**: Notas adicionales a las notas por sesión para profundizar.
-* **[Lecturas adicionales](/lecturas)**: Un compendio de lecturas para profundizar sobre algunos aspectos técnicos.
-* **[Glosario](/glosario)**: Un compendio de términos usados con respecto al inteligencia artificial.
+* **[Notas por sesión](./sesiones/)**: Material específico para cada una de las sesiones, incluyendo presentaciones y actividades.
+* **[Actividades](./actividades/)**: Ejercicios prácticos y dinámicas para reforzar tu aprendizaje.
+* **[Presentaciones](./presentaciones/)**: Presentaciones PowerPoint sobre las sesiones del curso.
+* **[Notas adicionales](./notas/)**: Notas adicionales a las notas por sesión para profundizar.
+* **[Lecturas adicionales](./lecturas/)**: Un compendio de lecturas para profundizar sobre algunos aspectos técnicos.
+* **[Glosario](./glosario/)**: Un compendio de términos usados con respecto al inteligencia artificial.
 
 ---
 
 # 🚀 Cómo Usar Este Repositorio
 
-1.  **Explora por Sesión:** Dirígete a la carpeta [`Sesiones/`](/sesiones/) para encontrar los materiales de cada clase.
-2.  **Refuerza tu Aprendizaje:** Revisa las [`Actividades/`](/actividades/) para practicar los conceptos.
-3.  **Profundiza:** Las carpetas [`Notas/`](/notas/) y [`Lecturas/`](/lecturas/) te ofrece lecturas recomendadas para seguir explorando.
-4.  **Glosario:** El [`Glosario/`](/glosario/) te ofrece una lista de definiciones de los conceptos.
+1.  **Explora por Sesión:** Dirígete a la carpeta [`Sesiones/`](./sesiones/) para encontrar los materiales de cada clase.
+2.  **Refuerza tu Aprendizaje:** Revisa las [`Actividades/`](./actividades/) para practicar los conceptos.
+3.  **Profundiza:** Las carpetas [`Notas/`](./notas/) y [`Lecturas/`](./lecturas/) te ofrece lecturas recomendadas para seguir explorando.
+4.  **Glosario:** El [`Glosario/`](./glosario/) te ofrece una lista de definiciones de los conceptos.
 5.  **Descarga:** Puedes descargar cualquier archivo haciendo clic en él y luego en el botón "Download" (descargar).
 
 ---
