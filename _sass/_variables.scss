@@ -1,44 +1,67 @@
 // _sass/_variables.scss
 
-// --- Brand Colors ---
-$brand-primary: #3498db;          // Your main brand blue (e.g., for links, buttons)
-$brand-secondary: #6c757d;        // A muted gray for secondary elements (used in session layout)
-$brand-dark: #2c3e50;             // A dark blue, good for headers or strong text
-$brand-light: lighten($brand-primary, 40%); // A lighter tint of your primary blue
+// --- Base Units & Global Settings ---
+$spacing-unit: 16px;            // Base unit for spacing, padding, and margins.
+$content-max-width: 960px;       // Maximum width for main content areas.
 
-// --- Semantic Colors ---
-$success-color: #28a745;          // Green for success/positive (used in note layout)
-$info-color: #17a2b8;             // Cyan/light blue for info (used in note layout)
-$warning-color: #ffc107;          // Yellow/orange for warning (used in note layout)
-$danger-color: #dc3545;           // Red for danger/error (good to have for future use)
+// --- Colors Palette ---
+// Define your core color palette first, then derive specific usages.
 
-// --- Text Colors ---
-$text-base: #333;                 // Standard body text
-$text-heading: $brand-dark;       // Color for headings (using your dark brand color)
-$text-secondary: #3498db;            // Slightly lighter text for secondary info
-$text-muted: #888;                // Muted text for subtle elements (more general than #7f8c8d)
+// Brand Colors
+$brand-blue: #3498db;           // Your primary brand blue (the consistent one you had in mind)
+$brand-gray-dark: #2c3e50;      // Dark blue/gray, suitable for strong text, headers.
+$brand-gray-muted: #6c757d;     // Muted gray, for secondary elements.
 
-// --- Background Colors ---
+// Semantic Colors (for alerts, special boxes, etc.)
+$success: #28a745;              // Green for positive/success.
+$info: #17a2b8;                 // Cyan/light blue for informational.
+$warning: #ffc107;              // Yellow/orange for warnings.
+$danger: #dc3545;               // Red for errors/danger.
+
+// Derived Semantic Colors (for backgrounds, borders of themed blocks)
+$success-dark: darken($success, 10%);
+$success-light: lighten($success, 45%);
+
+$info-dark: darken($info, 10%);
+$info-light: lighten($info, 45%);
+
+$warning-dark: darken($warning, 10%);
+$warning-light: lighten($warning, 45%);
+
+$danger-dark: darken($danger, 10%);
+$danger-light: lighten($danger, 45%);
+
+// Neutrals
 $white: #ffffff;
-$bg-light: #f8f9fa;               // A very light grey background (using the slightly lighter value from the second block)
+$light-gray: #f8f9fa;           // Very light gray for backgrounds.
+$border-gray: #dee2e6;          // Light gray for borders.
 
-// --- Border Colors ---
-$border-light: #dee2e6;           // Light border for separators (using the slightly darker value from the second block)
+// --- Text Colors (Derived from Color Palette) ---
+$text-base: #333;               // Standard body text.
+$text-heading: $brand-gray-dark; // Headings use the dark brand gray.
+$text-secondary: $brand-gray-muted; // Secondary text uses muted brand gray.
+$text-muted: #888;              // Even lighter, more subtle text.
+$link-color: $brand-blue;       // Default link color.
 
-// --- Spacing & Layout ---
-$spacing-unit: 16px;              // Base unit for spacing and padding (using px for consistency with CSS)
-$content-max-width: 960px;        // Max width for content areas
+// --- Background & Border Colors (Specific Usage) ---
+$bg-light: $light-gray;         // Alias for light background (used in components).
+$border-light: $border-gray;    // Alias for light border (used in components).
 
 // --- UI Elements ---
-$border-radius: 5px;             // Common border radius (using the smaller, more common value)
-$border-radius-sm: 3px;           // Smaller border radius for minor elements
-$box-shadow: 0 2px 5px rgba(0,0,0,0.1); // Standard shadow
-$box-shadow-hover: 0 4px 8px rgba(0,0,0,0.15); // Slightly larger shadow for hover effects
+$border-radius: 5px;            // Standard border radius.
+$border-radius-sm: 3px;         // Smaller border radius.
 
-// --- Navigation Specifics ---
-$nav-link-color: $text-heading;     // Using a clear dark color for nav links
-$nav-link-hover-color: $brand-primary; // Hover color for nav links
-$header-bg: $brand-light;            // Background for site header
-$header-text: $white;               // Text color for site header
-$footer-bg: $bg-light;              // Background for site footer
-$footer-text: $text-muted;          // Text color for site footer
+// Shadow effects
+$box-shadow-sm: 0 2px 8px rgba(0,0,0,0.08); // Lighter shadow.
+$box-shadow: 0 4px 12px rgba(0,0,0,0.1);    // Standard shadow.
+$box-shadow-hover: 0 6px 20px rgba(0,0,0,0.15); // Enhanced hover shadow.
+
+
+// --- Navigation & Layout Specifics ---
+$header-bg: lighten($brand-blue, 40%); // Header background derived from brand primary.
+$header-text-color: $white;            // Header text color.
+$footer-bg: $light-gray;               // Footer background.
+$footer-text-color: $text-muted;       // Footer text color.
+
+$nav-link-color: $text-heading;         // Navigation link color.
+$nav-link-hover-color: $brand-blue;     // Navigation link hover color.
