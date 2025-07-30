@@ -805,3 +805,91 @@
     grid-template-columns: 1fr; // Stack cards on small screens
   }
 }
+
+/* _sass/_components.scss */
+
+/* General layout for pages with a sidebar */
+.page-content-wrapper {
+    display: flex; /* Use flexbox for side-by-side layout */
+    gap: 20px; /* Space between sidebar and main content */
+    align-items: flex-start; /* Align items to the top */
+    margin-top: 20px; /* Adjust as needed for spacing from header */
+
+    /* Allow wrapping on smaller screens (sidebar goes on top) */
+    flex-wrap: wrap;
+}
+
+/* Styles for the Table of Contents sidebar (common for notes and sessions) */
+.toc-sidebar {
+    flex: 0 0 250px; /* Don't grow/shrink, fixed width of 250px */
+    padding: 15px;
+    background-color: #f8f8f8; /* Light background for the sidebar */
+    border-right: 1px solid #eee; /* Separator line */
+    border-radius: 5px; /* Slightly rounded corners */
+
+    /* Make it stick as you scroll */
+    position: sticky;
+    top: 20px; /* Distance from the top of the viewport. Adjust if you have a fixed top nav/header */
+    max-height: calc(100vh - 40px); /* Max height to fit viewport (adjust 40px for header/footer space) */
+    overflow-y: auto; /* Add scrollbar if TOC is too long */
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+        flex: 1 1 100%; /* Take full width on small screens */
+        position: static; /* No longer sticky */
+        max-height: none; /* No max height */
+        border-right: none; /* Remove right border */
+        border-bottom: 1px solid #eee; /* Add bottom border */
+        margin-bottom: 20px; /* Space below the TOC */
+    }
+}
+
+.toc-sidebar h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.toc-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-sidebar li {
+    margin-bottom: 5px;
+}
+
+.toc-sidebar a {
+    text-decoration: none;
+    color: #007bff; /* Standard link color, customize with your theme variables */
+}
+
+.toc-sidebar a:hover {
+    text-decoration: underline;
+}
+
+.toc-sidebar .toc-level-3 {
+    padding-left: 15px; /* Indent for H3s */
+    font-size: 0.95em;
+}
+
+/* Styles for the main content area (common for notes and sessions) */
+.main-content-area {
+    flex-grow: 1; /* Allow main content to take up remaining space */
+    min-width: 0; /* Prevents overflow issues with long words in flex container */
+    padding-left: 20px; /* Add some padding if sidebar has border-right */
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+        padding-left: 0; /* Remove padding when sidebar is on top */
+    }
+}
+
+/* Optional: Adjust header padding for smooth scrolling with sticky elements */
+/* This helps prevent content from being hidden behind a fixed/sticky header/nav when jumping to an ID */
+h2, h3 {
+    padding-top: 60px; /* Add space above the header when it's the target of a scroll link */
+    margin-top: -60px; /* Counter-act the padding-top so visual spacing remains correct */
+}
