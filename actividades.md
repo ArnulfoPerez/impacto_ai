@@ -22,7 +22,7 @@ Esta sección presenta las actividades de forma simple, numeradas secuencialment
     <li>
       <a href="{{ '/assets/activities/' | relative_url }}Actividad_S{{ session_number_padded }}.pdf"
          target="_blank"
-         class="activity-link"> {# This class is defined in your _components.scss #}
+         class="activity-link"> 
         Actividad Sesión {{ session.order }}: {{ session.title }}
       </a>
     </li>
@@ -35,10 +35,10 @@ Esta sección presenta las actividades de forma simple, numeradas secuencialment
 
 Aquí encontrarás las actividades organizadas por bloque temático, utilizando la metadata de configuración.
 
-<div class="content-container"> {# This class is defined in your _components.scss #}
+<div class="content-container">
   {% assign blocks_ordered = site.blocks_metadata | sort: "order" %}
   {% for block_data in blocks_ordered %}
-    <div class="block-section"> {# This class is defined in your _components.scss #}
+    <div class="block-section"> 
       <h2>{{ block_data.icon }} {{ block_data.title }}</h2>
       <p class="block-description">{{ block_data.description }}</p>
 
@@ -51,8 +51,8 @@ Aquí encontrarás las actividades organizadas por bloque temático, utilizando 
 
           {% if current_session %}
             {% assign session_number_padded = current_session.order | prepend: "00" | slice: -2, 2 %}
-            <li class="session-item"> {# This class is defined in your _components.scss #}
-              <div class="session-header"> {# This class is defined in your _components.scss #}
+            <li class="session-item"> 
+              <div class="session-header"> 
                 <span class="session-order">Sesión {{ current_session.order }}</span>
                 <h3>{{ current_session.title }}</h3>
               </div>
@@ -63,7 +63,7 @@ Aquí encontrarás las actividades organizadas por bloque temático, utilizando 
 
               <a href="{{ '/assets/activities/' | relative_url }}Actividad_S{{ session_number_padded }}.pdf"
                  target="_blank"
-                 class="activity-link"> {# This class is defined in your _components.scss #}
+                 class="activity-link"> 
                 Descargar Actividad
                 <span class="icon">↓</span>
               </a>
