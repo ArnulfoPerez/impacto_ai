@@ -94,12 +94,6 @@ La IA ya no es solo una herramienta tecnológica; es un fenómeno sociocultural 
 
 ---
 
-## Perfil del facilitador
-
-El curso será impartido por un académico con formación en inteligencia artificial, sistemas complejos y pensamiento sistémico, con amplia experiencia docente a nivel universitario. Su enfoque combina sensibilidad ética, solidez técnica y mirada crítica hacia el impacto social de las tecnologías.
-
----
-
 ## Requisitos institucionales
 
 - Plataforma Zoom Business habilitada para sesiones de 1 hora con funciones de grabación, breakout rooms, y coanfitrión
@@ -124,31 +118,31 @@ Los participantes recibirán una **constancia digital de participación** emitid
 
 Este repositorio es para que encuentres fácilmente lo que necesitas. Aquí un mapa rápido:
 
-* **[Notas por sesión](./sesiones)**: Material específico para cada una de las 8 sesiones, incluyendo presentaciones y cuadernillos.
-* **[Actividades por sesión](./actividades)**: Ejercicios prácticos y dinámicas para reforzar tu aprendizaje.
-* **[Recursos adicionales](./recursos)**: Un compendio de material de apoyo para profundizar incluyendo un glosario.
-
----
-
-- [Guía general del curso](./guia.html)
-- [Objetivos de Aprendizaje](./objetivos_de_aprendizaje.html) 
-- [Ver actividad 1](./actividades/actividad_s01.html)
-- [🗓️ Fechas Clave del Curso](./fechas.html)
+* **[Notas por sesión](/sesiones/)**: Material específico para cada una de las sesiones, incluyendo presentaciones y actividades.
+* **[Actividades](/actividades/)**: Ejercicios prácticos y dinámicas para reforzar tu aprendizaje.
+* **[Presentaciones](/presentaciones/)**: Presentaciones PowerPoint sobre las sesiones del curso.
+* **[Notas adicionales](/notas/)**: Notas adicionales a las notas por sesión para profundizar.
+* **[Lecturas adicionales](/lecturas)**: Un compendio de lecturas para profundizar sobre algunos aspectos técnicos.
+* **[Glosario](/glosario)**: Un compendio de términos usados con respecto al inteligencia artificial.
 
 ---
 
 # 🚀 Cómo Usar Este Repositorio
 
-1.  **Explora por Sesión:** Dirígete a la carpeta [`Sesiones/`](./Sesiones/) para encontrar los materiales de cada clase.
-2.  **Refuerza tu Aprendizaje:** Revisa las [`Actividades/`](./Actividades/) para practicar los conceptos.
-3.  **Profundiza:** La carpeta [`Recursos_Adicionales/`](./Recursos/) te ofrece glosarios y lecturas recomendadas para seguir explorando.
-4.  **Descarga:** Puedes descargar cualquier archivo haciendo clic en él y luego en el botón "Download" (descargar).
+1.  **Explora por Sesión:** Dirígete a la carpeta [`Sesiones/`](/sesiones/) para encontrar los materiales de cada clase.
+2.  **Refuerza tu Aprendizaje:** Revisa las [`Actividades/`](/actividades/) para practicar los conceptos.
+3.  **Profundiza:** Las carpetas [`Notas/`](/notas/) y [`Lecturas/`](/lecturas/) te ofrece lecturas recomendadas para seguir explorando.
+4.  **Glosario:** El [`Glosario/`](/glosario/) te ofrece una lista de definiciones de los conceptos.
+5.  **Descarga:** Puedes descargar cualquier archivo haciendo clic en él y luego en el botón "Download" (descargar).
 
 ---
 
 {% assign instructor = site.instructor %}
 
 ## 👨‍🏫 Instructor
+
+El curso será impartido por un académico con formación en inteligencia artificial, sistemas complejos y pensamiento sistémico, con amplia experiencia docente a nivel universitario. Su enfoque combina sensibilidad ética, solidez técnica y mirada crítica hacia el impacto social de las tecnologías.
+
 **{{ instructor.name }}**  
 {{ instructor.position }} en {{ instructor.institution }}  
 📧 [{{ instructor.email }}](mailto:{{ instructor.email }})  
