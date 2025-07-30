@@ -111,3 +111,25 @@ session_metadata:
     obj: ["Integrar conocimientos transversales", "Evaluar tensiones clave", "Proponer acciones aplicables", "Reflexionar sobre tendencias futuras"]
     description: "Esta sesión integra los ejes clave del curso, desde los fundamentos técnicos..."
     order: 8
+
+# Collections for Sessions and Notes
+collections:
+  sessions:
+    output: true # Ensures individual session pages are generated
+    permalink: /sesiones/:path/ # URL structure for session pages (e.g., /sesiones/introduccion/)
+  notes:
+    output: true # Ensures individual note pages are generated
+    permalink: /notas/:path/ # URL structure for note pages (e.g., /notas/nombre-de-la-nota/)
+
+# Defaults for Collections
+defaults:
+  - scope:
+      path: "" # An empty string here means all files in the project
+      type: "sessions" # Applies to all files in the _sessions collection
+    values:
+      layout: "session" # Automatically assign the 'session' layout
+  - scope:
+      path: "" # An empty string here means all files in the project
+      type: "notes" # Applies to all files in the _notes collection
+    values:
+      layout: "note" # Automatically assign the 'note' layout
