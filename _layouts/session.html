@@ -25,27 +25,23 @@ layout: default
     </div>
   </header>
 
-  {# Use the page-content-wrapper for the main layout structure #}
   <div class="page-content-wrapper">
 
-    {# Table of Contents Sidebar #}
     <aside class="toc-sidebar">
       <h4>Contenido de la Sesión</h4>
       <ul id="toc-list">
-        {# This list will be dynamically populated by _includes/toc_script.html #}
+        
       </ul>
       <p class="toc-note"> (Sección generada dinámicamente)</p>
     </aside>
 
-    {# Main Content Area for the Session #}
     <div class="main-content-area">
-      {# Wrap the markdown content in .content-section for card-base styling #}
       <section class="content-section">
         {{ content }} {# This is where the Markdown content of each session file will go #}
       </section>
-    </div> {# /main-content-area #}
+    </div> 
 
-  </div> {# /page-content-wrapper #}
+  </div> 
 
   <section class="session-page-resources">
     <h3>Recursos de la Sesión</h3>
@@ -90,7 +86,7 @@ layout: default
   </section>
 
   ---
-  {# Navigation for Previous/Next Session and Back to List #}
+  
   {% assign sorted_sessions = site.sessions | sort: "order" %}
   {% assign current_session_index = 0 %}
   {% for session in sorted_sessions %}
@@ -128,5 +124,3 @@ layout: default
   </nav>
 
 </article>
-
-{# REMOVED: The redundant script block. It's now included via default.html and toc_script.html #}
