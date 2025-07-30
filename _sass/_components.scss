@@ -605,3 +605,103 @@
         font-size: 0.9em;
     }
 }
+
+// _sass/_components.scss
+
+// ... (existing components) ...
+
+// --- Session Pagination (Next/Previous Links) ---
+.session-pagination {
+    margin-top: $spacing-unit * 2;
+    padding-top: $spacing-unit;
+    border-top: 1px solid $border-light;
+    display: flex;
+    justify-content: space-between; // Distribute items with space between them
+    align-items: center;
+    flex-wrap: wrap; // Allow items to wrap on smaller screens
+    gap: $spacing-unit / 2; // Space between wrapped items
+
+    .session-pagination-left,
+    .session-pagination-right,
+    .session-pagination-center {
+        flex-grow: 1; // Allows these divs to grow and take available space
+        flex-basis: auto; // Default basis
+        padding: $spacing-unit / 4 0; // Small vertical padding for alignment
+    }
+
+    .session-pagination-left {
+        text-align: left;
+    }
+
+    .session-pagination-center {
+        text-align: center;
+    }
+
+    .session-pagination-right {
+        text-align: right;
+    }
+
+    // Adapt layout for smaller screens
+    @media (max-width: 768px) {
+        flex-direction: column; // Stack items vertically
+        .session-pagination-left,
+        .session-pagination-right,
+        .session-pagination-center {
+            width: 100%; // Make each item take full width
+            text-align: center; // Center text when stacked
+        }
+        .button {
+            width: 100%; // Make buttons take full width when stacked
+            justify-content: center; // Center content inside buttons
+        }
+    }
+
+    // Generic button style for navigation links within pagination
+    .button {
+        display: inline-flex; // Use inline-flex for content centering with gap
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        border-radius: $border-radius;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+        white-space: nowrap; // Prevent text from wrapping awkwardly on smaller buttons
+    }
+
+    .button-primary { // For 'Siguiente Sesión'
+        background-color: $brand-primary;
+        color: $white;
+        border: 1px solid $brand-primary;
+
+        &:hover {
+            background-color: darken($brand-primary, 10%);
+            color: $white;
+            border-color: darken($brand-primary, 10%);
+        }
+    }
+
+    .button-secondary { // For 'Sesión Anterior'
+        background-color: $bg-light; // Light background
+        color: $brand-primary; // Brand color text
+        border: 1px solid $brand-primary; // Brand color border
+
+        &:hover {
+            background-color: darken($bg-light, 5%);
+            color: darken($brand-primary, 10%);
+            border-color: darken($brand-primary, 10%);
+        }
+    }
+
+    .button-info { // For 'Regresar a Sesiones'
+        background-color: $info-color; // Distinct info color
+        color: $white;
+        border: 1px solid $info-color;
+
+        &:hover {
+            background-color: darken($info-color, 10%);
+            color: $white;
+            border-color: darken($info-color, 10%);
+        }
+    }
+}
