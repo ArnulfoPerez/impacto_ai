@@ -8,7 +8,7 @@ layout: default
     <h1 class="session-page-title">{{ page.title }}</h1>
     {% if page.obj %}
       <p class="session-page-objectives">
-        **Objetivos de la Sesión:**
+        <b>Objetivos de la Sesión:</b>
         {% for objective in page.obj %}
           <span>{{ objective }}</span>{% if forloop.last == false %},{% endif %}
         {% endfor %}
@@ -84,6 +84,45 @@ layout: default
       </ul>
     {% endif %}
   </section>
+
+  ---
+  {# NEW: Navigation for Previous/Next Session and Back to List #}
+  {% assign sorted_sessions = site.sessions | sort: "order" %}
+  {% assign current_session_index = 0 %}
+  {% for session in sorted_sessions %}
+    {% if session.url == page.url %}
+      {% assign current_session_index = forloop.index0 %} {# Zero-based index #}
+    {% endif %}
+  {% endfor %}
+
+  <nav class="session-pagination">
+    <div class="session-pagination-left">
+      {% assign prev_session_index = current_session_index | minus: 1 %}
+      {% if prev_session_index >= 0 %}
+        {% assign prev_session = sorted_sessions[prev_session_index] %}
+        <a href="{{ prev_session.url | relative_url }}" class="button button-secondary">
+          &larr; Sesión Anterior: {{ prev_session.order }}. {{ prev_session.title }}
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="session-pagination-center">
+      <a href="{{ '/sesiones/' | relative_url }}" class="button button-info">
+        Regresar a Sesiones
+      </a>
+    </div>
+
+    <div class="session-pagination-right">
+      {% assign next_session_index = current_session_index | plus: 1 %}
+      {% if next_session_index < sorted_sessions.size %}
+        {% assign next_session = sorted_sessions[next_session_index] %}
+        <a href="{{ next_session.url | relative_url }}" class="button button-primary">
+          Siguiente Sesión: {{ next_session.order }}. {{ next_session.title }} &rarr;
+        </a>
+      {% endif %}
+    </div>
+  </nav>
+
 </article>
 
 <script>
