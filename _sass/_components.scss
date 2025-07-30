@@ -1,4 +1,3 @@
-// _sass/_components.scss
 
 // --- Navigation Component ---
 .nav {
@@ -330,40 +329,3 @@
         }
         .session-page-content {
             order: 2;
-        }
-    }
-}
-
-.session-page-toc {
-    flex: 0 0 250px; /* Fixed width for TOC */
-    padding: $spacing-unit;
-    background-color: $bg-light;
-    border-radius: $border-radius;
-    position: sticky; /* Keep TOC visible while scrolling */
-    top: $spacing-unit; /* Distance from top of viewport */
-    align-self: flex-start; /* Align to the start of the flex container */
-    height: fit-content; /* Only take up necessary height */
-
-    h4 {
-        margin-top: 0;
-        margin-bottom: $spacing-unit;
-        color: $text-heading;
-    }
-    ul {
-        list-style: none;
-        padding-left: 0;
-        margin-bottom: 0; /* Remove default margin */
-    }
-    li {
-        margin-bottom: $spacing-unit / 4;
-        font-size: 0.95em;
-        a {
-            color: $text-base;
-            text-decoration: none;
-            &:hover {
-                color: $brand-primary;
-                text-decoration: underline;
-            }
-        }
-    }
-    .toc-level-3 { /* Style for H3 items in TOC */}
