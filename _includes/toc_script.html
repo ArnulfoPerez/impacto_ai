@@ -1,0 +1,36 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Select the common container for the main content that holds the headers
+    const mainContentContainer = document.querySelector('.main-content-area');
+    const tocList = document.getElementById('toc-list');
+
+    if (!mainContentContainer || !tocList) return;
+
+    // Select H2 and H3 headers within the main content container
+    const headers = mainContentContainer.querySelectorAll('h2, h3');
+    let tocHtml = '';
+
+    headers.forEach((header, index) => {
+        // Generate a unique ID for each header if it doesn't have one
+        const id = header.id || `toc-${header.tagName.toLowerCase()}-${index}-${header.textContent.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}`;
+        header.id = id; // Assign the ID back to the header
+
+        const level = parseInt(header.tagName.substring(1)); // H2 = 2, H3 = 3
+        const className = `toc-level-${level}`;
+        
+        tocHtml += `<li class="${className}"><a href="#${id}">${header.textContent}</a></li>`;
+    });
+
+    tocList.innerHTML = tocHtml;
+
+    // Optional: Smooth scroll for TOC links
+    tocList.querySelectorAll('a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});
+</script>
