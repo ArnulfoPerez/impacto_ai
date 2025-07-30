@@ -31,6 +31,10 @@ Esta sección presenta las presentaciones de forma simple, numeradas secuencialm
 
 
 ---
+layout: default
+title: Presentaciones del Curso
+permalink: /presentaciones/
+---
 
 # 💻 Presentaciones del Curso
 
@@ -40,23 +44,16 @@ _Aquí encontrarás todas las presentaciones utilizadas en cada sesión del curs
 
 ## 1. Listado Secuencial de Presentaciones
 
-Esta section presents the presentations simply, numbered sequentially.
+Esta sección presenta las presentaciones de forma simple, numeradas secuencialmente.
 
 {% comment %}
-  Initialize an empty array.
-  Iterate through block metadata, extract session values, and add them to the flat list.
-  Ensure values are converted to arrays if they are not already.
+  Get all session data (values) from site.session_metadata and sort them by 'order'.
+  This works well because session_metadata is now a flat hash of session objects.
 {% endcomment %}
-{% assign flat_sessions = [] %} {# Initialize as an empty array literal #}
-{% for block_key in site.session_metadata %}
-  {# block_key[1] gives the inner hash (e.g., 'inteligencia': {intro: {...}, fundamentos: {...}}) #}
-  {% assign current_block_sessions = block_key[1] | values | compact %} {# Get values (session hashes), compact removes nils #}
-  {% assign flat_sessions = flat_sessions | concat: current_block_sessions %}
-{% endfor %}
-{% assign sorted_sessions = flat_sessions | sort: "order" %}
+{% assign all_sessions_flat = site.session_metadata | values | sort: "order" %}
 
 <ul class="activity-list">
-  {% for session in sorted_sessions %}
+  {% for session in all_sessions_flat %}
     {% assign session_number_padded = session.order | prepend: "0" | slice: -2, 2 %}
     <li>
       <a href="{{ '/assets/presentations/' | relative_url }}sesion_S{{ session_number_padded }}.pptx"
@@ -70,6 +67,56 @@ Esta section presents the presentations simply, numbered sequentially.
 
 ---
 
+## 2. Listado por Bloques y Sesiones
+
+Aquí encontrarás las presentaciones organizadas por bloque temático, utilizando la metadata de configuración.
+
+<div class="presentations-container">
+  {% assign blocks_ordered = site.blocks_metadata | sort: "order" %}
+  {% for block_entry in blocks_ordered %}
+    {% assign block_slug = block_entry[0] %}
+    {% assign block_data = block_entry[1] %}
+
+    <div class="block-section">
+      <h2>{{ block_data.icon }} {{ block_data.title }}</h2>
+      <p class="block-description">{{ block_data.description }}</p>
+      
+      <ul class="session-list">
+        {% comment %}
+          For each block, iterate through the session *order numbers* defined in blocks_metadata.
+          Then, find the corresponding session data from site.session_metadata based on its 'order'.
+        {% endcomment %}
+        {% for session_order_in_block in block_data.sessions %}
+          {% assign current_session = nil %}
+          {% for session_data in site.session_metadata | values %}
+            {% if session_data.order == session_order_in_block %}
+              {% assign current_session = session_data %}
+              {% break %} {# Found it, exit inner loop #}
+            {% endif %}
+          {% endfor %}
+
+          {% if current_session %}
+            {% assign session_number_padded = current_session.order | prepend: "0" | slice: -2, 2 %}
+            <li class="session-item">
+              <div class="session-header">
+                <span class="session-order">Sesión {{ current_session.order }}</span>
+                <h3>{{ current_session.title }}</h3>
+              </div>
+              <p class="session-description">{{ current_session.description }}</p>
+
+              <a href="{{ '/assets/presentations/' | relative_url }}sesion_S{{ session_number_padded }}.pptx"
+                 target="_blank"
+                 class="presentation-link">
+                Descargar presentación
+                <span class="icon">↓</span>
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
 
 <style>
   .presentations-container {
