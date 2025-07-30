@@ -1,54 +1,71 @@
+// _sass/_base.scss
 
-// Base styles for the HTML body
+// --- Base Styles for HTML Elements ---
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; // Consider using a variable for font-family if you have a specific brand font
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: $bg-light; // Updated variable name
-    color: $text-base;     // Updated variable name
+    background: $bg-light;
+    color: $text-base;
 }
- 
-// Basic Typography
+
+// Basic Typography for Headings
 h1, h2, h3, h4, h5, h6 {
-    color: $text-heading; // Using the heading text color from variables
+    color: $text-heading;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
+    line-height: 1.2; // Add line-height for better heading readability
 }
 
 p {
     margin-bottom: 1em;
 }
 
+// Global Link Styles
 a {
-    color: $brand-primary; // Using primary brand color for links
+    color: $link-color; // Use the dedicated $link-color variable
     text-decoration: none;
 
     &:hover {
         text-decoration: underline;
+        color: darken($link-color, 10%); // Slightly darken on hover for consistency
     }
 }
 
+// List Styles
 ul, ol {
     margin-bottom: 1em;
+    padding-left: 1.2em; // Ensure default padding for lists
 }
 
-// Image responsiveness
+// Image Responsiveness
 img {
     max-width: 100%;
     height: auto;
+    display: block; // Prevents extra space below images
+    margin: 0 auto; // Centers images by default
 }
 
-// Mixins (can stay here for now or be moved to _mixins.scss if more are added)
+// --- Layout Containers ---
+// This is a common pattern for wrapping content to keep it within a max-width
+.container {
+    max-width: $content-max-width;
+    margin: 0 auto;
+    padding: 0 $spacing-unit; // Add horizontal padding for smaller screens
+}
+
+// --- Mixins ---
+// Mixins define reusable sets of CSS declarations.
+
+// Base Card Styling Mixin
 @mixin card-base {
     background: $white;
     border-radius: $border-radius;
     box-shadow: $box-shadow;
 }
 
-@mixin hover-effect($color) {
-    &:hover {
-        color: $color;
-        text-decoration: underline;
-    }
-}
+// You had a @mixin hover-effect, but it's not universally applied
+// and often better handled directly with each component's link styles.
+// If you do need a generic hover, ensure it's widely applicable.
+// For now, I've removed it, assuming specific hover styles will be in components.
