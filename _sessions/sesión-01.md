@@ -10,7 +10,7 @@ description: Exploración del concepto de inteligencia desde la neurociencia, la
 related_notes:
   - conceptos-basicos-inteligencia # Ejemplo de ID de nota
 additional_links:
-  - title: Video: ¿Qué es la inteligencia?
+  - title: "Video: ¿Qué es la inteligencia?"
     url: https://www.youtube.com/watch?v=ejemplo1
 ---
 
