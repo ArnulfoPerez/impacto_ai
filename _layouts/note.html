@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<article class="note-page-container">
+  <header class="note-page-header">
+    <h1 class="note-page-title">{{ page.title }}</h1>
+    {% if page.author %}
+      <p class="note-page-author">Autor: {{ page.author }}</p>
+    {% endif %}
+    {% if page.date %}
+      <p class="note-page-date">Publicado: {{ page.date | date: "%d %b, %Y" }}</p>
+    {% endif %}
+  </header>
+
+  <section class="note-section note-introduction">
+    <h2>Introducción</h2>
+    {% if page.introduction %}
+      {{ page.introduction | markdownify }} {# Renders Markdown from Front Matter #}
+    {% else %}
+      <p><em>No se ha proporcionado una introducción específica para esta nota.</em></p>
+    {% endif %}
+  </section>
+
+  <section class="note-section note-main-points">
+    <h2>Puntos Principales</h2>
+    {% if page.main_points %}
+      {{ page.main_points | markdownify }}
+    {% else %}
+      <p><em>No se han detallado puntos principales específicos para esta nota.</em></p>
+    {% endif %}
+  </section>
+
+  <section class="note-section note-conclusion">
+    <h2>Conclusión</h2>
+    {% if page.conclusion %}
+      {{ page.conclusion | markdownify }}
+    {% else %}
+      <p><em>No se ha proporcionado una conclusión específica para esta nota.</em></p>
+    {% endif %}
+  </section>
+
+  <section class="note-section note-references">
+    <h2>Referencias</h2>
+    {% if page.references %}
+      {{ page.references | markdownify }}
+    {% else %}
+      <p><em>No se han listado referencias para esta nota.</em></p>
+    {% endif %}
+  </section>
+
+  {% if page.tags %}
+    <footer class="note-page-tags">
+      <span>Etiquetas:</span>
+      {% for tag in page.tags %}
+        <span class="note-tag">{{ tag }}</span>{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    </footer>
+  {% endif %}
+</article>
