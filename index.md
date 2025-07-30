@@ -10,6 +10,9 @@ permalink: /
 
 
 ## 🎯 Objetivos del Curso
+
+Al finalizar el curso, serás capaz de:
+
 <ul class="objectives">
   {% for objective in site.course.objectives %}
     <li>{{ objective }}</li>
@@ -41,16 +44,6 @@ La IA ya no es solo una herramienta tecnológica; es un fenómeno sociocultural 
 - **Resiliencia Personal**: Desarrollar una comprensión de los sesgos algorítmicos, la vigilancia masiva y el impacto en el empleo ayuda a las personas a navegar un mundo en constante cambio, a proteger su privacidad y a adaptarse a nuevas realidades laborales.
 - **Pensamiento Crítico**: El curso fomenta la capacidad de discernir entre la retórica y la realidad de la IA, permitiendo a los individuos evaluar las afirmaciones sobre esta tecnología de manera más sofisticada y evitar tanto el optimismo ingenuo como el catastrofismo infundado.
 - **Responsabilidad Ética**: Al entender los dilemas éticos asociados con la IA (ej. sesgos, autonomía, toma de decisiones), los ciudadanos pueden exigir transparencia y responsabilidad a los desarrolladores y usuarios de IA, contribuyendo a un futuro más justo.
-
-## **[Objetivos de Aprendizaje](./objetivos.html)**
-
-Al finalizar el curso, serás capaz de:
-
-1.  **Comprender** la evolución de la IA y diferenciar sus etapas.
-2.  **Identificar** las funciones de la IA moderna y sus aplicaciones prácticas diarias.
-3.  **Analizar críticamente** cómo la IA es representada en la cultura (cine, literatura).
-4.  **Evaluar** el impacto social, laboral, ético y ambiental de la IA.
-5.  **Participar informadamente** en debates y decisiones sobre el uso y la regulación de la IA.
 
 ---
 
