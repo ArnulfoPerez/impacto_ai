@@ -16,13 +16,13 @@ Esta sección presenta las presentaciones de forma simple, numerada secuencialme
 
 {% assign sorted_sessions = site.session_metadata | sort: "order" %}
 
-<ul class="activity-list"> {# This class is defined in your _components.scss #}
+<ul class="activity-list"> 
   {% for session in sorted_sessions %}
     {% assign session_number_padded = session.order | prepend: "0" | slice: -2, 2 %}
     <li>
       <a href="{{ '/assets/presentations/' | relative_url }}sesion_S{{ session_number_padded }}.pptx"
          target="_blank"
-         class="activity-link"> {# This class is defined in your _components.scss #}
+         class="activity-link"> 
         Presentación Sesión {{ session.order }}: {{ session.title }}
       </a>
     </li>
@@ -35,14 +35,14 @@ Esta sección presenta las presentaciones de forma simple, numerada secuencialme
 
 Aquí encontrarás las presentaciones organizadas por bloque temático, utilizando la metadata de configuración.
 
-<div class="content-container"> {# Changed from .presentations-container to .content-container to match your CSS #}
+<div class="content-container"> 
   {% assign blocks_ordered = site.blocks_metadata | sort: "order" %}
   {% for block_data in blocks_ordered %}
-    <div class="block-section"> {# This class is defined in your _components.scss #}
+    <div class="block-section">
       <h2>{{ block_data.icon }} {{ block_data.title }}</h2>
       <p class="block-description">{{ block_data.description }}</p>
       
-      <ul class="session-list"> {# This class is defined in your _components.scss #}
+      <ul class="session-list"> 
         {% for session_order_in_block in block_data.sessions %}
           {% assign numeric_session_order = session_order_in_block | plus: 0 %}
           
@@ -51,8 +51,8 @@ Aquí encontrarás las presentaciones organizadas por bloque temático, utilizan
 
           {% if current_session %}
             {% assign session_number_padded = current_session.order | prepend: "0" | slice: -2, 2 %}
-            <li class="session-item"> {# This class is defined in your _components.scss #}
-              <div class="session-header"> {# This class is defined in your _components.scss #}
+            <li class="session-item"> 
+              <div class="session-header"> 
                 <span class="session-order">Sesión {{ current_session.order }}</span>
                 <h3>{{ current_session.title }}</h3>
               </div>
@@ -60,7 +60,7 @@ Aquí encontrarás las presentaciones organizadas por bloque temático, utilizan
 
               <a href="{{ '/assets/presentations/' | relative_url }}sesion_S{{ session_number_padded }}.pptx"
                  target="_blank"
-                 class="presentation-link"> {# This class is defined in your _components.scss #}
+                 class="presentation-link"> 
                 Descargar presentación
                 <span class="icon">↓</span>
               </a>
