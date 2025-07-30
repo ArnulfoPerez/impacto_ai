@@ -49,63 +49,13 @@ La IA ya no es solo una herramienta tecnológica; es un fenómeno sociocultural 
 
 ## Contenido del curso por bloques
 
-### 🔹 Bloque 1 — Inteligencia artificial: ¿De dónde viene y a dónde va?
-**Sesión 1.1 – Inteligencia humana vs. inteligencia artificial**  
-Exploración del concepto de inteligencia desde la neurociencia, la lógica computacional y la representación cultural. Introducción a la IA desde la cibernética de Wiener y Rosenblueth, hasta los mitos modernos.
-
-**Sesión 1.2 – Historia crítica de la IA**  
-Del test de Turing a los modelos predictivos: ciclos de entusiasmo y decepción, impacto geopolítico, militar y académico. Breve genealogía de los enfoques simbólicos, conexionistas y estadísticos.
-
----
-
-### 🔹 Bloque 2 — Cómo funciona la IA y a qué costo
-**Sesión 2.1 – ¿Cómo “aprende” una IA? Modelos, datos y entrenamiento**  
-Explicación accesible de redes neuronales, entrenamiento con grandes volúmenes de datos y limitaciones. Introducción a los sesgos y las “cajas negras” algorítmicas.
-
-**Sesión 2.2 – Costos invisibles: energía, datos y poder corporativo**  
-Impacto ambiental, infraestructura tecnológica, y concentración económica derivada de plataformas y modelos fundacionales. ¿Quién gana, quién paga, quién decide?
-
----
-
-### 🔹 Bloque 3 — Las dimensiones Ética, laboral, y jurídica de la IA
-**Sesión 3.1 – Dilemas éticos: sesgos, vigilancia y transparencia**  
-Estudio de casos reales sobre IA discriminatoria. Marco ético para evaluar responsabilidad, opacidad técnica y gobernanza. Panorama regulatorio emergente.
-
-**Sesión 3.2 – IA y el trabajo: desplazamiento, control y nuevos vínculos humanos-máquina**  
-Impacto de la IA en el empleo, algoritmización del trabajo, precarización, oportunidades emergentes y estrategias de resiliencia desde el rediseño organizacional y educativo.
-
----
-
-### 🔹 Bloque 4 — La IA en la sociedad, presente y futuro
-**Sesión 4.1 – ¿Cómo imaginamos la IA?**  
-Análisis de películas, literatura, medios y marketing tecnológico. Construcción de imaginarios y su efecto sobre la opinión pública y la adopción acrítica.
-
-**Sesión 4.2 – Futuros posibles**  
-Diseño participativo de escenarios futuros. ¿Qué IA queremos construir? ¿Qué decisiones deben tomarse hoy? Taller de síntesis y proyección crítica.
-
----
-
 <div class="sessions-list-container">
-  <header class="sessions-list-header">
-    <h1>Sesiones del Curso: {{ site.title }}</h1>
-    <p class="subtitle" style="color: blue;">Explora cada una de las sesiones de este curso.</p>
-  </header>
-
-  <section class="course-objectives-summary">
-    <h2>Objetivos Generales del Curso</h2>
-    <ul>
-      {% for obj in site.course.objectives %}
-        <li>{{ obj }}</li>
-      {% endfor %}
-    </ul>
-  </section>
-
-  {# Sort blocks_metadata directly as it's a list of hashes #}
+  
   {% assign sorted_blocks = site.blocks_metadata | sort_by: "order" %}
 
-  {% for block in sorted_blocks %} {# Iterate through the sorted list of blocks #}
+  {% for block in sorted_blocks %} 
     <section class="session-block">
-      {# Access properties directly: block.icon, block.title #}
+      
       <h2 class="block-title">{{ block.icon }} {{ block.title }}</h2>
       {% if block.description %}
         <p class="block-description">{{ block.description }}</p>
@@ -114,14 +64,14 @@ Diseño participativo de escenarios futuros. ¿Qué IA queremos construir? ¿Qu�
       <div class="block-sessions-grid">
         <h4>Sesiones:</h4>
         <ul>
-          {# block.sessions is a list of session ORDER numbers (e.g., [1,2]) #}
+          
           {% for session_order_number in block.sessions %}
             {# Find the corresponding session data from site.session_metadata list #}
             {% assign current_session_data = site.session_metadata | where: "order", session_order_number | first %}
 
             {% if current_session_data %}
               <li>
-                {# Access properties directly from current_session_data #}
+                
                 <strong>Sesión {{ current_session_data.order }} – {{ current_session_data.title }}</strong>:
                 {{ current_session_data.description }}
               </li>
