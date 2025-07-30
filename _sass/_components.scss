@@ -1,11 +1,121 @@
 // _sass/_components.scss
 
+// --- Base Component Styles (Generic Elements Reused Across Site) ---
+// These are general-purpose styles for common patterns like cards, links, etc.
+
+// Card Base Mixin (Assuming you have this in _base.scss or similar)
+// @mixin card-base {
+//     background-color: $white;
+//     border-radius: $border-radius;
+//     box-shadow: $box-shadow;
+// }
+
+// Common Styles for Page Content Wrapper (Sidebar + Main Content)
+.page-content-wrapper {
+    display: flex;
+    gap: $spacing-unit * 2; /* Increased gap for better visual separation */
+    align-items: flex-start;
+    margin-top: $spacing-unit * 2; /* Consistent margin from headers/hero */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+// Common Styles for Table of Contents Sidebar
+.toc-sidebar {
+    flex: 0 0 280px; /* Slightly wider TOC for readability */
+    padding: $spacing-unit;
+    background-color: $bg-light;
+    border: 1px solid $border-light; /* Consistent border */
+    border-radius: $border-radius;
+    position: sticky;
+    top: $spacing-unit * 2; /* Adjust based on your header height */
+    max-height: calc(100vh - #{$spacing-unit * 4}); /* Ensure it fits viewport */
+    overflow-y: auto;
+    box-shadow: $box-shadow-sm; /* Lighter shadow for sidebar */
+
+    h4 {
+        margin-top: 0;
+        margin-bottom: $spacing-unit;
+        color: $text-heading;
+        font-size: 1.1em;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        margin-bottom: $spacing-unit / 3; /* Tighter spacing for TOC links */
+        font-size: 0.95em;
+    }
+
+    a {
+        text-decoration: none;
+        color: $link-color; /* Use a global link color variable if available */
+        &:hover {
+            color: $brand-primary;
+            text-decoration: underline;
+        }
+    }
+
+    .toc-level-3 {
+        padding-left: $spacing-unit;
+        font-size: 0.9em;
+    }
+
+    .toc-note {
+        font-size: 0.8em;
+        color: $text-muted;
+        margin-top: $spacing-unit / 2;
+    }
+
+    @media (max-width: 992px) { /* Tablet breakpoint */
+        flex: 1 1 100%;
+        position: static;
+        max-height: none;
+        border-right: none;
+        border-bottom: 1px solid $border-light;
+        margin-bottom: $spacing-unit * 2;
+    }
+}
+
+// Common Styles for Main Content Area (where actual page content resides)
+.main-content-area {
+    flex-grow: 1;
+    min-width: 0; /* Prevents flex item from overflowing */
+    line-height: 1.7;
+    color: $text-base;
+
+    p {
+        margin-bottom: $spacing-unit;
+    }
+
+    h2, h3, h4 {
+        color: $text-heading;
+        margin-top: $spacing-unit * 1.5;
+        margin-bottom: $spacing-unit;
+        /* Adjust padding/margin for sticky header compensation */
+        padding-top: $spacing-unit * 3; /* For sticky header */
+        margin-top: -$spacing-unit * 3; /* Offset actual content down */
+    }
+
+    // Specific styling for content within sections like notes/sessions
+    .content-section { /* Apply this to main markdown content sections */
+        background-color: $white; /* Ensure content background is white */
+        padding: $spacing-unit * 1.5;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow;
+        margin-bottom: $spacing-unit * 2;
+    }
+}
+
 // --- Navigation Component ---
 .nav {
     &__list {
         list-style: none;
         padding: 0;
-        margin: 0; // Reset margin from global ul/ol styles
+        margin: 0;
         display: flex;
         gap: $spacing-unit * 1.5;
     }
@@ -13,50 +123,525 @@
     &__link {
         color: $nav-link-color;
         text-decoration: none;
-
         &:hover {
             text-decoration: underline;
         }
     }
 }
 
-// --- Thematic Definition Component (🧩 Definición temática) ---
+// --- Global Page Header Styles (Simplified and Reused) ---
+// This applies to both session and note pages where a main title header is present.
+.page-header {
+    text-align: center;
+    margin-bottom: $spacing-unit * 2;
+    padding-bottom: $spacing-unit;
+    border-bottom: 1px solid $border-light; /* Optional: adds a subtle line below header */
+
+    &__title {
+        color: $text-heading;
+        margin-bottom: $spacing-unit / 2;
+        font-size: 2.2em; /* Consistent large title size */
+        line-height: 1.2;
+    }
+
+    &__subtitle,
+    &__meta { /* For author, date, order, description, etc. */
+        color: $text-muted;
+        font-size: 0.9em;
+        margin-bottom: $spacing-unit / 2;
+        display: block; /* Ensures meta items break line */
+    }
+}
+
+
+// --- Content Block Components (Thematic Boxes) ---
+%themed-block { /* Placeholder for common styles */
+    padding: 1.5rem;
+    border-radius: $border-radius;
+    margin: 1.5rem 0;
+    box-shadow: $box-shadow-sm; /* Use a consistent, slightly lighter shadow */
+}
+
 .definicion {
-    border: 2px solid #00cc66;       /* Borde verde */
-    background-color: #e8ffe5;       /* Fondo verde claro */
-    padding: 1.5rem;                 /* Espaciado interno */
-    border-radius: $border-radius;   /* Usando variable */
-    margin: 1.5rem 0;                /* Margen externo */
-    box-shadow: $box-shadow;         /* Usando variable */
+    @extend %themed-block;
+    border: 2px solid $success-color-dark; /* Using a more specific color variable */
+    background-color: $success-color-light;
 }
 
-// --- Warning Component (⚠️ Advertencia visual) ---
 .advertencia {
-    border: 2px solid #ff4d4d;       /* Borde rojo */
-    background-color: #ffe5e5;       /* Fondo rojo claro */
-    padding: 1.5rem;
-    border-radius: $border-radius;   /* Usando variable */
-    margin: 1.5rem 0;
-    box-shadow: $box-shadow;         /* Opcional: añade sombra si quieres consistencia */
+    @extend %themed-block;
+    border: 2px solid $danger-color-dark;
+    background-color: $danger-color-light;
 }
 
-// --- Highlighted Example Component (💡 Ejemplo destacado) ---
 .ejemplo {
-    border: 2px solid #ffa500;       /* Borde naranja */
-    background-color: #fff8e5;       /* Fondo amarillo claro */
-    padding: 1.5rem;
-    border-radius: $border-radius;   /* Usando variable */
-    margin: 1.5rem 0;
-    box-shadow: $box-shadow;         /* Opcional: añade sombra si quieres consistencia */
+    @extend %themed-block;
+    border: 2px solid $warning-color-dark;
+    background-color: $warning-color-light;
 }
+
+
+// --- Specific Page Layout Containers ---
+.session-page-container,
+.note-page-container {
+    padding: $spacing-unit * 2;
+    background-color: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    margin-top: $spacing-unit * 2;
+}
+
+
+// --- Session Specific Components ---
+.session-page-header { /* Specific overrides for session header if needed, but aim for .page-header */
+    .session-page-order {
+        display: block;
+        font-size: 1.1em;
+        font-weight: bold;
+        color: $brand-primary;
+        margin-bottom: $spacing-unit / 2;
+    }
+
+    .session-page-objectives {
+        font-style: italic;
+        color: $text-muted;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        span {
+            display: inline-block;
+            margin-right: 0.5em;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.session-course-objectives {
+    margin-top: $spacing-unit * 1.5;
+    padding: $spacing-unit;
+    background-color: lighten($bg-light, 2%);
+    border-left: 4px solid $brand-secondary;
+    border-radius: $border-radius-sm;
+
+    h4 {
+        margin-top: 0;
+        margin-bottom: $spacing-unit / 2;
+        color: $text-heading;
+    }
+    ul {
+        list-style: disc;
+        padding-left: 1.5em;
+        margin-bottom: 0;
+    }
+    li {
+        margin-bottom: $spacing-unit / 4;
+        color: $text-base;
+    }
+}
+
+.session-page-resources {
+    border-top: 1px solid $border-light;
+    padding-top: $spacing-unit * 2;
+    margin-top: $spacing-unit * 3; /* More space from content */
+
+    h3 {
+        color: $text-heading;
+        margin-bottom: $spacing-unit;
+    }
+
+    .session-page-links {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-unit;
+        margin-bottom: $spacing-unit; /* Space below resource links */
+
+        li {
+            margin-bottom: 0; /* Override default list item margin */
+        }
+
+        .presentation-link,
+        .activity-link,
+        .session-additional-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: $border-radius;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .presentation-link {
+            background-color: $brand-primary;
+            color: $white;
+            border: 1px solid $brand-primary;
+            &:hover {
+                background-color: darken($brand-primary, 10%);
+            }
+        }
+
+        .activity-link {
+            background-color: $success-color; /* Using a general success color */
+            color: $white;
+            border: 1px solid $success-color;
+            &:hover {
+                background-color: darken($success-color, 10%);
+            }
+        }
+
+        .session-additional-link {
+            background-color: $bg-light;
+            color: $text-base;
+            border: 1px solid $border-light;
+            &:hover {
+                background-color: darken($bg-light, 5%);
+                color: $brand-primary;
+                border-color: $brand-primary;
+            }
+        }
+    }
+
+    .session-page-related-notes {
+        list-style: disc;
+        padding-left: 1.5em;
+        margin-top: $spacing-unit;
+
+        a {
+            color: $brand-secondary;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+// Session Pagination (Next/Previous Links)
+.session-pagination {
+    margin-top: $spacing-unit * 3; /* More space from resources */
+    padding-top: $spacing-unit;
+    border-top: 1px solid $border-light;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-unit; /* Increased gap */
+
+    &-left,
+    &-right,
+    &-center {
+        flex-grow: 1;
+        flex-basis: auto;
+        padding: $spacing-unit / 4 0;
+    }
+
+    &-left { text-align: left; }
+    &-center { text-align: center; }
+    &-right { text-align: right; }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        &-left, &-right, &-center {
+            width: 100%;
+            text-align: center;
+        }
+        .button {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+    .button { /* General button style for navigation links */
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        border-radius: $border-radius;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.2s ease-in-out;
+        white-space: nowrap;
+    }
+
+    .button-primary {
+        background-color: $brand-primary;
+        color: $white;
+        border: 1px solid $brand-primary;
+        &:hover {
+            background-color: darken($brand-primary, 10%);
+            color: $white;
+        }
+    }
+
+    .button-secondary {
+        background-color: $bg-light;
+        color: $brand-primary;
+        border: 1px solid $brand-primary;
+        &:hover {
+            background-color: darken($bg-light, 5%);
+            color: darken($brand-primary, 10%);
+            border-color: darken($brand-primary, 10%);
+        }
+    }
+
+    .button-info {
+        background-color: $info-color;
+        color: $white;
+        border: 1px solid $info-color;
+        &:hover {
+            background-color: darken($info-color, 10%);
+        }
+    }
+}
+
+
+// --- Note Specific Components ---
+.note-page-header { /* Specific overrides for note header if needed, but aim for .page-header */
+    .note-page-author,
+    .note-page-date {
+        color: $text-muted;
+        font-size: 0.9em;
+    }
+}
+
+.note-section {
+    background-color: lighten($bg-light, 2%);
+    border-left: 4px solid; /* Placeholder, color set by modifier classes */
+    padding: $spacing-unit;
+    border-radius: $border-radius-sm;
+    margin-bottom: $spacing-unit * 1.5;
+
+    h2 {
+        margin-top: 0;
+        margin-bottom: $spacing-unit;
+        color: $brand-primary; /* Default for note section H2 */
+    }
+
+    p, ul, ol {
+        margin-bottom: $spacing-unit / 2;
+        line-height: 1.6;
+        color: $text-base;
+    }
+    ul, ol {
+        padding-left: 1.5em;
+    }
+}
+
+/* Modifier classes for note section colors */
+.note-introduction { border-color: $brand-secondary; }
+.note-main-points { border-color: $success-color; }
+.note-conclusion { border-color: $info-color; }
+.note-references { border-color: $warning-color; }
+
+
+.note-page-tags {
+    border-top: 1px solid $border-light;
+    padding-top: $spacing-unit;
+    margin-top: $spacing-unit * 2;
+    text-align: center;
+
+    span {
+        font-weight: bold;
+        color: $text-secondary;
+        margin-right: 0.5em;
+    }
+
+    .note-tag {
+        display: inline-block;
+        background-color: lighten($brand-primary, 50%);
+        color: $brand-primary;
+        padding: 0.2em 0.6em;
+        border-radius: $border-radius-sm;
+        font-size: 0.8em;
+        margin-right: 0.5em;
+        margin-bottom: 0.5em;
+    }
+}
+
+
+// --- List Page Styles (for /sesiones/, /notas/, /actividades/ lists) ---
+
+// Common List Container
+.list-container {
+    max-width: $content-max-width;
+    margin: 0 auto;
+    padding: $spacing-unit;
+}
+
+.list-header { /* General header for list pages */
+    text-align: center;
+    margin-bottom: $spacing-unit * 2;
+
+    h1 {
+        color: $text-heading;
+        margin-bottom: $spacing-unit / 2;
+    }
+    .subtitle {
+        color: $text-secondary;
+        font-size: 1.1em;
+    }
+}
+
+.block-section { /* Used in sessions/activities list pages */
+    margin-bottom: $spacing-unit * 3;
+    padding: $spacing-unit * 1.5;
+    background-color: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+}
+
+.block-description {
+    color: $text-secondary;
+    margin-bottom: $spacing-unit * 1.5;
+}
+
+// Common Card List (can be used for session-list, notes-grid)
+.card-list-grid { /* Generic class for grids of cards */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $spacing-unit;
+    list-style: none;
+    padding: 0;
+}
+
+.card-item { /* Generic card item for lists */
+    background-color: $white;
+    border: 1px solid $border-light;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+    padding: $spacing-unit;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $box-shadow-hover;
+    }
+
+    h3 {
+        margin-top: 0;
+        margin-bottom: $spacing-unit / 2;
+        font-size: 1.3em;
+        line-height: 1.3;
+        a {
+            color: $brand-primary;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    p {
+        color: $text-secondary;
+        flex-grow: 1;
+        margin-bottom: $spacing-unit;
+    }
+
+    .button {
+        align-self: flex-start;
+        margin-top: auto;
+    }
+}
+
+
+// Specific List Implementations using the common card styles
+.session-list { /* For lists of sessions within block-section */
+    list-style: none;
+    padding-left: 0;
+    .session-item { /* Reusing .card-item for individual sessions */
+        @extend .card-item;
+        margin-bottom: $spacing-unit; /* Adjust spacing specific to this list */
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Lighter shadow for list items */
+        &:hover {
+            transform: translateY(-3px); /* Less dramatic hover */
+            box-shadow: $box-shadow-hover;
+        }
+        padding: $spacing-unit;
+    }
+    .session-header {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .session-order {
+        font-weight: bold;
+        color: $text-heading;
+    }
+    .session-description {
+        color: $text-base;
+        margin: 0.5rem 0;
+    }
+    .session-objectives {
+        font-size: 0.9em;
+        color: $text-muted;
+        margin-bottom: 1rem;
+    }
+    .session-item-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-unit / 2;
+        margin-top: $spacing-unit;
+        .presentation-link, .activity-link {
+            padding: 0.6em 1em;
+            font-size: 0.9em;
+        }
+    }
+}
+
+.notes-grid { /* For notes list page */
+    @extend .card-list-grid;
+    .note-card { /* Individual note card */
+        @extend .card-item;
+    }
+    // No specific adjustments needed here as .card-item already handles the base
+}
+
+.activity-list { /* For sequential activity list on activities page */
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: $spacing-unit * 2;
+
+    li {
+        margin-bottom: $spacing-unit * 0.75;
+    }
+}
+
+
+// --- Generic Link & Icon Styles ---
+.icon {
+    font-size: 0.9em; /* Adjust icon size consistently */
+    line-height: 1; /* Helps with vertical alignment */
+}
+
+// --- Responsive Adjustments for List Containers ---
+@media (max-width: 768px) {
+    .list-container {
+        padding: $spacing-unit / 2;
+    }
+    .card-list-grid {
+        grid-template-columns: 1fr; /* Stack cards on small screens */
+    }
+}
+
 
 // --- Instructor Profile Component ---
 .instructor-profile {
-    @include card-base; // Reusing the mixin from _base.scss
+    // @include card-base; // Use if you have a mixin for background/shadow/border-radius
+    background-color: $white;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
     padding: $spacing-unit * 2;
-    max-width: 700px; // Limits the width of the instructor card
-    margin: $spacing-unit auto; // Centers the card
-    text-align: center; // Centers content within the card
+    max-width: 700px;
+    margin: $spacing-unit auto;
+    text-align: center;
 
     h3 {
         color: $text-heading;
@@ -101,795 +686,4 @@
     padding: 1rem;
     border-radius: $border-radius;
     margin: 1rem 0;
-}
-
-// --- Session Layout and TOC (for original individual session pages, if still used) ---
-// These styles are for a specific session page layout, not the list pages.
-.session-container {
-    display: grid;
-    grid-template-columns: 1fr 250px;
-    gap: 2rem;
-
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-    }
-}
-
-.toc-sidebar {
-    position: sticky;
-    top: 1rem;
-    align-self: start;
-    padding: 1rem;
-    background: $bg-light;
-    border-radius: $border-radius;
-
-    .toc {
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        a {
-            display: block;
-            padding: 0.25rem 0;
-            color: $text-base;
-            &:hover {
-                color: $brand-primary;
-            }
-        }
-    }
-}
-
-.session-meta {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid $border-light;
-}
-
-// --- Specific Content Block & List Styles (for /presentaciones/ and /actividades/ pages) ---
-// Main container for content on /presentaciones/ and /actividades/
-.content-container {
-    margin-top: 2rem;
-}
-
-// Section for each block (e.g., 'Inteligencia desde las perspectivas...')
-.block-section {
-    margin-bottom: 3rem;
-    padding: 1.5rem;
-    background-color: $white;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
-}
-
-.block-description {
-    color: $text-secondary;
-    margin-bottom: 1.5rem;
-}
-
-// List of sessions within a block
-.session-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-// Individual session item within the list
-.session-item {
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: lighten($bg-light, 2%);
-    border-radius: $border-radius;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.session-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.session-order {
-    font-weight: bold;
-    color: $text-heading;
-}
-
-// Text description for individual sessions
-.session-description {
-    color: $text-base;
-    margin: 0.5rem 0;
-}
-
-.session-objectives {
-    font-size: 0.9em;
-    color: $text-muted;
-    margin-bottom: 1rem;
-}
-
-// Styles for sequential activity list (the first list on the page)
-.activity-list {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 2rem;
-
-    li {
-        margin-bottom: 0.75rem;
-    }
-}
-
-// --- Specific Link Styles for Presentations and Activities ---
-.presentation-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: $brand-primary;
-    color: $white;
-    text-decoration: none;
-    border-radius: $border-radius;
-    transition: background-color 0.2s;
-
-    &:hover { // Nested hover state for consistency
-        background-color: darken($brand-primary, 10%);
-    }
-}
-
-.activity-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background-color: #28a745; /* A distinct green for activities */
-    color: $white;
-    text-decoration: none;
-    border-radius: $border-radius;
-    transition: background-color 0.2s;
-
-    &:hover { // Nested hover state for consistency
-        background-color: darken(#28a745, 10%);
-    }
-}
-
-.icon {
-    font-size: 0.9em;
-}
-
-// --- New Styles for Individual Session Pages (session.html layout) ---
-.session-page-container {
-    padding: $spacing-unit * 2;
-    background-color: $white;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
-    margin-top: $spacing-unit * 2;
-}
-
-.session-page-header {
-    text-align: center;
-    margin-bottom: $spacing-unit * 2;
-
-    .session-page-order {
-        display: block;
-        font-size: 1.1em;
-        font-weight: bold;
-        color: $brand-primary;
-        margin-bottom: $spacing-unit / 2;
-    }
-
-    .session-page-title {
-        color: $text-heading;
-        margin-bottom: $spacing-unit;
-    }
-
-    .session-page-objectives {
-        font-style: italic;
-        color: $text-muted;
-        max-width: 800px;
-        margin: 0 auto;
-        line-height: 1.6;
-        span {
-            display: inline-block;
-            margin-right: 0.5em;
-            &:last-child {
-                margin-right: 0;
-            }
-        }
-    }
-}
-
-.session-course-objectives {
-    margin-top: $spacing-unit * 1.5;
-    padding: $spacing-unit;
-    background-color: lighten($bg-light, 2%);
-    border-left: 4px solid $brand-secondary;
-    border-radius: $border-radius-sm;
-
-    h4 {
-        margin-top: 0;
-        margin-bottom: $spacing-unit / 2;
-        color: $text-heading;
-    }
-    ul {
-        list-style: disc;
-        padding-left: 1.5em;
-        margin-bottom: 0;
-    }
-    li {
-        margin-bottom: $spacing-unit / 4;
-        color: $text-base;
-    }
-}
-
-.session-page-main-content-area {
-    display: flex; /* Use flexbox for content and TOC side-by-side */
-    gap: $spacing-unit * 2; /* Space between TOC and content */
-    margin-bottom: $spacing-unit * 3;
-
-    @media (max-width: 992px) { /* Adjust for smaller screens */
-        flex-direction: column; /* Stack TOC and content vertically */
-        .session-page-toc {
-            order: 1; /* TOC above content on small screens */
-            margin-bottom: $spacing-unit * 2;
-        }
-        .session-page-content {
-            order: 2;
-        }
-    }
-}
-
-.session-page-toc {
-    flex: 0 0 250px; /* Fixed width for TOC */
-    padding: $spacing-unit;
-    background-color: $bg-light;
-    border-radius: $border-radius;
-    position: sticky; /* Keep TOC visible while scrolling */
-    top: $spacing-unit; /* Distance from top of viewport */
-    align-self: flex-start; /* Align to the start of the flex container */
-    height: fit-content; /* Only take up necessary height */
-
-    h4 {
-        margin-top: 0;
-        margin-bottom: $spacing-unit;
-        color: $text-heading;
-    }
-    ul {
-        list-style: none;
-        padding-left: 0;
-        margin-bottom: 0; /* Remove default margin */
-    }
-    li {
-        margin-bottom: $spacing-unit / 4;
-        font-size: 0.95em;
-        a {
-            color: $text-base;
-            text-decoration: none;
-            &:hover {
-                color: $brand-primary;
-                text-decoration: underline;
-            }
-        }
-    }
-    .toc-level-3 { /* Style for H3 items in TOC */
-        padding-left: $spacing-unit; /* Indent sub-items */
-        font-size: 0.9em;
-    }
-    .toc-note { // Correctly nested within .session-page-toc
-        font-size: 0.8em;
-        color: $text-muted;
-        margin-top: $spacing-unit / 2;
-    }
-} // Correct closing brace for .session-page-toc
-
-.session-page-content {
-    flex-grow: 1; /* Allow content to take up remaining space */
-    line-height: 1.7; // Ensure basic content styles are there
-    color: $text-base; // Ensure basic content styles are there
-
-    p {
-        margin-bottom: $spacing-unit;
-    }
-    h2, h3, h4 { // Styles for headers within the content
-        color: $text-heading;
-        margin-top: $spacing-unit * 1.5;
-        margin-bottom: $spacing-unit;
-    }
-}
-
-.session-page-resources {
-    border-top: 1px solid $border-light;
-    padding-top: $spacing-unit * 2;
-
-    h3 {
-        color: $text-heading;
-        margin-bottom: $spacing-unit;
-    }
-
-    .session-page-links {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: $spacing-unit;
-
-        li {
-            margin-bottom: 0;
-        }
-
-        .presentation-link,
-        .activity-link,
-        .session-additional-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.25rem;
-            border-radius: $border-radius;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.2s, color 0.2s;
-        }
-
-        .session-additional-link {
-            background-color: $bg-light;
-            color: $text-base;
-            border: 1px solid $border-light;
-
-            &:hover {
-                background-color: darken($bg-light, 5%);
-                color: $brand-primary;
-                border-color: $brand-primary;
-            }
-        }
-    }
-
-    .session-page-related-notes {
-        list-style: disc;
-        padding-left: 1.5em;
-        margin-top: $spacing-unit;
-
-        a {
-            color: $brand-secondary;
-            text-decoration: none;
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-}
-
-// --- New Styles for Individual Note Pages (note.html layout) ---
-.note-page-container {
-    padding: $spacing-unit * 2;
-    background-color: $white;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
-    margin-top: $spacing-unit * 2;
-}
-
-.note-page-header {
-    text-align: center;
-    margin-bottom: $spacing-unit * 2;
-
-    .note-page-title {
-        color: $text-heading;
-        margin-bottom: $spacing-unit / 2;
-    }
-
-    .note-page-author,
-    .note-page-date {
-        color: $text-muted;
-        font-size: 0.9em;
-    }
-}
-
-.note-section {
-    background-color: lighten($bg-light, 2%);
-    border-left: 4px solid $brand-primary;
-    padding: $spacing-unit;
-    border-radius: $border-radius-sm;
-    margin-bottom: $spacing-unit * 1.5;
-
-    h2 {
-        margin-top: 0;
-        margin-bottom: $spacing-unit;
-        color: $brand-primary;
-    }
-
-    p, ul, ol { // Ensure general markdown content within sections is styled
-        margin-bottom: $spacing-unit / 2;
-        line-height: 1.6;
-        color: $text-base;
-    }
-    ul, ol {
-        padding-left: 1.5em;
-    }
-}
-
-.note-introduction { border-color: $brand-secondary; }
-.note-main-points { border-color: $success-color; }
-.note-conclusion { border-color: $info-color; }
-.note-references { border-color: $warning-color; }
-
-
-.note-page-tags {
-    border-top: 1px solid $border-light;
-    padding-top: $spacing-unit;
-    margin-top: $spacing-unit * 2;
-    text-align: center;
-
-    span {
-        font-weight: bold;
-        color: $text-secondary;
-        margin-right: 0.5em;
-    }
-
-    // This is the primary definition for .note-tag
-    .note-tag {
-        display: inline-block;
-        background-color: lighten($brand-primary, 50%);
-        color: $brand-primary;
-        padding: 0.2em 0.6em;
-        border-radius: $border-radius-sm;
-        font-size: 0.8em;
-        margin-right: 0.5em;
-        margin-bottom: 0.5em;
-    }
-}
-
-// --- Styles for Notes List Page (notas.md) ---
-.notes-list {
-    list-style: none;
-    padding-left: 0;
-    margin-top: $spacing-unit * 2;
-}
-
-.note-list-item {
-    background-color: $white;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
-    margin-bottom: $spacing-unit * 2;
-    padding: $spacing-unit * 1.5;
-
-    h3 {
-        margin-top: 0;
-        margin-bottom: $spacing-unit / 2;
-        a {
-            color: $text-heading;
-            text-decoration: none;
-            &:hover {
-                color: $brand-primary;
-                text-decoration: underline;
-            }
-        }
-    }
-
-    .note-list-author,
-    .note-list-date {
-        font-size: 0.85em;
-        color: $text-muted;
-        margin-bottom: $spacing-unit;
-    }
-
-    .note-list-excerpt {
-        color: $text-base;
-        line-height: 1.6;
-        margin-bottom: $spacing-unit;
-    }
-
-    .note-list-tags {
-        margin-top: $spacing-unit;
-        margin-bottom: $spacing-unit;
-        // The .note-tag class should be applied directly in HTML here,
-        // no need for an @extend or nested definition here.
-    }
-
-    .read-more-link {
-        display: inline-block;
-        margin-top: $spacing-unit / 2;
-        color: $brand-secondary;
-        text-decoration: none;
-        font-weight: bold;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
-
-// --- Additional style for actions in session list on main pages ---
-.session-item-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $spacing-unit / 2;
-    margin-top: $spacing-unit; // Add some space above action links
-
-    .presentation-link,
-    .activity-link {
-        padding: 0.6em 1em; // Slightly smaller buttons for lists
-        font-size: 0.9em;
-    }
-}
-
-// _sass/_components.scss
-
-// ... (existing components) ...
-
-// --- Session Pagination (Next/Previous Links) ---
-.session-pagination {
-    margin-top: $spacing-unit * 2;
-    padding-top: $spacing-unit;
-    border-top: 1px solid $border-light;
-    display: flex;
-    justify-content: space-between; // Distribute items with space between them
-    align-items: center;
-    flex-wrap: wrap; // Allow items to wrap on smaller screens
-    gap: $spacing-unit / 2; // Space between wrapped items
-
-    .session-pagination-left,
-    .session-pagination-right,
-    .session-pagination-center {
-        flex-grow: 1; // Allows these divs to grow and take available space
-        flex-basis: auto; // Default basis
-        padding: $spacing-unit / 4 0; // Small vertical padding for alignment
-    }
-
-    .session-pagination-left {
-        text-align: left;
-    }
-
-    .session-pagination-center {
-        text-align: center;
-    }
-
-    .session-pagination-right {
-        text-align: right;
-    }
-
-    // Adapt layout for smaller screens
-    @media (max-width: 768px) {
-        flex-direction: column; // Stack items vertically
-        .session-pagination-left,
-        .session-pagination-right,
-        .session-pagination-center {
-            width: 100%; // Make each item take full width
-            text-align: center; // Center text when stacked
-        }
-        .button {
-            width: 100%; // Make buttons take full width when stacked
-            justify-content: center; // Center content inside buttons
-        }
-    }
-
-    // Generic button style for navigation links within pagination
-    .button {
-        display: inline-flex; // Use inline-flex for content centering with gap
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.75rem 1.25rem;
-        border-radius: $border-radius;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-        white-space: nowrap; // Prevent text from wrapping awkwardly on smaller buttons
-    }
-
-    .button-primary { // For 'Siguiente Sesión'
-        background-color: $brand-primary;
-        color: $white;
-        border: 1px solid $brand-primary;
-
-        &:hover {
-            background-color: darken($brand-primary, 10%);
-            color: $white;
-            border-color: darken($brand-primary, 10%);
-        }
-    }
-
-    .button-secondary { // For 'Sesión Anterior'
-        background-color: $bg-light; // Light background
-        color: $brand-primary; // Brand color text
-        border: 1px solid $brand-primary; // Brand color border
-
-        &:hover {
-            background-color: darken($bg-light, 5%);
-            color: darken($brand-primary, 10%);
-            border-color: darken($brand-primary, 10%);
-        }
-    }
-
-    .button-info { // For 'Regresar a Sesiones'
-        background-color: $info-color; // Distinct info color
-        color: $white;
-        border: 1px solid $info-color;
-
-        &:hover {
-            background-color: darken($info-color, 10%);
-            color: $white;
-            border-color: darken($info-color, 10%);
-        }
-    }
-}
-// _sass/_components.scss
-
-// ... (tus estilos existentes, incluyendo los de .sessions-list-container, .session-card, etc.) ...
-
-// --- Notes List Page Styles ---
-.notes-list-container {
-  max-width: $content-max-width;
-  margin: 0 auto;
-  padding: $spacing-unit;
-}
-
-.notes-list-header {
-  text-align: center;
-  margin-bottom: $spacing-unit * 2;
-
-  h1 {
-    color: $text-heading;
-    margin-bottom: $spacing-unit / 2;
-  }
-
-  .subtitle {
-    color: $text-secondary;
-    font-size: 1.1em;
-  }
-}
-
-.all-notes-listing {
-  margin-top: $spacing-unit * 2;
-}
-
-.notes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: $spacing-unit;
-  list-style: none; // Remove default list bullets
-  padding: 0; // Remove default list padding
-}
-
-.note-card {
-  background-color: $white;
-  border: 1px solid $border-light;
-  border-radius: $border-radius;
-  box-shadow: $box-shadow;
-  padding: $spacing-unit;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: $box-shadow-hover;
-  }
-
-  h3 {
-    margin-top: 0;
-    margin-bottom: $spacing-unit / 2;
-    font-size: 1.3em;
-    line-height: 1.3;
-
-    a {
-      color: $brand-primary;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  p {
-    color: $text-secondary;
-    flex-grow: 1; // Allows description to take up available space
-    margin-bottom: $spacing-unit;
-  }
-
-  .button {
-    align-self: flex-start; // Align button to the left
-    margin-top: auto; // Push button to the bottom if content varies in height
-  }
-}
-
-.no-notes-message {
-  text-align: center;
-  color: $text-muted;
-  font-style: italic;
-  padding: $spacing-unit * 2;
-  border: 1px dashed $border-light;
-  border-radius: $border-radius;
-  margin-top: $spacing-unit * 2;
-}
-
-// Media queries for responsiveness
-@media (max-width: 768px) {
-  .notes-list-container {
-    padding: $spacing-unit / 2;
-  }
-  .notes-grid {
-    grid-template-columns: 1fr; // Stack cards on small screens
-  }
-}
-
-/* _sass/_components.scss */
-
-/* General layout for pages with a sidebar */
-.page-content-wrapper {
-    display: flex; /* Use flexbox for side-by-side layout */
-    gap: 20px; /* Space between sidebar and main content */
-    align-items: flex-start; /* Align items to the top */
-    margin-top: 20px; /* Adjust as needed for spacing from header */
-
-    /* Allow wrapping on smaller screens (sidebar goes on top) */
-    flex-wrap: wrap;
-}
-
-/* Styles for the Table of Contents sidebar (common for notes and sessions) */
-.toc-sidebar {
-    flex: 0 0 250px; /* Don't grow/shrink, fixed width of 250px */
-    padding: 15px;
-    background-color: #f8f8f8; /* Light background for the sidebar */
-    border-right: 1px solid #eee; /* Separator line */
-    border-radius: 5px; /* Slightly rounded corners */
-
-    /* Make it stick as you scroll */
-    position: sticky;
-    top: 20px; /* Distance from the top of the viewport. Adjust if you have a fixed top nav/header */
-    max-height: calc(100vh - 40px); /* Max height to fit viewport (adjust 40px for header/footer space) */
-    overflow-y: auto; /* Add scrollbar if TOC is too long */
-
-    /* Responsive adjustments for smaller screens */
-    @media (max-width: 768px) {
-        flex: 1 1 100%; /* Take full width on small screens */
-        position: static; /* No longer sticky */
-        max-height: none; /* No max height */
-        border-right: none; /* Remove right border */
-        border-bottom: 1px solid #eee; /* Add bottom border */
-        margin-bottom: 20px; /* Space below the TOC */
-    }
-}
-
-.toc-sidebar h4 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.1em;
-    color: #333;
-}
-
-.toc-sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.toc-sidebar li {
-    margin-bottom: 5px;
-}
-
-.toc-sidebar a {
-    text-decoration: none;
-    color: #007bff; /* Standard link color, customize with your theme variables */
-}
-
-.toc-sidebar a:hover {
-    text-decoration: underline;
-}
-
-.toc-sidebar .toc-level-3 {
-    padding-left: 15px; /* Indent for H3s */
-    font-size: 0.95em;
-}
-
-/* Styles for the main content area (common for notes and sessions) */
-.main-content-area {
-    flex-grow: 1; /* Allow main content to take up remaining space */
-    min-width: 0; /* Prevents overflow issues with long words in flex container */
-    padding-left: 20px; /* Add some padding if sidebar has border-right */
-
-    /* Responsive adjustments for smaller screens */
-    @media (max-width: 768px) {
-        padding-left: 0; /* Remove padding when sidebar is on top */
-    }
-}
-
-/* Optional: Adjust header padding for smooth scrolling with sticky elements */
-/* This helps prevent content from being hidden behind a fixed/sticky header/nav when jumping to an ID */
-h2, h3 {
-    padding-top: 60px; /* Add space above the header when it's the target of a scroll link */
-    margin-top: -60px; /* Counter-act the padding-top so visual spacing remains correct */
 }
