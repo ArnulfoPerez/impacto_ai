@@ -25,23 +25,27 @@ layout: default
     </div>
   </header>
 
-  <section class="session-page-main-content-area">
-    <div class="session-page-content-with-toc">
-      <div class="session-page-toc">
-        <h4>Contenido de la Sesión</h4>
-        <ul id="toc-list">
-          {# This Liquid code is for a simple TOC. It requires JavaScript to populate headers. #}
-          {# For a purely Jekyll-generated TOC, you'd need a plugin like jekyll-toc or manual parsing, #}
-          {# but for dynamic pages, JavaScript is often more robust. #}
-        </ul>
-        <p class="toc-note"> (Sección generada dinámicamente)</p>
-      </div>
+  {# Use the page-content-wrapper for the main layout structure #}
+  <div class="page-content-wrapper">
 
-      <div class="session-page-content">
+    {# Table of Contents Sidebar #}
+    <aside class="toc-sidebar">
+      <h4>Contenido de la Sesión</h4>
+      <ul id="toc-list">
+        {# This list will be dynamically populated by _includes/toc_script.html #}
+      </ul>
+      <p class="toc-note"> (Sección generada dinámicamente)</p>
+    </aside>
+
+    {# Main Content Area for the Session #}
+    <div class="main-content-area">
+      {# Wrap the markdown content in .content-section for card-base styling #}
+      <section class="content-section">
         {{ content }} {# This is where the Markdown content of each session file will go #}
-      </div>
-    </div>
-  </section>
+      </section>
+    </div> {# /main-content-area #}
+
+  </div> {# /page-content-wrapper #}
 
   <section class="session-page-resources">
     <h3>Recursos de la Sesión</h3>
@@ -86,7 +90,7 @@ layout: default
   </section>
 
   ---
-  {# NEW: Navigation for Previous/Next Session and Back to List #}
+  {# Navigation for Previous/Next Session and Back to List #}
   {% assign sorted_sessions = site.sessions | sort: "order" %}
   {% assign current_session_index = 0 %}
   {% for session in sorted_sessions %}
@@ -125,38 +129,4 @@ layout: default
 
 </article>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const contentDiv = document.querySelector('.session-page-content');
-    const tocList = document.getElementById('toc-list');
-
-    if (!contentDiv || !tocList) return;
-
-    // Select H2 and H3 headers within the content
-    const headers = contentDiv.querySelectorAll('h2, h3');
-    let tocHtml = '';
-
-    headers.forEach((header, index) => {
-        // Generate a unique ID for each header if it doesn't have one
-        const id = header.id || `toc-${header.tagName.toLowerCase()}-${index}`;
-        header.id = id; // Assign the ID back to the header
-
-        const level = parseInt(header.tagName.substring(1)); // H2 = 2, H3 = 3
-        const className = `toc-level-${level}`;
-        
-        tocHtml += `<li class="${className}"><a href="#${id}">${header.textContent}</a></li>`;
-    });
-
-    tocList.innerHTML = tocHtml;
-
-    // Optional: Smooth scroll for TOC links
-    tocList.querySelectorAll('a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-});
-</script>
+{# REMOVED: The redundant script block. It's now included via default.html and toc_script.html #}
