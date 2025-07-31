@@ -2,15 +2,17 @@
 layout: default
 ---
 
-<article class="note-page-container">
-  <header class="note-page-header">
-    <h1 class="note-page-title">{{ page.title }}</h1>
-    {% if page.author %}
-      <p class="note-page-author">Autor: {{ page.author }}</p>
-    {% endif %}
-    {% if page.date %}
-      <p class="note-page-date">Publicado: {{ page.date | date: "%d %b, %Y" }}</p>
-    {% endif %}
+<article class="content-page-wrapper"> {# Consolidated: Replaced note-page-container with content-page-wrapper #}
+  <header class="content-page-header"> {# Consolidated: Replaced note-page-header with content-page-header #}
+    <h1 class="page-title">{{ page.title }}</h1> {# Consolidated: Replaced note-page-title with page-title #}
+    <p class="page-subtitle"> {# Consolidated: Replaced note-page-author & note-page-date with page-subtitle #}
+      {% if page.author %}
+        <span class="page-author">Autor: {{ page.author }}</span>
+      {% endif %}
+      {% if page.date %}
+        <span class="page-date">Publicado: {{ page.date | date: "%d %b, %Y" }}</span>
+      {% endif %}
+    </p>
   </header>
 
   {# Use the page-content-wrapper for sidebar + main content layout #}
@@ -29,8 +31,8 @@ layout: default
     {# The main content area for the note, including its structured sections and markdown content #}
     <div class="main-content-area">
 
-      {# Structured sections for note front matter #}
-      <section class="note-section note-introduction">
+      {# Structured sections for note front matter, now using content-block #}
+      <section class="content-block content-block--introduction"> {# Consolidated: Replaced note-section note-introduction #}
         <h2>Introducción</h2>
         {% if page.introduction %}
           {{ page.introduction | markdownify }}
@@ -39,7 +41,7 @@ layout: default
         {% endif %}
       </section>
 
-      <section class="note-section note-main-points">
+      <section class="content-block content-block--main-points"> {# Consolidated: Replaced note-section note-main-points #}
         <h2>Puntos Principales</h2>
         {% if page.main_points %}
           {{ page.main_points | markdownify }}
@@ -54,7 +56,7 @@ layout: default
         {{ content }}
       </section>
       
-      <section class="note-section note-conclusion">
+      <section class="content-block content-block--conclusion"> {# Consolidated: Replaced note-section note-conclusion #}
         <h2>Conclusión</h2>
         {% if page.conclusion %}
           {{ page.conclusion | markdownify }}
@@ -63,7 +65,7 @@ layout: default
         {% endif %}
       </section>
 
-      <section class="note-section note-references">
+      <section class="content-block content-block--references"> {# Consolidated: Replaced note-section note-references #}
         <h2>Referencias</h2>
         {% if page.references %}
           {{ page.references | markdownify }}
@@ -77,13 +79,31 @@ layout: default
   </div> {# /page-content-wrapper #}
   
   {% if page.tags %}
-    <footer class="note-page-tags">
+    <footer class="page-section page-section--tags"> {# Consolidated: Replaced note-page-tags with page-section page-section--tags #}
       <span>Etiquetas:</span>
       {% for tag in page.tags %}
-        <span class="note-tag">{{ tag }}</span>{% unless forloop.last %},{% endunless %}
+        <span class="page-tag">{{ tag }}</span>{% unless forloop.last %},{% endunless %} {# Consolidated: Replaced note-tag with page-tag #}
       {% endfor %}
     </footer>
   {% endif %}
 </article>
 
-{# The TOC script is now included globally in default.html, no need to duplicate it here #}
+{# If you have pagination, include it here, outside the main content-page-wrapper, but still within the article or main tag if you prefer #}
+{% assign previous_note = site.notes | where: "id", page.id | minus: 1 | first %} {# You'll need a way to reliably get next/previous; 'id' isn't standard sequential. Consider using 'date' or a custom 'order' front matter. #}
+{% assign next_note = site.notes | where: "id", page.id | plus: 1 | first %}
+
+<nav class="page-pagination">
+    <div class="page-pagination-left">
+        {% if previous_note %}
+        <a href="{{ previous_note.url | relative_url }}" class="button button-secondary">&leftarrow; Nota Anterior</a>
+        {% endif %}
+    </div>
+    <div class="page-pagination-center">
+        <a href="{{ site.baseurl }}/notas/" class="button button-info">Todas las Notas</a>
+    </div>
+    <div class="page-pagination-right">
+        {% if next_note %}
+        <a href="{{ next_note.url | relative_url }}" class="button button-primary">Siguiente Nota &rightarrow;</a>
+        {% endif %}
+    </div>
+</nav>
