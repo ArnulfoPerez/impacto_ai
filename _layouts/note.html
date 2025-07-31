@@ -15,24 +15,18 @@ layout: default
     </p>
   </header>
 
-  {# Use the page-content-wrapper for sidebar + main content layout #}
   <div class="page-content-wrapper">
 
-    {# Example of how to include a TOC sidebar specifically for notes #}
-    {# Ensure your _includes/toc_sidebar.html (or similar) exists and contains <ul id="toc-list"> #}
     <aside class="toc-sidebar">
       <h4>Contenido de la Nota</h4>
       <ul id="toc-list">
-        {# TOC will be populated by toc_script.html #}
       </ul>
       <p class="toc-note">(Sección generada dinámicamente)</p>
     </aside>
 
-    {# The main content area for the note, including its structured sections and markdown content #}
     <div class="main-content-area">
 
-      {# Structured sections for note front matter, now using content-block #}
-      <section class="content-block content-block--introduction"> {# Consolidated: Replaced note-section note-introduction #}
+      <section class="content-block content-block--introduction"> 
         <h2>Introducción</h2>
         {% if page.introduction %}
           {{ page.introduction | markdownify }}
@@ -41,7 +35,7 @@ layout: default
         {% endif %}
       </section>
 
-      <section class="content-block content-block--main-points"> {# Consolidated: Replaced note-section note-main-points #}
+      <section class="content-block content-block--main-points"> 
         <h2>Puntos Principales</h2>
         {% if page.main_points %}
           {{ page.main_points | markdownify }}
@@ -50,13 +44,11 @@ layout: default
         {% endif %}
       </section>
 
-      {# This is where the core markdown content of your note file will go #}
-      {# Apply the .content-section class if you want the card-base styling here #}
       <section class="content-section">
         {{ content }}
       </section>
       
-      <section class="content-block content-block--conclusion"> {# Consolidated: Replaced note-section note-conclusion #}
+      <section class="content-block content-block--conclusion">
         <h2>Conclusión</h2>
         {% if page.conclusion %}
           {{ page.conclusion | markdownify }}
@@ -65,7 +57,7 @@ layout: default
         {% endif %}
       </section>
 
-      <section class="content-block content-block--references"> {# Consolidated: Replaced note-section note-references #}
+      <section class="content-block content-block--references">
         <h2>Referencias</h2>
         {% if page.references %}
           {{ page.references | markdownify }}
@@ -74,21 +66,20 @@ layout: default
         {% endif %}
       </section>
 
-    </div> {# /main-content-area #}
+    </div>
 
-  </div> {# /page-content-wrapper #}
+  </div>
   
   {% if page.tags %}
-    <footer class="page-section page-section--tags"> {# Consolidated: Replaced note-page-tags with page-section page-section--tags #}
+    <footer class="page-section page-section--tags">
       <span>Etiquetas:</span>
       {% for tag in page.tags %}
-        <span class="page-tag">{{ tag }}</span>{% unless forloop.last %},{% endunless %} {# Consolidated: Replaced note-tag with page-tag #}
+        <span class="page-tag">{{ tag }}</span>{% unless forloop.last %},{% endunless %}
       {% endfor %}
     </footer>
   {% endif %}
 </article>
 
-{# If you have pagination, include it here, outside the main content-page-wrapper, but still within the article or main tag if you prefer #}
 {% assign previous_note = site.notes | where: "id", page.id | minus: 1 | first %} {# You'll need a way to reliably get next/previous; 'id' isn't standard sequential. Consider using 'date' or a custom 'order' front matter. #}
 {% assign next_note = site.notes | where: "id", page.id | plus: 1 | first %}
 
