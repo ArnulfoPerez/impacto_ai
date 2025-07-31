@@ -3,12 +3,20 @@
 // --- Page Layout Wrappers ---
 
 // Common Styles for Page Content Wrapper (Sidebar + Main Content)
+
 .page-content-wrapper {
     display: flex;
-    gap: $spacing-unit * 2; /* Increased gap for better visual separation */
+    gap: $spacing-unit * 2;
     align-items: flex-start;
-    margin-top: $spacing-unit * 2; /* Consistent margin from headers/hero */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-top: $spacing-unit * 2;
+    
+    // Remove flex-wrap to prevent the TOC from wrapping below content
+    // flex-wrap: wrap;
+    
+    // Add this to ensure proper layout
+    @include media-query($on-palm) {
+        flex-direction: column;
+    }
 }
 
 // Common Styles for Table of Contents Sidebar
@@ -75,6 +83,7 @@
 // Common Styles for Main Content Area (where actual page content resides)
 .main-content-area {
     flex-grow: 1;
+    flex: 1;
     min-width: 0; /* Prevents flex item from overflowing */
     line-height: 1.7;
     color: $text-base;
