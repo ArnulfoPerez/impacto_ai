@@ -2,10 +2,10 @@
 layout: default
 ---
 
-<article class="content-page-wrapper"> 
-  <header class="content-page-header"> 
-    <h1 class="page-title">{{ page.title }}</h1> 
-    <p class="page-subtitle"> 
+<article class="content-page-wrapper">
+  <header class="content-page-header">
+    <h1 class="page-title">{{ page.title }}</h1>
+    <p class="page-subtitle">
       {% if page.author %}
         <span class="page-author">Autor: {{ page.author }}</span>
       {% endif %}
@@ -26,7 +26,7 @@ layout: default
 
     <div class="main-content-area">
 
-      <section class="content-block content-block--introduction"> 
+      <section class="content-block content-block--introduction">
         <h2>Introducción</h2>
         {% if page.introduction %}
           {{ page.introduction | markdownify }}
@@ -35,7 +35,7 @@ layout: default
         {% endif %}
       </section>
 
-      <section class="content-block content-block--main-points"> 
+      <section class="content-block content-block--main-points">
         <h2>Puntos Principales</h2>
         {% if page.main_points %}
           {{ page.main_points | markdownify }}
@@ -82,24 +82,28 @@ layout: default
 
 {% comment %}
   Logic to determine previous and next notes, sorted by title.
+  We find the index of the current page within the sorted collection more reliably.
 {% endcomment %}
 {% assign sorted_notes = site.notes | sort: "title" %}
-{% assign current_note_index = 0 %}
+{% assign current_note_index = -1 %} 
 {% for note in sorted_notes %}
   {% if note.url == page.url %}
-    {% assign current_note_index = forloop.index0 %} 
+    {% assign current_note_index = forloop.index0 %}
+    {% break %} {# Once found, no need to continue the loop #}
   {% endif %}
 {% endfor %}
 
 {% assign previous_note = nil %}
 {% assign next_note = nil %}
 
-{% if current_note_index > 0 %}
-  {% assign previous_note = sorted_notes[current_note_index | minus: 1] %}
-{% endif %}
+{% if current_note_index != -1 %} 
+  {% if current_note_index > 0 %}
+    {% assign previous_note = sorted_notes[current_note_index | minus: 1] %}
+  {% endif %}
 
-{% if current_note_index < sorted_notes.size | minus: 1 %}
-  {% assign next_note = sorted_notes[current_note_index | plus: 1] %}
+  {% if current_note_index < sorted_notes.size | minus: 1 %}
+    {% assign next_note = sorted_notes[current_note_index | plus: 1] %}
+  {% endif %}
 {% endif %}
 
 
