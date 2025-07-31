@@ -2,10 +2,10 @@
 layout: default
 ---
 
-<article class="content-page-wrapper"> {# Consolidated: Replaced note-page-container with content-page-wrapper #}
-  <header class="content-page-header"> {# Consolidated: Replaced note-page-header with content-page-header #}
-    <h1 class="page-title">{{ page.title }}</h1> {# Consolidated: Replaced note-page-title with page-title #}
-    <p class="page-subtitle"> {# Consolidated: Replaced note-page-author & note-page-date with page-subtitle #}
+<article class="content-page-wrapper"> 
+  <header class="content-page-header"> 
+    <h1 class="page-title">{{ page.title }}</h1> 
+    <p class="page-subtitle"> 
       {% if page.author %}
         <span class="page-author">Autor: {{ page.author }}</span>
       {% endif %}
@@ -80,13 +80,35 @@ layout: default
   {% endif %}
 </article>
 
-{% assign previous_note = site.notes | where: "id", page.id | minus: 1 | first %} {# You'll need a way to reliably get next/previous; 'id' isn't standard sequential. Consider using 'date' or a custom 'order' front matter. #}
-{% assign next_note = site.notes | where: "id", page.id | plus: 1 | first %}
+{% comment %}
+  Logic to determine previous and next notes, sorted by title.
+{% endcomment %}
+{% assign sorted_notes = site.notes | sort: "title" %}
+{% assign current_note_index = 0 %}
+{% for note in sorted_notes %}
+  {% if note.url == page.url %}
+    {% assign current_note_index = forloop.index0 %} 
+  {% endif %}
+{% endfor %}
+
+{% assign previous_note = nil %}
+{% assign next_note = nil %}
+
+{% if current_note_index > 0 %}
+  {% assign previous_note = sorted_notes[current_note_index | minus: 1] %}
+{% endif %}
+
+{% if current_note_index < sorted_notes.size | minus: 1 %}
+  {% assign next_note = sorted_notes[current_note_index | plus: 1] %}
+{% endif %}
+
 
 <nav class="page-pagination">
     <div class="page-pagination-left">
         {% if previous_note %}
-        <a href="{{ previous_note.url | relative_url }}" class="button button-secondary">&leftarrow; Nota Anterior</a>
+        <a href="{{ previous_note.url | relative_url }}" class="button button-secondary">
+          &leftarrow; Nota Anterior: {{ previous_note.title }}
+        </a>
         {% endif %}
     </div>
     <div class="page-pagination-center">
@@ -94,7 +116,9 @@ layout: default
     </div>
     <div class="page-pagination-right">
         {% if next_note %}
-        <a href="{{ next_note.url | relative_url }}" class="button button-primary">Siguiente Nota &rightarrow;</a>
+        <a href="{{ next_note.url | relative_url }}" class="button button-primary">
+          Siguiente Nota: {{ next_note.title }} &rightarrow;
+        </a>
         {% endif %}
     </div>
 </nav>
