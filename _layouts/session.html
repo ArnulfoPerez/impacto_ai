@@ -30,7 +30,7 @@ layout: default
     <aside class="toc-sidebar">
       <h4>Contenido de la Sesión</h4>
       <ul id="toc-list">
-        {# TOC will be populated by toc_script.html #}
+        
       </ul>
       <p class="toc-note"> (Sección generada dinámicamente)</p>
     </aside>
@@ -45,7 +45,7 @@ layout: default
 
   <section class="page-section page-section--resources"> 
     <h3>Recursos de la Sesión</h3>
-    <ul class="page-links-list"> {# Consolidated: Replaced session-page-links with page-links-list #}
+    <ul class="page-links-list"> 
       {% assign session_number_padded = page.order | prepend: "00" | slice: -2, 2 %}
       <li>
         <a href="{{ '/assets/presentations/' | relative_url }}sesion_S{{ session_number_padded }}.pptx"
@@ -64,7 +64,7 @@ layout: default
       {% if page.additional_links %}
         {% for link in page.additional_links %}
           <li>
-            <a href="{{ link.url | relative_url }}" target="_blank" class="resource-button resource-button--secondary"> {# Consolidated: Used resource-button classes #}
+            <a href="{{ link.url | relative_url }}" target="_blank" class="resource-button resource-button--secondary"> 
               {{ link.title }} <span class="icon">↗</span>
             </a>
           </li>
@@ -91,7 +91,7 @@ layout: default
   {% assign current_session_index = 0 %}
   {% for session in sorted_sessions %}
     {% if session.url == page.url %}
-      {% assign current_session_index = forloop.index0 %} {# Zero-based index #}
+      {% assign current_session_index = forloop.index0 %} 
     {% endif %}
   {% endfor %}
 
