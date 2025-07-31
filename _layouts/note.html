@@ -81,10 +81,9 @@ layout: default
 </article>
 
 {% comment %}
-  Sort notes alphabetically by title and handle navigation
+  Logic to determine previous and next notes, sorted by date (newest first).
 {% endcomment %}
-
-{% assign sorted_notes = site.notes | sort: "title" | sort: "title" %}
+{% assign sorted_notes = site.notes | sort: "date" | reverse %} {# Sort by date, newest first #}
 {% assign current_note_index = -1 %}
 
 {% for note in sorted_notes %}
@@ -98,9 +97,6 @@ layout: default
 {% assign next_note = nil %}
 
 {% if current_note_index != -1 %}
-  {% comment %} 
-    Handle first and last notes to prevent wrapping 
-  {% endcomment %}
   {% if current_note_index > 0 %}
     {% assign previous_note = sorted_notes[current_note_index | minus: 1] %}
   {% endif %}
