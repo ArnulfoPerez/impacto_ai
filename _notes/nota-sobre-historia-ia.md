@@ -2,7 +2,7 @@
 layout: note # (or remove if using defaults in _config.yml)
 title: Breve Historia de los Algoritmos de IA
 id: nota-sobre-historia-ia
-date: 2025-07-29
+date: "2025-07-25 09:00:00 -0600"
 author: Dr. Arnulfo Pérez
 tags: ["historia", "algoritmos", "fundamentos"]
 introduction: |
