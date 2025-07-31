@@ -107,10 +107,10 @@ layout: default
 
     <div class="page-pagination-right"> 
       {% assign next_note_index = current_note_index | plus: 1 %}
-      {% if next_note_index < sorted_sessions.size %}
+      {% if next_note_index < sorted_notes.size %}
         {% assign next_note = sorted_notes[next_note_index] %}
         <a href="{{ next_note.url | relative_url }}" class="button button-primary">
-          Siguiente Sesión: {{ next_note.order }}. {{ next_note.title }} &rarr;
+          Siguiente Nota: {{ next_note.order }}. {{ next_note.title }} &rarr;
         </a>
       {% endif %}
     </div>
