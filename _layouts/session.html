@@ -2,12 +2,12 @@
 layout: default
 ---
 
-<article class="content-page-wrapper"> {# Consolidated: Replaced session-page-container with content-page-wrapper #}
-  <header class="content-page-header"> {# Consolidated: Replaced session-page-header with content-page-header #}
-    <span class="page-order">Sesión {{ page.order }}</span> {# Consolidated: Replaced session-page-order with page-order #}
-    <h1 class="page-title">{{ page.title }}</h1> {# Consolidated: Replaced session-page-title with page-title #}
+<article class="content-page-wrapper"> 
+  <header class="content-page-header"> 
+    <span class="page-order">Sesión {{ page.order }}</span> 
+    <h1 class="page-title">{{ page.title }}</h1> 
     {% if page.obj %}
-      <p class="page-subtitle"> {# Consolidated: Replaced session-page-objectives with page-subtitle #}
+      <p class="page-subtitle"> 
         <b>Objetivos de la Sesión:</b>
         {% for objective in page.obj %}
           <span>{{ objective }}</span>{% if forloop.last == false %},{% endif %}
@@ -15,8 +15,7 @@ layout: default
       </p>
     {% endif %}
 
-    {# Use page-section page-section--objectives for course objectives #}
-    <section class="page-section page-section--objectives"> {# Consolidated: Replaced session-course-objectives with page-section page-section--objectives #}
+    <section class="page-section page-section--objectives">
       <h4>Objetivos Generales del Curso:</h4>
       <ul>
         {% for obj in site.course.objectives %}
@@ -26,7 +25,7 @@ layout: default
     </section>
   </header>
 
-  <div class="page-content-wrapper"> {# This is for the sidebar + main content layout #}
+  <div class="page-content-wrapper">
 
     <aside class="toc-sidebar">
       <h4>Contenido de la Sesión</h4>
@@ -44,22 +43,21 @@ layout: default
 
   </div> 
 
-  {# Use page-section page-section--resources for session resources #}
-  <section class="page-section page-section--resources"> {# Consolidated: Replaced session-page-resources with page-section page-section--resources #}
+  <section class="page-section page-section--resources"> 
     <h3>Recursos de la Sesión</h3>
     <ul class="page-links-list"> {# Consolidated: Replaced session-page-links with page-links-list #}
       {% assign session_number_padded = page.order | prepend: "00" | slice: -2, 2 %}
       <li>
         <a href="{{ '/assets/presentations/' | relative_url }}sesion_S{{ session_number_padded }}.pptx"
            target="_blank"
-           class="resource-button resource-button--primary"> {# Consolidated: Used resource-button classes #}
+           class="resource-button resource-button--primary">
           Descargar Presentación <span class="icon">↓</span>
         </a>
       </li>
       <li>
         <a href="{{ '/assets/activities/' | relative_url }}Actividad_S{{ session_number_padded }}.pdf"
            target="_blank"
-           class="resource-button resource-button--success"> {# Consolidated: Used resource-button classes #}
+           class="resource-button resource-button--success"> 
           Descargar Actividad <span class="icon">↓</span>
         </a>
       </li>
@@ -76,7 +74,7 @@ layout: default
 
     {% if page.related_notes %}
       <h4>Notas Relacionadas</h4>
-      <ul class="related-notes-list"> {# Consolidated: Replaced session-page-related-notes with related-notes-list #}
+      <ul class="related-notes-list"> 
         {% for note_id in page.related_notes %}
           {% assign found_note = site.notes | where: "id", note_id | first %}
           {% if found_note %}
@@ -97,8 +95,8 @@ layout: default
     {% endif %}
   {% endfor %}
 
-  <nav class="page-pagination"> {# Consolidated: Replaced session-pagination with page-pagination #}
-    <div class="page-pagination-left"> {# Consolidated: Replaced session-pagination-left with page-pagination-left #}
+  <nav class="page-pagination"> 
+    <div class="page-pagination-left"> 
       {% assign prev_session_index = current_session_index | minus: 1 %}
       {% if prev_session_index >= 0 %}
         {% assign prev_session = sorted_sessions[prev_session_index] %}
@@ -108,13 +106,13 @@ layout: default
       {% endif %}
     </div>
 
-    <div class="page-pagination-center"> {# Consolidated: Replaced session-pagination-center with page-pagination-center #}
+    <div class="page-pagination-center"> 
       <a href="{{ '/sesiones/' | relative_url }}" class="button button-info">
         Regresar a Sesiones
       </a>
     </div>
 
-    <div class="page-pagination-right"> {# Consolidated: Replaced session-pagination-right with page-pagination-right #}
+    <div class="page-pagination-right"> 
       {% assign next_session_index = current_session_index | plus: 1 %}
       {% if next_session_index < sorted_sessions.size %}
         {% assign next_session = sorted_sessions[next_session_index] %}
