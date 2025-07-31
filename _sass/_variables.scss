@@ -63,5 +63,9 @@ $header-text-color: $white;            // Header text color.
 $footer-bg: $light-gray;               // Footer background.
 $footer-text-color: $text-muted;       // Footer text color.
 
+// Breakpoint variables
+$on-palm: 600px !default;
+$on-laptop: 800px !default;
+
 $nav-link-color: $text-heading;         // Navigation link color.
 $nav-link-hover-color: $brand-blue;     // Navigation link hover color.
