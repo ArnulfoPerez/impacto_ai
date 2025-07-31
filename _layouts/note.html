@@ -81,22 +81,26 @@ layout: default
 </article>
 
 {% comment %}
-  Logic to determine previous and next notes, sorted by title.
-  We find the index of the current page within the sorted collection more reliably.
+  Sort notes alphabetically by title and handle navigation
 {% endcomment %}
-{% assign sorted_notes = site.notes | sort: "title" %}
-{% assign current_note_index = -1 %} 
+
+{% assign sorted_notes = site.notes | sort: "title" | sort: "title" %}
+{% assign current_note_index = -1 %}
+
 {% for note in sorted_notes %}
   {% if note.url == page.url %}
     {% assign current_note_index = forloop.index0 %}
-    {% break %} {# Once found, no need to continue the loop #}
+    {% break %}
   {% endif %}
 {% endfor %}
 
 {% assign previous_note = nil %}
 {% assign next_note = nil %}
 
-{% if current_note_index != -1 %} 
+{% if current_note_index != -1 %}
+  {% comment %} 
+    Handle first and last notes to prevent wrapping 
+  {% endcomment %}
   {% if current_note_index > 0 %}
     {% assign previous_note = sorted_notes[current_note_index | minus: 1] %}
   {% endif %}
