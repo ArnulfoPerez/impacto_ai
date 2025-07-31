@@ -196,7 +196,6 @@
     }
 }
 
-
 // --- Content Block Components (Thematic Boxes) ---
 %themed-block { /* Placeholder for common styles */
     padding: 1.5rem; // Consistent padding
@@ -229,7 +228,6 @@
     background-color: $info-light;
 }
 
-
 // --- Specific Page Layout Containers (if they don't use .container directly) ---
 .session-page-container,
 .note-page-container {
@@ -237,7 +235,6 @@
     padding: $spacing-unit * 2; // Override padding if needed
     margin-top: $spacing-unit * 2;
 }
-
 
 // --- Session Specific Components ---
 .session-page-header {
@@ -471,7 +468,6 @@
     }
 }
 
-
 // --- Note Specific Components ---
 .note-page-header {
     // This will extend the global .page-header to inherit its basic styling.
@@ -518,7 +514,6 @@
 .note-conclusion { border-color: $info; }
 .note-references { border-color: $warning; }
 
-
 .note-page-tags {
     border-top: 1px solid $border-gray;
     padding-top: $spacing-unit;
@@ -543,7 +538,6 @@
     }
 }
 
-
 // --- List Page Styles (for /sesiones/, /notas/, /actividades/ lists) ---
 
 // Common List Container
@@ -551,6 +545,27 @@
     max-width: $content-max-width;
     margin: 0 auto;
     padding: $spacing-unit;
+}
+
+// --- Specific List Page Header Added ---
+.sessions-list-header {
+    background-color: $header-bg; // Apply the consistent header background color
+    padding: $spacing-unit * 2 $spacing-unit; // Add padding for visual space
+    text-align: center; // Center the content within the header
+    margin-bottom: $spacing-unit * 2; // Provide space below the header
+
+    h1 {
+        color: $text-heading; // Ensure heading text is dark and readable
+        margin-bottom: $spacing-unit / 2;
+        font-size: 2.5em; // Adjust font size as appropriate for a main list header
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        color: $text-secondary; // Secondary text for descriptions, readable on light background
+        font-size: 1.1em;
+        margin-top: $spacing-unit / 2;
+    }
 }
 
 .list-header { /* General header for list pages */
@@ -628,7 +643,6 @@
     }
 }
 
-
 // Specific List Implementations using the common card styles
 .session-list { /* For lists of sessions within block-section */
     list-style: none;
@@ -689,7 +703,6 @@
         margin-bottom: $spacing-unit * 0.75;
     }
 }
-
 
 // --- Generic Link & Icon Styles ---
 .icon {
