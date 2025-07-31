@@ -38,7 +38,6 @@ permalink: /sesiones/
               </h3>
               <p class="item-description">{{ current_session.description }}</p> 
               
-              {# Session objectives list #}
               <ul class="item-list"> 
                 {% if current_session.obj %}
                   {% for obj in current_session.obj limit: 3 %}
