@@ -1,8 +1,27 @@
 ---
 layout: note
 title: Impacto de la Inteligencia Artificial en el Consumo Energético Corporativo (2024–2030)
+description: Este informe analiza el creciente consumo de energía de los centros de datos impulsado por la inteligencia artificial, proyectando su impacto en la demanda global de electricidad entre 2024 y 2030, y destacando la necesidad de políticas sostenibles.
+id: consumo-2024-2030
+introduction: |
+  El rápido avance y la adopción masiva de la inteligencia artificial están provocando un aumento significativo en el consumo energético global, con los centros de datos como principales impulsores de esta demanda. Este informe analiza las tendencias y proyecciones de dicho consumo entre 2024 y 2030, evaluando las implicaciones para la sostenibilidad y la infraestructura energética mundial.
 order: 3
 date: 2024-07-01
+main_points: |
+  * **Aumento de la Demanda de Energía**: El consumo de electricidad de los centros de datos, impulsado por la IA, se duplicará para 2030, ejerciendo una presión   considerable sobre la infraestructura energética global.
+  * **Concentración Geográfica**: La demanda de energía de la IA se concentra en regiones clave, como EE. UU. y China, lo que crea cuellos de botella en las redes   eléctricas locales.
+  * **Innovación en Eficiencia**: Para mitigar el impacto, el sector está invirtiendo en chips y tecnologías de refrigeración más eficientes, así como en la optimización de algoritmos.
+  * **Desafíos en la Red**: Un porcentaje significativo de nuevos proyectos de centros de datos podría retrasarse debido a la insuficiente capacidad de la red eléctrica.
+  * **La IA como Solución Sostenible**: La propia IA puede ser utilizada para optimizar las redes, mejorar la eficiencia energética en edificios e industrias y facilitar la integración de energías renovables.
+  * **Necesidad de Planificación**: Se requiere una colaboración estratégica entre gobiernos y empresas para planificar la inversión en energías limpias y la modernización de las redes.
+conclusion: |
+  - La IA representa una **doble cara energética**: aumenta el consumo, pero también permite eficiencias.
+  - Las empresas deben equilibrar el crecimiento de IA con **estrategias de sostenibilidad**, como energías renovables y optimización inteligente.
+  - Es crucial monitorear y regular el crecimiento energético de la IA para evitar impactos negativos en la red eléctrica y el medio ambiente.
+references: |
+  - [IEA – Data Centres and Energy Use](https://www.iea.org/reports/data-centres-and-data-transmission-networks)
+  - [McKinsey – AI and Energy Demand](https://www.mckinsey.com/capabilities/sustainability/our-insights/ai-and-energy-demand)
+  - [IEEE – AI Energy Efficiency Research](https://ieeexplore.ieee.org)
 author: Microsoft copilot
 tags:
   - Inteligencia Artificial
@@ -67,18 +86,4 @@ El crecimiento acelerado de la inteligencia artificial (IA), especialmente en ce
 - **Salud y Retail**: Crecimiento notable en aplicaciones de IA.
 - **Sector Energético**: Uso eficiente de IA para optimización de redes.
 
----
 
-## ✅ Conclusiones
-
-- La IA representa una **doble cara energética**: aumenta el consumo, pero también permite eficiencias.
-- Las empresas deben equilibrar el crecimiento de IA con **estrategias de sostenibilidad**, como energías renovables y optimización inteligente.
-- Es crucial monitorear y regular el crecimiento energético de la IA para evitar impactos negativos en la red eléctrica y el medio ambiente.
-
----
-
-## 🔗 Fuentes y Lecturas Recomendadas
-
-- [IEA – Data Centres and Energy Use](https://www.iea.org/reports/data-centres-and-data-transmission-networks)
-- [McKinsey – AI and Energy Demand](https://www.mckinsey.com/capabilities/sustainability/our-insights/ai-and-energy-demand)
-- [IEEE – AI Energy Efficiency Research](https://ieeexplore.ieee.org)
