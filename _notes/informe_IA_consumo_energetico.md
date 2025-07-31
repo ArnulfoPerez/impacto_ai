@@ -1,3 +1,23 @@
+---
+layout: note
+title: Impacto de la Inteligencia Artificial en el Consumo Energético Corporativo (2024–2030)
+order: 3
+date: 2024-07-01
+author: Microsoft copilot
+tags:
+  - Inteligencia Artificial
+  - Consumo Energético
+  - Sostenibilidad
+  - Tecnología
+---
+
+# 📊 Impacto de la Inteligencia Artificial en el Consumo Energético Corporativo (2024–2030)
+
+**Autor:** Analista de Datos en Energía y Tecnología  
+**Fecha:** Julio 202...
+
+(The rest of the content goes here)
+
 # 📊 Impacto de la Inteligencia Artificial en el Consumo Energético Corporativo (2024–2030)
 
 **Autor:** Analista de Datos en Energía y Tecnología  
