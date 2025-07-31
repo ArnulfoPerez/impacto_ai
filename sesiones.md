@@ -7,7 +7,7 @@ permalink: /sesiones/
 <div class="sessions-list-container">
   <header class="sessions-list-header">
     <h1>Sesiones del Curso: {{ site.title }}</h1>
-    <p class="subtitle" style="color: blue;">Explora cada una de las sesiones de este curso.</p>
+    <p class="subtitle" >Explora cada una de las sesiones de este curso.</p>
   </header>
 
   <section class="course-objectives-summary">
