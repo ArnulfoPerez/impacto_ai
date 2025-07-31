@@ -2,8 +2,9 @@
 layout: note
 title: Introducción a la Privacidad en la Era Digital
 description: Explora los conceptos fundamentales de la privacidad de datos, los desafíos que presenta la inteligencia artificial y las mejores prácticas para proteger tu información personal en línea.
-id: privacidad-ia # Usa un ID único, como el que referencías en las sesiones
+id: privacidad-ia # Usa un ID único, como el que referencias en las sesiones
 date: "2023-10-26 10:00:00 -0600" # Fecha de publicación (opcional)
+order: 1
 tags: # Etiquetas para categorizar (opcional)
   - privacidad
   - seguridad
