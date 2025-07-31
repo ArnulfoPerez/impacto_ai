@@ -39,7 +39,7 @@ permalink: /sesiones/
               <p class="item-description">{{ current_session.description }}</p> 
               
               {# Session objectives list #}
-              <ul class="item-list"> {# Consolidated: Replaced session-objectives-list with item-list #}
+              <ul class="item-list"> 
                 {% if current_session.obj %}
                   {% for obj in current_session.obj limit: 3 %}
                     <li class="list-item">{{ obj }}</li> 
@@ -50,7 +50,6 @@ permalink: /sesiones/
                 {% endif %}
               </ul>
 
-              {# Session Resources #}
               <h3>Recursos de la Sesión</h3>
               <ul class="page-links-list"> 
                 {% assign session_number_padded = session_order | prepend: "00" | slice: -2, 2 %}
