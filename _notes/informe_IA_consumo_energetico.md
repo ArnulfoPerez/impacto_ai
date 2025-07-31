@@ -1,0 +1,64 @@
+# 📊 Impacto de la Inteligencia Artificial en el Consumo Energético Corporativo (2024–2030)
+
+**Autor:** Analista de Datos en Energía y Tecnología  
+**Fecha:** Julio 2025  
+**Fuente de datos:** [Agencia Internacional de Energía (IEA)](https://www.iea.org), [McKinsey & Company](https://www.mckinsey.com), [IEEE Xplore](https://ieeexplore.ieee.org)
+
+---
+
+## 🔍 Resumen Ejecutivo
+
+El crecimiento acelerado de la inteligencia artificial (IA), especialmente en centros de datos y aplicaciones empresariales, está generando un aumento significativo en el consumo energético global. Este informe presenta una visión clara y visual del impacto de la IA en el uso de electricidad por parte de empresas, con proyecciones hasta 2030.
+
+---
+
+## ⚡ Tendencias Globales de Consumo Energético
+
+### Consumo Proyectado por Centros de Datos (2024–2030)
+
+![Tendencia de Consumo Energético](https://api.asm.skype.com/v1/objects/0-cus-d7-6746311ee931242342d1f2661098cdee/views/original/generated_image.png)
+
+- En 2024, los centros de datos consumen aproximadamente **100 TWh**.
+- Se proyecta un crecimiento del **15% anual**, alcanzando más de **250 TWh en 2030** solo por IA.
+- Fuente: [IEA - Energy and AI](https://www.iea.org/reports/data-centres-and-data-transmission-networks)
+
+---
+
+## 🧠 Comparación: IA vs Consumo Corporativo Tradicional
+
+![Comparación IA vs Consumo Tradicional](https://api.asm.skype.com/v1/objects/0-cus-d16-b0e917e0b474d2ff8ea8cbf5e917a558/views/original/generated_image.png)
+
+- El consumo energético impulsado por IA podría representar más del **60% del consumo energético corporativo tradicional** para 2030.
+- Fuente: [McKinsey - AI and Energy](https://www.mckinsey.com/capabilities/sustainability/our-insights/ai-and-energy-demand)
+
+---
+
+## 🌍 Comparación por Región e Industria
+
+![Resumen por Región e Industria](https://api.asm.skype.com/v1/objects/0-cus-d20-20583608174339359912aa7f5c2a38d7/views/original/generated_image.png)
+
+### Por Región:
+- **EE.UU.** lidera el crecimiento, con una proyección de **606 TWh en 2030**.
+- **Asia-Pacífico** (China e India) muestra un crecimiento acelerado.
+- **Europa** crece más lentamente debido a regulaciones de eficiencia.
+
+### Por Industria:
+- **Tecnología y Nube**: Mayor consumo energético por IA.
+- **Salud y Retail**: Crecimiento notable en aplicaciones de IA.
+- **Sector Energético**: Uso eficiente de IA para optimización de redes.
+
+---
+
+## ✅ Conclusiones
+
+- La IA representa una **doble cara energética**: aumenta el consumo, pero también permite eficiencias.
+- Las empresas deben equilibrar el crecimiento de IA con **estrategias de sostenibilidad**, como energías renovables y optimización inteligente.
+- Es crucial monitorear y regular el crecimiento energético de la IA para evitar impactos negativos en la red eléctrica y el medio ambiente.
+
+---
+
+## 🔗 Fuentes y Lecturas Recomendadas
+
+- [IEA – Data Centres and Energy Use](https://www.iea.org/reports/data-centres-and-data-transmission-networks)
+- [McKinsey – AI and Energy Demand](https://www.mckinsey.com/capabilities/sustainability/our-insights/ai-and-energy-demand)
+- [IEEE – AI Energy Efficiency Research](https://ieeexplore.ieee.org)
