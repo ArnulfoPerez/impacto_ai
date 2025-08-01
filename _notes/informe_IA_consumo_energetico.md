@@ -50,6 +50,8 @@ El crecimiento acelerado de la inteligencia artificial (IA), especialmente en ce
 ### Consumo Proyectado por Centros de Datos (2024–2030)
 
 ![Tendencia de Consumo Energético](/assets/images/grafico_consumo_centros_datos.png)
+<img src="{{ '/assets/images/' | relative_url }}grafico_consumo_centros_datos.png" alt="Tendencia de Consumo Energético" />
+
 - En 2024, los centros de datos consumen aproximadamente **100 TWh**.
 - Se proyecta un crecimiento del **15% anual**, alcanzando más de **250 TWh en 2030** solo por IA.
 - Fuente: [IEA - Energy and AI](https://www.iea.org/reports/data-centres-and-data-transmission-networks)
