@@ -49,7 +49,6 @@ El crecimiento acelerado de la inteligencia artificial (IA), especialmente en ce
 
 ### Consumo Proyectado por Centros de Datos (2024–2030)
 
-![Tendencia de Consumo Energético](/assets/images/grafico_consumo_centros_datos.png)
 <img src="{{ '/assets/images/' | relative_url }}grafico_consumo_centros_datos.png" alt="Tendencia de Consumo Energético" />
 
 - En 2024, los centros de datos consumen aproximadamente **100 TWh**.
@@ -60,7 +59,7 @@ El crecimiento acelerado de la inteligencia artificial (IA), especialmente en ce
 
 ## 🧠 Comparación: IA vs Consumo Corporativo Tradicional
 
-![Comparación IA vs Consumo Tradicional](/assets/images/grafico_comparacion_ia_vs_tradicional.png)
+<img src="{{ '/assets/images/' | relative_url }}grafico_comparacion_ia_vs_tradicional.png" alt="Comparación IA vs Consumo Tradicional" />
 
 - El consumo energético impulsado por IA podría representar más del **60% del consumo energético corporativo tradicional** para 2030.
 - Fuente: [McKinsey - AI and Energy](https://www.mckinsey.com/capabilities/sustainability/our-insights/ai-and-energy-demand)
@@ -69,8 +68,7 @@ El crecimiento acelerado de la inteligencia artificial (IA), especialmente en ce
 
 ## 🌍 Comparación por Región e Industria
 
-![Resumen por Región e Industria](/assets/images/grafico_region_industria.png)
-
+<img src="{{ '/assets/images/' | relative_url }}grafico_region_industria.png" alt="Resumen por Región e Industria" />
 ### Por Región:
 - **EE.UU.** lidera el crecimiento, con una proyección de **606 TWh en 2030**.
 - **Asia-Pacífico** (China e India) muestra un crecimiento acelerado.
