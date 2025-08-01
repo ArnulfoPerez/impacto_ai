@@ -38,8 +38,6 @@ tags:
 
 # 📊 Impacto de la Inteligencia Artificial en el Consumo Energético Corporativo (2024–2030)
 
-**Autor:** Analista de Datos en Energía y Tecnología  
-**Fecha:** Julio 2025  
 **Fuente de datos:** [Agencia Internacional de Energía (IEA)](https://www.iea.org), [McKinsey & Company](https://www.mckinsey.com), [IEEE Xplore](https://ieeexplore.ieee.org)
 
 ---
@@ -72,7 +70,8 @@ Análisis del consumo eléctrico proyectado para centros de datos a nivel global
 ## 3. Resultados  
 
 ### Gráfico 1: Consumo Eléctrico Proyectado (2024–2030)  
-![Tendencia de Consumo](https://i.imgur.com/ABC123.png)  
+
+<img src="{{ '/assets/images/' | relative_url }}grafico_proyeccion.png" alt="Tendencia de Consumo Energético" />
 *Figura 1*. Crecimiento anual del **15%**, pasando de **100 TWh en 2024** a **~230 TWh en 2030**.  
 
 #### Datos clave:  
@@ -86,7 +85,7 @@ Análisis del consumo eléctrico proyectado para centros de datos a nivel global
 ---
 
 ### Gráfico 2: Distribución por Equipo (2024)  
-![Desglose por Equipo](https://i.imgur.com/DEF456.png)  
+<img src="{{ '/assets/images/' | relative_url }}grafico_pie.png" alt="Desglose por Equipo" />
 *Figura 2*. Consumo eléctrico en centros de datos por componente:  
 
 - **Servidores**: 60%  
