@@ -4,33 +4,34 @@ title: Mejores Prácticas y Glosario para el Uso de la IA
 description: Un resumen de las mejores prácticas de Google para la interacción efectiva con la inteligencia artificial y un glosario de términos clave en ingeniería de prompts, diseñado para usuarios no especialistas.
 id: ia-best-practices
 introduction: |
-  El rápido avance y la adopción de la inteligencia artificial están transformando la forma en que trabajamos y creamos. Para maximizar el potencial de estas herramientas, es fundamental adoptar un enfoque estratégico y ético. Como ingenieros de mejores prácticas en Google, hemos recopilado esta guía concisa para ayudarte a interactuar con la IA de manera más efectiva y responsable, amplificando tus capacidades sin perder el control.
+  El rápido avance y la adopción de la inteligencia artificial están transformando la forma en que trabajamos y creamos. Para maximizar el potencial de estas herramientas, es fundamental adoptar un enfoque estratégico y ético. Como ingenieros de mejores prácticas en Google, hemos recopilado esta guía concisa para ayudarte a interactuar con la IA de manera más efectiva y responsable, amplificando tus capacidades sin perder el control.
 order: 4
 date: 2025-08-01
 main_points: |
-  * **Define tu objetivo con claridad**: Un prompt claro y detallado es la clave para obtener respuestas de alta calidad.
-  * **Proporciona contexto**: Sé explícito y no asumas que la IA lo sabe todo; dale el contexto necesario para una respuesta precisa.
-  * **Itera y refina**: No te conformes con la primera respuesta. Pide correcciones y ajustes para perfeccionar el resultado.
-  * **Verifica la información**: Siempre supervisa y valida la información que la IA te proporciona para evitar las "alucinaciones".
-  * **Considera la ética**: Sé consciente de los posibles sesgos en las respuestas de la IA y verifica la equidad.
-  * **Usa la IA como un copiloto**: La inteligencia artificial es una herramienta para amplificar tus habilidades, no un reemplazo de tu juicio humano.
+  * **Define tu objetivo con claridad**: Un prompt claro y detallado es la clave para obtener respuestas de alta calidad.
+  * **Proporciona contexto**: Sé explícito y no asumas que la IA lo sabe todo; dale el contexto necesario para una respuesta precisa.
+  * **Itera y refina**: No te conformes con la primera respuesta. Pide correcciones y ajustes para perfeccionar el resultado.
+  * **Verifica la información**: Siempre supervisa y valida la información que la IA te proporciona para evitar las "alucinaciones".
+  * **Considera la ética**: Sé consciente de los posibles sesgos en las respuestas de la IA y verifica la equidad.
+  * **Usa la IA como un copiloto**: La inteligencia artificial es una herramienta para amplificar tus habilidades, no un reemplazo de tu juicio humano.
 conclusion: |
-  - La IA es una **herramienta versátil** que puede mejorar la productividad y la creatividad.
-  - La **calidad de la interacción** (el prompt) determina la calidad de los resultados.
-  - Herramientas como Langchain y Vertex AI Agents demuestran el potencial de **combinar agentes de IA** para tareas más complejas.
-  - **Gems** dentro de Gemini ofrece una forma sencilla de crear agentes personalizados para tareas específicas.
+  El uso efectivo de la IA es una habilidad en desarrollo que requiere una combinación de claridad en la comunicación, pensamiento crítico y una perspectiva ética. Al aplicar estas mejores prácticas, puedes transformar la IA en un poderoso aliado para la innovación y la eficiencia en tu trabajo y tu vida personal. El futuro de la IA no está solo en la tecnología, sino en cómo decidimos usarla.
+  - La IA es una **herramienta versátil** que puede mejorar la productividad y la creatividad.
+  - La **calidad de la interacción** (el prompt) determina la calidad de los resultados.
+  - Herramientas como Langchain y Vertex AI Agents demuestran el potencial de **combinar agentes de IA** para tareas más complejas.
+  - **Gems** dentro de Gemini ofrece una forma sencilla de crear agentes personalizados para tareas específicas.
 references: |
-  - [Profesor Ethan Mollick’s newsletter, One Useful Thing](https://www.echegoyen.me/)
-  - [Langchain](https://www.langchain.com/)
-  - [Google Vertex AI Agents](https://cloud.google.com/vertex-ai/docs/generative-ai/agents/overview)
-  - [Gems](https://gemini.google.com/app/gems)
-  - [Video de YouTube: ¿Cómo usar la Inteligencia Artificial para aprender mejor?](https://www.youtube.com/watch?v=Fh31nC-fJ0g)
+  - [Profesor Ethan Mollick’s newsletter, One Useful Thing](https://www.echegoyen.me/)
+  - [Langchain](https://www.langchain.com/)
+  - [Google Vertex AI Agents](https://cloud.google.com/vertex-ai/docs/generative-ai/agents/overview)
+  - [Gems](https://gemini.google.com/app/gems)
+  - [Video de YouTube: ¿Cómo usar la Inteligencia Artificial para aprender mejor?](https://www.youtube.com/watch?v=Fh31nC-fJ0g)
 author: Gemini as Best Practice Engineer at Google on AI Usage
 tags:
-  - Inteligencia Artificial
-  - Prompt Engineering
-  - Buenas Prácticas
-  - IA Generativa
+  - Inteligencia Artificial
+  - Prompt Engineering
+  - Buenas Prácticas
+  - IA Generativa
 ---
 
 # 🧠 Mejores Prácticas y Glosario para el Uso de la IA
@@ -86,6 +87,3 @@ Aquí tienes un glosario de los términos más importantes en el campo de la ing
 
 ---
 
-## 📚 Conclusión
-
-El uso efectivo de la IA es una habilidad en desarrollo que requiere una combinación de claridad en la comunicación, pensamiento crítico y una perspectiva ética. Al aplicar estas mejores prácticas, puedes transformar la IA en un poderoso aliado para la innovación y la eficiencia en tu trabajo y tu vida personal. El futuro de la IA no está solo en la tecnología, sino en cómo decidimos usarla.
