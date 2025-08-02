@@ -26,7 +26,7 @@ references: |
   - [Google Vertex AI Agents](https://cloud.google.com/vertex-ai/docs/generative-ai/agents/overview)
   - [Gems](https://gemini.google.com/app/gems)
   - [Video de YouTube: ¿Cómo usar la Inteligencia Artificial para aprender mejor?](https://www.youtube.com/watch?v=Fh31nC-fJ0g)
-author: Gemini as Best Practice Engineer at Google on AI Usage
+author: Gemini en la persona de Best Practice Engineer at Google on AI Usage
 tags:
   - Inteligencia Artificial
   - Prompt Engineering
