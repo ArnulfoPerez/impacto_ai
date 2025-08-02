@@ -87,3 +87,23 @@ Aquí tienes un glosario de los términos más importantes en el campo de la ing
 
 ---
 
+Aquí tienes la versión en español con las ligas incluidas:  
+
+---  
+
+### Más ideas sobre agentes de IA  
+Estas son solo algunas formas en las que puedes utilizar herramientas de IA generativa para crear agentes de IA y alcanzar tus objetivos. Si buscas más ideas sobre cómo aprovechar al máximo los agentes de IA, consulta los siguientes recursos:  
+
+📩 **Boletín del profesor Ethan Mollick, [*One Useful Thing*](https://www.oneusefulthing.org/)**  
+No está centrado exclusivamente en agentes de IA, pero incluye consejos prácticos, *prompts* para IA generativa, análisis basados en investigaciones y debates sobre cómo la IA está transformando distintos aspectos de nuestras vidas.  
+
+⚡ **[Langchain](https://www.langchain.com/)**  
+Un marco de código abierto muy popular que permite (con poco o ningún código) encadenar agentes de IA para automatizar tareas complejas.  
+
+🤖 **[Google Vertex AI Agents](https://cloud.google.com/vertex-ai/docs/agents/overview)**  
+Herramientas para diseñar interfaces conversacionales en apps móviles, web, bots o sistemas de voz interactiva (IVR). Pueden procesar texto o audio (como llamadas) y responder con texto o voz sintética.  
+
+💎 **[Gems](https://gemini.google.com/gems)** (disponibles en Gemini)  
+Personajes de IA personalizables con habilidades específicas (ej.: tutor de aprendizaje, generador de ideas, editor de textos o asistente de programación). Incluye opciones predefinidas y permite crear agentes adaptados a tus necesidades.  
+
+---  
