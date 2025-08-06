@@ -17,10 +17,10 @@ conclusion: |
   La elección final depende de tu flujo de trabajo principal. Si trabajas con documentos de Google, Gemini Advanced es ideal. Si necesitas un asistente generalista y potente con acceso a una gran comunidad de GPTs, ChatGPT Plus es la opción. Si manejas grandes volúmenes de texto o eres programador, Claude Pro es la mejor elección. Finalmente, si vives en el ecosistema de Microsoft 365, Copilot Pro es un complemento indispensable.
   Aunque los precios son muy similares, las ventajas de cada plan son muy distintas y se adaptan a usuarios con necesidades específicas.
 references: |
-  Google Gemini Advanced
-  OpenAI ChatGPT Plus
-  Anthropic Claude Pro
-  Microsoft Copilot Pro
+  - **Gemini Advanced** (formerly Bard). (2024). Google DeepMind. Retrieved from [https://gemini.google.com/](https://gemini.google.com/)
+  - **ChatGPT Plus** (GPT-4 Turbo). (2024). OpenAI. Retrieved from [https://openai.com/chatgpt](https://openai.com/chatgpt)
+  - **Claude Pro** (Claude 3 models). (2024). Anthropic. Retrieved from [https://claude.ai/](https://claude.ai/)
+  - **Copilot Pro** (with GPT-4 Turbo). (2024). Microsoft. Retrieved from [https://www.microsoft.com/copilot](https://www.microsoft.com/copilot)
 tags:
   IA
   Gemini Advanced
