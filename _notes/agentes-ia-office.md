@@ -1,5 +1,5 @@
 ---  
-layout: nota  
+layout: note  
 title: "¿Pueden los usuarios finales crear fácilmente agentes de IA en Microsoft Office?"  
 description: "Análisis de cómo usuarios no técnicos, avanzados y desarrolladores pueden aprovechar Microsoft Graph y herramientas de IA para automatizar tareas en Microsoft 365."  
 id: agentes-ia-office  
