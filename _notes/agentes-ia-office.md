@@ -65,5 +65,3 @@ tags:
 ¿Necesitas una guía paso a paso para algún caso concreto? Por ejemplo:  
 - ¿Cómo crear un chatbot en Teams con Copilot Studio?  
 - ¿Automatizar informes en Excel con IA?  
-
-¡Estoy aquí para ayudarte! 😊
