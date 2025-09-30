@@ -21,6 +21,7 @@ references: |
   - [MIT Media Lab - Corporate AI Failures](https://www.media.mit.edu/articles/why-95-percent-of-corporate-ai-pilots-fail/)
   - [McKinsey - The Economic Potential of Generative AI](https://www.mckinsey.com/featured-insights/generative-ai)
   - [Deloitte - AI Implementation Strategies](https://www2.deloitte.com/global/en/pages/about-deloitte/articles/artificial-intelligence.html)
+  - [Morning Brew - AI is creating ‘workslop’ and hindering productivity](https://www.morningbrew.com/stories/2025/09/25/ai-is-creating-workslop-and-hindering-productivity)
 tags:
   - Inteligencia Artificial
   - Productividad Laboral
