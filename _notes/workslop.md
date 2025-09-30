@@ -31,8 +31,6 @@ tags:
 
 # 🧠 El Doble Filo de la IA Generativa en el Trabajo de Oficina
 
-**Autor:**
-
 ---
 
 ### 1. El Fenómeno del Workslop
