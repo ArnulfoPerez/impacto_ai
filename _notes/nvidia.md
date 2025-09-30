@@ -30,6 +30,8 @@ tags:
 ---
 
 # 🚀 El Rol Estratégico de NVIDIA en la Revolución de la Inteligencia Artificial
+![El tamaño de Nvidia](/assets/images/nvidiaSize.png)
+
 
 ---
 
