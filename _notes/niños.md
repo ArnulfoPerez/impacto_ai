@@ -6,7 +6,7 @@ id: futuro-laboral-ia-habilidades
 author: "@FuturoConIA"
 introduction: |
   A medida que la inteligencia artificial avanza, expertos estiman que entre el 30% y el 40% de las tareas actuales podrían ser automatizadas. Esto no significa que todos los empleos desaparecerán, pero sí que los roles, hábitos y habilidades que hoy consideramos esenciales cambiarán drásticamente. En este contexto, tres voces influyentes —Sam Altman, Andrew Ng y Elon Musk— ofrecen perspectivas sobre cómo prepararnos para un futuro laboral resiliente.
-order: 12
+order: 13
 date: 2025-09-30
 main_points: |
   * **Sam Altman: “No elijas un trabajo seguro, elige habilidades seguras”**  
