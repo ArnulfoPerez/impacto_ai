@@ -35,6 +35,7 @@ references: |
   - [IEA – Data Centres and Energy Consumption](https://www.iea.org/reports/data-centres-and-energy-consumption)
   - [OCDE – Perspectivas de infraestructura energética en México](https://www.oecd.org/mexico/)
   - [IMCO – Inversiones necesarias en el sector eléctrico](https://imco.org.mx/es-necesario-acelerar-las-inversiones-en-el-sector-electrico/)
+  - [Tech Billionaires Have Found a NEW Way to Extort You](https://www.youtube.com/shorts/HHgapyWpgCA)
 tags:
   - Inteligencia Artificial
   - Energía
