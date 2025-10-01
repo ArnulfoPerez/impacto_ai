@@ -1,6 +1,6 @@
 ---
 layout: note
-title: Microsoft y la Realidad Energética de México: Centros de Datos, IA y Generadores de Gas
+title: Centros de Datos, IA y Generadores de Gas
 description: Un análisis sobre cómo la infraestructura energética mexicana condiciona el despliegue de centros de datos de Microsoft, y qué implica esto para el futuro de la IA en América Latina.
 id: microsoft-centros-datos-mexico
 author: "@InfraDigitalMX"
