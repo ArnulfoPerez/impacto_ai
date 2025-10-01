@@ -29,8 +29,6 @@ tags:
 
 # 🍮 Prompt Injection en LinkedIn: Una Receta de Flan que Expone Riesgos Reales
 
-**Autor:**
-
 ---
 
 ### 1. El Caso Real
