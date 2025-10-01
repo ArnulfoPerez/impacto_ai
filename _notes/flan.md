@@ -1,6 +1,6 @@
 ---
 layout: note
-title: Prompt Injection en LinkedIn: Una Receta de Flan que Expone Riesgos Reales
+title: Prompt Injection en LinkedIn
 description: Un análisis sobre cómo una broma en LinkedIn reveló vulnerabilidades en los sistemas de IA utilizados por reclutadores, ilustrando el fenómeno del prompt injection.
 id: prompt-injection-linkedin
 author: "@AISeguridad"
