@@ -59,7 +59,7 @@ tags:
 
 # 📊 Sindicatos e Inequidad: Dos Tendencias que Marcan el Panorama Laboral en EE.UU.
 
-
+<img src="{{ '/assets/images/' | relative_url }}Screenshot 2025-10-02 101232.png" alt="Tendencia de salarios" />
 ---
 
 ### 1. La afiliación sindical ha disminuido con el tiempo
