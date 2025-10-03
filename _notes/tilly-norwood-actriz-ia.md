@@ -30,7 +30,7 @@ conclusion: |
   - El equilibrio entre innovación y ética será clave para definir si los actores virtuales complementan o reemplazan a los humanos en la pantalla.
 
 references: |
-  - [YouTube – Hollywood presentó a Tilly Norwood, la actriz creada con Inteligencia Artificial | DNews](https://www.youtube.com/watch?v=RTKD7_0Jstc)
+  - [YouTube – Hollywood presentó a Tilly Norwood, la actriz creada con Inteligencia Artificial](https://www.youtube.com/watch?v=RTKD7_0Jstc)
   - [SAG-AFTRA – Declaraciones sobre IA en el cine](https://www.sagaftra.org/)
   - [MIT Technology Review – Synthetic Media and the Future of Entertainment](https://www.technologyreview.com/)
 tags:
