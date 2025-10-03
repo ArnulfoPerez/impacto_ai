@@ -1,6 +1,6 @@
 ---
 layout: note
-title: Tilly Norwood: Hollywood Presenta a su Primera Actriz Generada por Inteligencia Artificial
+title: Tilly Norwood, Actriz Generada por Inteligencia Artificial
 description: Un resumen del video de DNews sobre la presentación de Tilly Norwood, una actriz creada completamente con IA, y sus implicaciones para el futuro del cine.
 id: tilly-norwood-actriz-ia
 author: "@CineConIA"
