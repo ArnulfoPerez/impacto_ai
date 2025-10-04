@@ -1,7 +1,6 @@
 ---
 layout: note
-title: ¿Puede la Creatividad Humana Vencer a la Inteligencia Artificial? El Caso del Maquillaje Antivigilancia en Europa
-description: Un análisis sobre el uso de maquillaje y accesorios por parte de estudiantes europeos para evadir sistemas de reconocimiento facial, evaluando su efectividad, legalidad y simbolismo como forma de protesta.
+title: ¿Puede la Creatividad Humana Vencer a la Inteligencia Artificial? El caso del maquillaje antivigilancia en Europa
 id: maquillaje-antivigilancia-europa
 author: "@IAyDerechos"
 introduction: |
@@ -45,7 +44,9 @@ tags:
 
 # 🎭 ¿Puede la Creatividad Humana Vencer a la Inteligencia Artificial?
 
-<img src="{{ '/assets/images/' | relative_url }}maquillaje.png" alt="Tendencia de Consumo Energético" />
+<img src="{{ '/assets/images/' | relative_url }}maquillaje.png" alt="Maquillaje y accesorios por parte de estudiantes europeos para evadir sistemas de reconocimiento facial" />
+
+Un análisis sobre el uso de maquillaje y accesorios por parte de estudiantes europeos para evadir sistemas de reconocimiento facial, evaluando su efectividad, legalidad y simbolismo como forma de protesta.
 ---
 
 ### 1. ¿Qué hacen los estudiantes?
