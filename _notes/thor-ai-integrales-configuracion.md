@@ -1,6 +1,6 @@
 ---
 layout: note
-title: THOR AI: Inteligencia Artificial Resuelve un Desafío Centenario en Física Estadística
+title: Inteligencia Artificial Resuelve un Desafío Centenario en Física Estadística
 description: Un análisis del marco computacional desarrollado por la Universidad de Nuevo México y el Laboratorio Nacional de Los Álamos que permite calcular integrales de configuración, un problema clave en la física de materiales.
 id: thor-ai-integrales-configuracion
 author: "@IAyMateria"
