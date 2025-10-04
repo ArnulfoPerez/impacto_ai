@@ -45,7 +45,7 @@ tags:
 
 # 🎭 ¿Puede la Creatividad Humana Vencer a la Inteligencia Artificial?
 
-
+<img src="{{ '/assets/images/' | relative_url }}maquillaje.png" alt="Tendencia de Consumo Energético" />
 ---
 
 ### 1. ¿Qué hacen los estudiantes?
